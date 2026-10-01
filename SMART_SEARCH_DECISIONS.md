@@ -108,8 +108,9 @@ loaded the listings with `listings.query({ ids })`)
 
 `POST /api/smart-search` returns the page's listings in the SDK response shape (`data` +
 `included`), in display order, alongside `results` (tier, grade, reason). The server fetches
-candidates **once** per request, including images and authors, and uses that one fetch for
-filtering, ranking and the response.
+candidates with **one query** per request, including images and authors. Buyer-set filters are in
+that query, inferred filters are applied to its results in memory (D5), and what remains is ranked
+and returned.
 
 ### Why not return IDs only
 
@@ -214,39 +215,53 @@ candidates from the Marketplace API, filters them, and returns that same data (D
 - Eval runs pay for the intent call every time. Tuning runs use `rerank: false` (about $0.12 per
   30-query run).
 - One staleness window remains. AI-enriched fields (`colorDetected`, normalised `brand`, `season`)
-  update when the indexer processes the listing's `listing/updated` event, polled about every 60
-  seconds. They are soft by default, so this affects ranking, not which listings appear.
+  and vectors update only when someone **re-runs the indexer by hand**, after seeding or editing
+  listings. There is no automatic event poller; it isn't needed for the PoC. These fields are soft
+  by default, so stale tags affect ranking, not which listings appear.
 
 ---
 
-## D5. Relaxation: always return results, and show what each filter costs
+## D5. Query with buyer-set filters; apply and relax inferred filters in memory
 
 **Status:** Accepted
 
 ### Decision
 
-- The server applies inferred hard filters **in memory** to the candidate set it fetched with
-  only user-set filters and the listing type. "What if this filter were removed?" is then a
-  cheap re-check with no extra API calls.
-- `relaxation.suggestions[].extra` counts **relevant** listings (initial score above the relevance
-  threshold) that removing that one filter would add, not every listing.
-- If the strict search has **0 results**, the server drops the one inferred filter that recovers
-  the most relevant listings and reports it in `relaxation.auto` as the full `Filter` object, so
-  the frontend's Undo can put it back with `locked: true`. It never drops a user-set or locked
-  filter, and price is dropped last. If that still gives 0, it falls back to the closest matches
-  with no inferred filters.
-- The server returns no results only when there are truly no candidates (`NO_RESULTS`).
+1. **Main query (the only query):** listing type + the hard filters that are never relaxed, meaning
+   those the buyer set (`source: 'user'`) or locked. If there are none, it returns all live sell
+   listings. That's fine: the buyer hasn't narrowed anything, and ranking does the work.
+2. **Inferred hard filters are applied in memory** to the main query's results.
+3. **Relaxation happens in memory too**, so it needs no extra queries:
+   - `relaxation.suggestions[].extra` counts the **relevant** listings (initial score above the
+     relevance threshold) that pass every filter except that one.
+   - If no listing passes every filter, the server drops the one inferred filter that recovers the
+     most relevant listings (price only as a last resort), uses those listings as the results, and
+     reports the dropped filter in `relaxation.auto`. If that still gives 0, the response is
+     `NO_RESULTS`.
+   - User-set and locked filters are never relaxed.
+4. Soft filters (inferred colour and brand) and preferences only affect ranking, never which
+   listings appear.
+
+### Mapping buyer-set filters to Sharetribe query parameters
+
+| Filter                                         | Query parameter                                                       |
+| ---------------------------------------------- | --------------------------------------------------------------------- |
+| `categoryLevel1`, `categoryLevel2`, `size`, `shoeSize`, `kidsSize`, `color`, `condition`, `petFreeHome`, `smokeFreeHome` | `pub_<key>=<value>` (comma-separated for `in`). These fields already have search schemas from Console. |
+| `categoryLevel2` with `notIn` ("No bundles")   | Rewritten as `in` over every other subcategory, from `listing-categories.json`. The API has no "not" for enums. |
+| `price`                                        | `price=<min>,<max+1>` (the API's upper bound is exclusive)            |
+| `shippingEnabled`, `brand`                     | No search schema, so applied in memory to the main query's results   |
 
 ### Why
 
-The case asks that simplicity never come at the cost of accuracy. Relaxation shows the buyer
-exactly which filter is hiding matching listings and lets them remove it in one click.
+- One query per search, and relaxation costs nothing extra.
+- Relaxation shows the buyer exactly which filter is hiding matching listings and lets them remove
+  it in one click. The case asks that simplicity never come at the cost of accuracy.
 
-### Scaling note
+### Trade-offs accepted
 
-At thousands of candidates, the server would apply all hard filters through Sharetribe and count
-each relaxation with a parallel `listings.query` without that filter (`meta.totalItems`). The
-contract stays the same.
+- A search without buyer-set filters reads every live listing (about 125, 2 API pages). With a
+  much larger catalog, inferred filters would also move into the query, and relaxation would need
+  extra queries. That isn't needed for the PoC.
 
 ---
 
@@ -273,3 +288,215 @@ contract stays the same.
     `score`.
 
   The server may send them. The frontend ignores them.
+
+---
+
+## D7. ChromaDB as the vector store
+
+**Status:** Superseded by D8. Running a Chroma server during the demo was too heavy for the PoC.
+
+### Decision
+
+Listing vectors and AI tags are stored in ChromaDB. The indexer writes to it. The search endpoint
+queries it for meaning-based similarity, limited to the candidate IDs that came fresh from the
+Marketplace API in the same request.
+
+### What a Chroma record holds
+
+| Part        | Content                                                                                   |
+| ----------- | ----------------------------------------------------------------------------------------- |
+| `id`        | Listing UUID, the same as in Sharetribe                                                   |
+| `embedding` | Vector of `document`, from our own embedding model (the same model embeds queries)        |
+| `document`  | Title + description + enriched search text                                                |
+| `metadata`  | AI tags for **soft** ranking: garment type, style, season, warmth, detected colour, normalised brand, plus `contentHash` so the indexer can skip unchanged listings |
+
+**Not stored:** price, size, category, condition or listing state. Hard filters always use fresh
+Marketplace API data (D4), so filter-critical fields must not have a second, possibly stale copy.
+
+### How search uses it
+
+1. The endpoint fetches fresh candidates from the Marketplace API and applies hard filters.
+2. It queries Chroma with the query vector and `where: { id: { $in: candidateIds } }`.
+3. A candidate with no Chroma record yet (created after the last index run) still takes part
+   through keyword and preference matching, with a semantic score of 0.
+
+### Why
+
+- Similarity search runs in the database instead of hand-written code over a file.
+- Persistence, and a credible path to a larger catalog.
+
+### Trade-offs accepted
+
+- The `chromadb` JavaScript client needs a running Chroma server (Docker
+  `chromadb/chroma` or `pip install chromadb && chroma run`). It must be up for the demo and in
+  any deployment.
+- At the planned 100–150 listings, a JSON file would perform the same. The choice is about
+  architecture and scale, not speed.
+- New dependency: `chromadb` (npm), approved by the user.
+
+---
+
+## D8. Vectors in a JSON file, AI tags in Sharetribe listing metadata
+
+**Status:** Accepted (replaces D7)
+
+### Decision
+
+| Data                                                                                       | Stored in                                                         | How search reads it                                                       |
+| ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| **AI tags** (garment type, synonyms, style, season, warmth, detected colour, normalised brand) | Listing **metadata** in Sharetribe, written by the indexer (Integration API) | Arrive with the fresh candidate fetch (step 2). No separate store.     |
+| **Vectors**                                                                                | `server/search-index/vectors.json`: listing ID → vector + content hash | Loaded into memory at server start. Similarity is computed in code.  |
+
+The indexer is a script run by hand after seeding or editing listings (no automatic poller). It
+writes both: tags to Sharetribe, vectors to the file.
+
+### Why
+
+- **Nothing extra to run.** A Chroma server during the demo was too heavy. At about 125 listings,
+  comparing a query vector with every listing vector takes a few milliseconds in plain code.
+- **One copy of the tags.** Tags live with the listing in Sharetribe, so they arrive fresh with
+  every search, and an operator can see them in Console.
+- **Vectors are the only derived data**, and they're small: about 125 × 384 numbers.
+
+### Where the AI tags are used
+
+1. **Word match (step ④):** synonyms and garment type are added to the listing's searchable text,
+   so "coat" finds a bomber jacket.
+2. **Meaning match (step ④):** the embedded text includes the tags.
+3. **Preference match (step ④):** soft preferences such as "vintage" or "autumn" are compared with
+   `style` and `season`.
+4. **Colour and brand (steps ③/④):** `colorDetected` fills a missing seller colour. The normalised
+   brand drives brand boosts and a locked brand chip.
+5. **Rerank (step ⑤):** tags are sent to Claude with each listing's data.
+
+### Trade-offs accepted
+
+- A listing created after the last index run has no vector and no tags yet. It still appears
+  through filters and word matching, and gains a meaning score after the next index run.
+- `vectors.json` must ship with the server, so it's committed to the repo or rebuilt at deploy.
+- Moving to a vector database later only changes how step ④ looks up vectors.
+
+---
+
+## D9. Seed data is designed around the eval queries, and written with Claude Code
+
+**Status:** Accepted
+
+### Decision
+
+1. Write the **test queries first** (about 25), then plan the listings for each query (about 4 per
+   query, ~100 in total):
+   - **direct match:** obvious hit,
+   - **hidden match:** relevant, but keyword search misses it (synonym, colour only in the photo),
+   - **near miss:** looks relevant but shouldn't match or should rank low (wrong size, kids'
+     version, wrong season),
+   - **distractor:** shares a word, different meaning.
+2. Queries, listings and the expected matches live in one file, `seed/plan.json`. The seeder and
+   the eval both read it, so the eval's correct answers are known by construction.
+3. **Claude Code writes the plan and the listing texts** (looking at each chosen photo), and writes
+   a seeder script that only uploads. No Claude API calls are used for seeding.
+4. Seeded listings are created through the Integration API with `metadata.seeded = true` for easy
+   clean-up.
+
+### Why
+
+- Without planned near misses and hidden matches, keyword search looks fine and the improvement
+  can't be measured.
+- Seed data is test data, not product. Claude Code on the hackathon plan costs nothing from the
+  $20 API budget.
+
+---
+
+## D10. Seed photos come from Pexels
+
+**Status:** Accepted
+
+- A script searches the Pexels API (free key, 200 requests/hour) for each planned listing's photo
+  and downloads 2–3 candidates to `seed/images/`.
+- Claude Code looks at the candidates and picks the one that fits the planned listing.
+- The photographer is credited in the listing description, as in the existing listings.
+
+---
+
+## D11. Enrichment uses Claude Haiku 4.5 with the listing's image URL
+
+**Status:** Accepted (replaces Sonnet for enrichment in earlier estimates)
+
+### Decision
+
+- One `claude-haiku-4-5` call per listing, with the photo and the listing text together.
+- The photo is passed as a URL: the `scaled-medium` (750 px) image variant from Sharetribe's image
+  service (`{ type: 'image', source: { type: 'url', url } }`), about 550 image tokens.
+- The enrichment prompt is tuned in Claude Code on 5–10 listings first (free), then the API runs
+  once over all listings (about $0.60, or $0.30 with the Batch API).
+- If spot-checks show brand logos or styles are often wrong, only those listings are re-run with
+  Sonnet.
+
+### Tags requested
+
+| Field              | Allowed values                                                                                           |
+| ------------------ | -------------------------------------------------------------------------------------------------------- |
+| `garmentType`      | short free text, e.g. "bomber jacket"                                                                    |
+| `synonyms`         | words buyers would type (free text)                                                                      |
+| `audience`         | `adult` · `kid` · `baby` · `unknown`                                                                     |
+| `colorDetected`    | the marketplace's colour options, plus an optional second colour                                         |
+| `pattern`          | `solid` · `striped` · `checked` · `floral` · `print` · `graphic` · `unknown`                             |
+| `materialLook`     | only if visible: `denim` · `leather` · `suede` · `knit` · `wool` · `cotton` · `synthetic` · `unknown`    |
+| `style`            | `vintage` · `retro` · `y2k` · `minimalist` · `sporty` · `formal` · `casual` · `boho` · `streetwear` · `classic` |
+| `season`           | `spring` · `summer` · `autumn` · `winter` · `all-season`                                                 |
+| `warmth`           | `light` · `medium` · `warm` · `unknown`                                                                  |
+| `occasion`         | `everyday` · `work` · `party` · `formal` · `outdoor` · `sport`                                           |
+| `fit`              | `slim` · `regular` · `oversized` · `cropped` · `unknown`                                                 |
+| `brand`            | visible logo or brand in the text, normalised, or empty                                                  |
+| `visibleWear`      | `none` · `light` · `noticeable` · `unknown` (rerank hint only; the seller's `condition` stays the truth) |
+| `photoMatchesText` | `yes` / `no` + a short note                                                                              |
+| `searchText`       | 1–2 sentences in buyer language; this is the text that gets embedded                                     |
+
+### Rules in the prompt
+
+- Never contradict the seller's own fields (if the seller says blue, keep blue).
+- Only the allowed values; free text only in `garmentType`, `synonyms` and `searchText`.
+- Say `unknown` rather than guess.
+
+---
+
+## D12. Seed listings must be valid against the marketplace's listing config
+
+**Status:** Accepted
+
+### Decision
+
+Every seeded listing must be something a seller could have created through the marketplace's own
+listing form. The seeder reads `listings/listing-fields.json`, `listings/listing-categories.json`
+and `listings/listing-types.json` (Asset Delivery API) **at runtime** and validates every planned
+listing before upload. The dry run reports invalid listings, and none are uploaded until all pass.
+
+### Rules (from the live config on 2026-10-02)
+
+| Field                                         | Required?    | Only for these categories                                    |
+| --------------------------------------------- | ------------ | ------------------------------------------------------------ |
+| `size` (`xs`…`xxl`)                           | **required** | women/men tops and bottoms                                   |
+| `shoeSize` (EU `19`…`48`)                     | **required** | women/men/kids shoes                                         |
+| `kidsSize` (`3m`…`12y`)                       | **required** | kids tops and bottoms                                        |
+| `condition`                                   | **required** | everything except bundles and the top-level `accessories`    |
+| `conditionDetails` (text)                     | **required** | bundles                                                      |
+| `color`, `brand`, `material`, `petFreeHome`, `smokeFreeHome`, `sizeDetails` | optional | all          |
+| `careInstructions`                            | optional     | tops, bottoms, bundles                                       |
+
+1. **Category:** a valid `categoryLevel1` + `categoryLevel2` pair from `listing-categories.json`,
+   or the top-level `accessories` on its own.
+2. **Required fields** for the category are always filled.
+3. **No field outside its category** (a shoe never has `size`).
+4. **Only allowed enum values.**
+5. **Optional fields may be left empty on purpose.** This is how hidden matches are made, e.g. no
+   `color`, but the photo shows black.
+6. **Listing type values** for "Sell products": `listingType: 'sell-used-products'`,
+   `transactionProcessAlias: 'default-purchase/release-1'`, `unitType: 'item'`, stock 1, title,
+   description, price in EUR between €1 and €500, at least one image, and pickup/shipping fields
+   (`pickupEnabled` + `location`, `shippingEnabled` + `shippingPriceInSubunitsOneItem`), following
+   the existing listings.
+
+### Why
+
+Invalid listings would be unrealistic (a seller couldn't create them), could break listing pages,
+and would make the eval unfair to the default keyword search.
