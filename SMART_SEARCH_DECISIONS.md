@@ -464,6 +464,18 @@ writes both: tags to Sharetribe, vectors to the file.
 - Only the allowed values; free text only in `garmentType`, `synonyms` and `searchText`.
 - Say `unknown` rather than guess.
 
+### Tag shape and code checks (agreed in Phase 3)
+
+- **Lists:** `synonyms` (lowercase strings), `colorDetected` (0–2 colour keys, main colour first),
+  `style`, `season`, `occasion`. An empty list means unknown. `all-season` is never combined with
+  other seasons.
+- **Single values with `unknown`:** `audience`, `pattern`, `materialLook`, `warmth`, `fit`,
+  `visibleWear`. `brand` is a string, `''` if none. `photoMatchesText` is `{ match: 'yes'|'no', note }`.
+- **Enforced in code after Claude replies:** a seller colour is always `colorDetected[0]`; a seller
+  brand is kept (Claude may only tidy its spelling); a kids category gives `kid` or `baby`, and a
+  women/men category gives `adult`. Disallowed values are dropped.
+- Stored in listing metadata as `{ ai: <tags>, aiContentHash, aiModel }`.
+
 ---
 
 ## D12. Seed listings must be valid against the marketplace's listing config
