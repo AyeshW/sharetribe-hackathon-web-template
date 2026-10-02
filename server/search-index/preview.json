@@ -1,0 +1,315 @@
+[
+  {
+    "id": "6abf5d3b-513d-4ecc-a948-8149f3c8d432",
+    "seedKey": "kids-sweater-6y",
+    "title": "Kids rainbow sweater 6 years",
+    "imageUrl": "https://sharetribe.imgix.net/6ab2816b-37bc-4ca9-8201-2257b8502035/6abf5d39-fd26-4d4c-8a4a-338ab3185733?auto=format&fit=clip&h=750&w=750&s=9d8256ade9fc94367ddaf3dc50e3cc4d",
+    "publicData": {
+      "categoryLevel1": "kids",
+      "categoryLevel2": "kids-tops",
+      "color": "multicolor",
+      "condition": "gently-used",
+      "kidsSize": "6y",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Piispansilta 11, 02230 Espoo, Finland",
+        "building": ""
+      },
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    },
+    "tags": {
+      "garmentType": "kids sweater",
+      "synonyms": [
+        "sweater",
+        "jumper",
+        "pullover",
+        "knit",
+        "top",
+        "children's sweater",
+        "kids top"
+      ],
+      "audience": "kid",
+      "colorDetected": [
+        "multicolor"
+      ],
+      "pattern": "striped",
+      "materialLook": "knit",
+      "style": [
+        "casual"
+      ],
+      "season": [
+        "autumn",
+        "winter"
+      ],
+      "warmth": "warm",
+      "occasion": [
+        "everyday"
+      ],
+      "fit": "unknown",
+      "brand": "",
+      "visibleWear": "none",
+      "photoMatchesText": {
+        "match": "yes",
+        "note": "close-up photo showing multiple sweaters with various striped and patterned designs"
+      },
+      "searchText": "Warm striped knitted sweater for kids age 6 with lots of bright rainbow colours. Perfect for everyday wear in autumn and winter."
+    },
+    "embeddingText": "Kids rainbow sweater 6 years\nWarm striped knitted sweater for 6y, lots of colours. Image by caradecabra from Pixabay\nkids sweater\nsweater, jumper, pullover, knit, top, children's sweater, kids top\ncasual\nautumn, winter\nWarm striped knitted sweater for kids age 6 with lots of bright rainbow colours. Perfect for everyday wear in autumn and winter.",
+    "hash": "76d7b44eea2ad8579a893df92f8cee133a219e35125f4576e0d7bb2f30b978e2"
+  },
+  {
+    "id": "6abf5d35-3e18-436f-8801-fc64523580ce",
+    "seedKey": "pinafore-jumper-dress",
+    "title": "Denim jumper dress S",
+    "imageUrl": "https://sharetribe.imgix.net/6ab2816b-37bc-4ca9-8201-2257b8502035/6abf5d33-9c8e-43f6-ae59-dcb16a8865d8?auto=format&fit=clip&h=750&w=750&s=0a3736f3e1be2916bd9452a13a7acb7d",
+    "publicData": {
+      "categoryLevel1": "women",
+      "categoryLevel2": "women-tops",
+      "color": "blue",
+      "condition": "gently-used",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Hämeentie 31, 00500 Helsinki, Finland",
+        "building": ""
+      },
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "size": "s",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    },
+    "tags": {
+      "garmentType": "denim pinafore dress",
+      "synonyms": [
+        "pinafore",
+        "jumper dress",
+        "denim dress",
+        "overall dress",
+        "dungaree dress",
+        "dress",
+        "women's dress"
+      ],
+      "audience": "adult",
+      "colorDetected": [
+        "blue"
+      ],
+      "pattern": "solid",
+      "materialLook": "denim",
+      "style": [
+        "casual"
+      ],
+      "season": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "warmth": "light",
+      "occasion": [
+        "everyday"
+      ],
+      "fit": "unknown",
+      "brand": "",
+      "visibleWear": "none",
+      "photoMatchesText": {
+        "match": "yes",
+        "note": "close-up of the zipper and fabric detail only"
+      },
+      "searchText": "Blue denim pinafore dress in size S, perfect for layering over shirts or tees for a casual everyday look."
+    },
+    "embeddingText": "Denim jumper dress S\nPinafore dress in denim, wear it over a shirt or tee. Image by PublicDomainPictures from Pixabay\ndenim pinafore dress\npinafore, jumper dress, denim dress, overall dress, dungaree dress, dress, women's dress\ncasual\nspring, summer, autumn\nBlue denim pinafore dress in size S, perfect for layering over shirts or tees for a casual everyday look.",
+    "hash": "858c37064dd64f82ad63e0a19b2703468b16b79dbeb38669b96b685d211190aa"
+  },
+  {
+    "id": "6abf5d2f-5dc1-41ab-95ad-46ee1acea6b6",
+    "seedKey": "chunky-pullover",
+    "title": "Chunky knit pullover M",
+    "imageUrl": "https://sharetribe.imgix.net/6ab2816b-37bc-4ca9-8201-2257b8502035/6abf5d2d-bcd5-440a-8b6a-251b52a33489?auto=format&fit=clip&h=750&w=750&s=a268e4a30b0d1eb7f57a3c444a056cfc",
+    "publicData": {
+      "categoryLevel1": "women",
+      "categoryLevel2": "women-tops",
+      "condition": "gently-used",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Tikkuraitti 11, 01300 Vantaa, Finland",
+        "building": ""
+      },
+      "material": "Acrylic",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "size": "m",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    },
+    "tags": {
+      "garmentType": "chunky knit pullover",
+      "synonyms": [
+        "pullover",
+        "sweater",
+        "knit sweater",
+        "jumper",
+        "oversized sweater",
+        "knitwear",
+        "top"
+      ],
+      "audience": "adult",
+      "colorDetected": [
+        "grey"
+      ],
+      "pattern": "solid",
+      "materialLook": "knit",
+      "style": [
+        "casual"
+      ],
+      "season": [
+        "autumn",
+        "winter"
+      ],
+      "warmth": "warm",
+      "occasion": [
+        "everyday"
+      ],
+      "fit": "oversized",
+      "brand": "",
+      "visibleWear": "none",
+      "photoMatchesText": {
+        "match": "yes",
+        "note": "close-up of the knit fabric texture only"
+      },
+      "searchText": "Oversized chunky knit pullover in grey acrylic. Soft and warm for everyday wear without itchiness."
+    },
+    "embeddingText": "Chunky knit pullover M\nOversized chunky pullover, acrylic so no itch. Image by Engin_Akyurt from Pixabay\nchunky knit pullover\npullover, sweater, knit sweater, jumper, oversized sweater, knitwear, top\ncasual\nautumn, winter\nOversized chunky knit pullover in grey acrylic. Soft and warm for everyday wear without itchiness.",
+    "hash": "c63029813c2463ac1a3e78825c7467d7e757a43015d624c2f0aa51acd3e95697"
+  },
+  {
+    "id": "6abf5d29-e536-4d56-ae65-1238e447b4ed",
+    "seedKey": "knitted-jumper-navy",
+    "title": "Navy and grey knitted jumper L",
+    "imageUrl": "https://sharetribe.imgix.net/6ab2816b-37bc-4ca9-8201-2257b8502035/6abf5d27-8545-4589-837d-61a156fe667b?auto=format&fit=clip&h=750&w=750&s=a95d8059e97e1dd9d7b8303937a0477c",
+    "publicData": {
+      "categoryLevel1": "men",
+      "categoryLevel2": "men-tops",
+      "color": "blue",
+      "condition": "gently-used",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Piispansilta 11, 02230 Espoo, Finland",
+        "building": ""
+      },
+      "material": "Cotton",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "size": "l",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    },
+    "tags": {
+      "garmentType": "knitted jumper",
+      "synonyms": [
+        "sweater",
+        "pullover",
+        "knit",
+        "crew neck",
+        "chunky knit",
+        "jumper"
+      ],
+      "audience": "adult",
+      "colorDetected": [
+        "blue",
+        "grey"
+      ],
+      "pattern": "striped",
+      "materialLook": "knit",
+      "style": [
+        "casual",
+        "classic"
+      ],
+      "season": [
+        "autumn",
+        "winter"
+      ],
+      "warmth": "warm",
+      "occasion": [
+        "everyday",
+        "work"
+      ],
+      "fit": "regular",
+      "brand": "",
+      "visibleWear": "none",
+      "photoMatchesText": {
+        "match": "yes",
+        "note": "striped knit jumper with navy and grey horizontal stripes, displayed flat"
+      },
+      "searchText": "Navy and grey chunky knit jumper in cotton. Warm, comfortable striped sweater perfect for autumn and winter layering or everyday wear."
+    },
+    "embeddingText": "Navy and grey knitted jumper L\nChunky knit jumper with navy and grey stripes. Cotton. Image by Pexels from Pixabay\nknitted jumper\nsweater, pullover, knit, crew neck, chunky knit, jumper\ncasual, classic\nautumn, winter\nNavy and grey chunky knit jumper in cotton. Warm, comfortable striped sweater perfect for autumn and winter layering or everyday wear.",
+    "hash": "896db9159319f9a1902bc0fb2305ee419a5ba04c2699c7c335c90df496431057"
+  },
+  {
+    "id": "6abf5d23-96af-40ea-8698-de0f86510232",
+    "seedKey": "kevattakki",
+    "title": "Kevättakki S",
+    "imageUrl": "https://sharetribe.imgix.net/6ab2816b-37bc-4ca9-8201-2257b8502035/6abf5d21-be30-4303-95a6-74e76ff31e37?auto=format&fit=clip&h=750&w=750&s=2ec7beedd5d5c5a6b9957c496142f70c",
+    "publicData": {
+      "categoryLevel1": "women",
+      "categoryLevel2": "women-tops",
+      "condition": "like-new",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Hämeentie 31, 00500 Helsinki, Finland",
+        "building": ""
+      },
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "size": "s",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    },
+    "tags": {
+      "garmentType": "spring coat",
+      "synonyms": [
+        "coat",
+        "jacket",
+        "lightweight coat",
+        "outerwear",
+        "cardigan coat"
+      ],
+      "audience": "adult",
+      "colorDetected": [
+        "red"
+      ],
+      "pattern": "solid",
+      "materialLook": "unknown",
+      "style": [
+        "casual",
+        "minimalist"
+      ],
+      "season": [
+        "spring",
+        "autumn"
+      ],
+      "warmth": "light",
+      "occasion": [
+        "everyday",
+        "work"
+      ],
+      "fit": "regular",
+      "brand": "",
+      "visibleWear": "none",
+      "photoMatchesText": {
+        "match": "yes",
+        "note": "person wearing the coat in street setting"
+      },
+      "searchText": "Light red spring coat in size S, perfect for mild weather layering. Minimalist style suitable for everyday wear and casual outings."
+    },
+    "embeddingText": "Kevättakki S\nOhut kevättakki, vähän käytetty. Image by Surprising_Media from Pixabay\nspring coat\ncoat, jacket, lightweight coat, outerwear, cardigan coat\ncasual, minimalist\nspring, autumn\nLight red spring coat in size S, perfect for mild weather layering. Minimalist style suitable for everyday wear and casual outings.",
+    "hash": "79c79f664751c36ba40f7850006bfe56012fa1737492bbb17ddeab1cf078f264"
+  }
+]
