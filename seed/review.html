@@ -1,0 +1,1098 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seed Plan Review</title>
+<style>
+  :root { --bg: #f6f6f4; --card: #fff; --text: #1d1d1b; --muted: #6b6b66; --line: #e2e2dd; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #161615; --card: #22221f; --text: #ecece8; --muted: #a3a39c; --line: #3a3a35; }
+  }
+  body { margin: 0; padding: 16px; background: var(--bg); color: var(--text); font: 14px/1.4 system-ui, sans-serif; }
+  header { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 16px; }
+  h1 { font-size: 20px; margin: 0; }
+  select { font: inherit; padding: 4px; max-width: 100%; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .card img, .nophoto { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+  .nophoto { display: grid; place-items: center; color: var(--muted); background: var(--line); }
+  .body { padding: 10px; }
+  h2 { font-size: 15px; margin: 6px 0 2px; }
+  .cat, .desc { margin: 2px 0; color: var(--muted); font-size: 13px; }
+  ul { margin: 6px 0 0; padding-left: 16px; font-size: 12px; }
+  .role { font-size: 11px; padding: 1px 6px; border-radius: 4px; background: var(--line); }
+  .role.direct { background: #2e7d32; color: #fff; }
+  .role.hidden { background: #1565c0; color: #fff; }
+  .role.near-miss { background: #ef6c00; color: #fff; }
+  .role.distractor { background: #6a1b9a; color: #fff; }
+  code { font-size: 11px; color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Seed plan review</h1>
+  <span>105 listings, 82 with photos</span>
+  <select id="q"><option value="">All queries</option><option value="q01">q01 · vintage jacket for autumn (synonyms)</option><option value="q02">q02 · trainers (synonyms)</option><option value="q03">q03 · snekers (typos)</option><option value="q04">q04 · Levi's jeans (brand)</option><option value="q05">q05 · something for a wedding (occasion)</option><option value="q06">q06 · warm for winter (season)</option><option value="q07">q07 · for my 5 year old (kids)</option><option value="q08">q08 · baby clothes 6 months (kids)</option><option value="q09">q09 · black ankle boots size 38 under 40€ (multi-constraint)</option><option value="q10">q10 · warm but not wool (negation)</option><option value="q11">q11 · kids clothes 8 years, no bundles (negation)</option><option value="q12">q12 · y2k (style)</option><option value="q13">q13 · baby blue dress (edge-case)</option><option value="q14">q14 · green jacket (colour-in-photo)</option><option value="q15">q15 · red handbag (colour-in-photo)</option><option value="q16">q16 · men's shirt size L (constraints)</option><option value="q17">q17 · jeans under 15€ (constraints)</option><option value="q18">q18 · leather jakcet (typos)</option><option value="q19">q19 · outfit for the gym (occasion)</option><option value="q20">q20 · summer holiday clothes (season)</option><option value="q21">q21 · marimekko (brand)</option><option value="q22">q22 · boho style top (style)</option><option value="q23">q23 · warm coat for women size M under 50€ (multi-constraint)</option><option value="q24">q24 · red winter coat (edge-case)</option><option value="q25">q25 · jumper (synonyms)</option></select>
+</header>
+<main class="grid">
+<article class="card" data-queries="q01 q18">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>suede-jacket-80s</code></div>
+    <h2>Vintage suede jacket, 80s · €35</h2>
+    <p class="cat">women-tops · colour: brown</p>
+    <p class="desc">Real suede, found it at a flea market in Berlin years ago. Soft and broken in, classic cut. Fits like a M. Small mark on the left cuff.</p>
+    <ul><li title="vintage jacket for autumn">q01 · vintage jacket for autumn <b>grade 2</b></li><li title="leather jakcet">q18 · leather jakcet <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q01">
+  <img src="images/corduroy-blazer-retro.jpg" alt="Corduroy blazer from the 70s" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>corduroy-blazer-retro</code></div>
+    <h2>Corduroy blazer from the 70s · €28</h2>
+    <p class="cat">men-tops · colour: —</p>
+    <p class="desc">Was my dad's. Grey corduroy with star buttons, very 70s. Good for cooler days. Size L, a bit boxy. Image by tookapic from Pixabay</p>
+    <ul><li title="vintage jacket for autumn">q01 · vintage jacket for autumn <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q01">
+  <img src="images/denim-jacket-oversized.jpg" alt="Oversized denim jacket" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>denim-jacket-oversized</code></div>
+    <h2>Oversized denim jacket · €22</h2>
+    <p class="cat">women-tops · colour: blue</p>
+    <p class="desc">Light wash denim jacket, oversized fit. Worn a few times, no damage. Image by StockSnap from Pixabay</p>
+    <ul><li title="vintage jacket for autumn">q01 · vintage jacket for autumn <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q06 q10 q01">
+  <img src="images/puffer-jacket-winter-heavy.jpg" alt="Down puffer jacket XL" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>puffer-jacket-winter-heavy</code></div>
+    <h2>Down puffer jacket XL · €50</h2>
+    <p class="cat">men-tops · colour: yellow</p>
+    <p class="desc">Very warm down jacket with a fur-trim hood, kept me warm at -20 in Lapland. Some pilling on the cuffs. Image by jackmac34 from Pixabay</p>
+    <ul><li title="warm for winter">q06 · warm for winter <b>grade 2</b></li><li title="warm but not wool">q10 · warm but not wool <b>grade 2</b></li><li title="vintage jacket for autumn">q01 · vintage jacket for autumn <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q01">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role distractor">distractor</span> <code>life-jacket-kids</code></div>
+    <h2>Kids life jacket 15-30 kg · €10</h2>
+    <p class="cat">kids-accessories · colour: orange</p>
+    <p class="desc">Life jacket for kids, used for one summer at the cottage. Buckles work fine.</p>
+    <ul><li title="vintage jacket for autumn">q01 · vintage jacket for autumn <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q12 q01">
+  <img src="images/retro-windbreaker-80s.jpg" alt="Retro 80s jacket, royal blue" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>retro-windbreaker-80s</code></div>
+    <h2>Retro 80s jacket, royal blue · €18</h2>
+    <p class="cat">men-tops · colour: blue</p>
+    <p class="desc">Proper 80s jacket in royal blue with big gold buttons. Light, more of a spring/autumn layer. Mens M. Image by kaboompics from Pixabay</p>
+    <ul><li title="y2k">q12 · y2k <b>not relevant</b></li><li title="vintage jacket for autumn">q01 · vintage jacket for autumn <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q02 q03 q19">
+  <img src="images/trainers-grey-mens-43.jpg" alt="Olive knit trainers, size 43" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>trainers-grey-mens-43</code></div>
+    <h2>Olive knit trainers, size 43 · €25</h2>
+    <p class="cat">men-shoes · colour: green</p>
+    <p class="desc">Comfy olive green knit trainers, slip on. Used for walking, soles still good. Image by FitNishMedia from Pixabay</p>
+    <ul><li title="trainers">q02 · trainers <b>grade 2</b></li><li title="snekers">q03 · snekers <b>grade 2</b></li><li title="outfit for the gym">q19 · outfit for the gym <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q02 q03 q19">
+  <img src="images/white-sneakers-womens-39.jpg" alt="White canvas sneakers 39" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>white-sneakers-womens-39</code></div>
+    <h2>White canvas sneakers 39 · €20</h2>
+    <p class="cat">women-shoes · colour: white</p>
+    <p class="desc">White canvas sneakers, worn a lot and a bit dirty but nothing a wash cant fix. A bit too small for me. Image by jackjbarton from Pixabay</p>
+    <ul><li title="trainers">q02 · trainers <b>grade 2</b></li><li title="snekers">q03 · snekers <b>grade 2</b></li><li title="outfit for the gym">q19 · outfit for the gym <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q02 q03 q19">
+  <img src="images/running-shoes-blue-41.jpg" alt="Running shoes 41" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>running-shoes-blue-41</code></div>
+    <h2>Running shoes 41 · €30</h2>
+    <p class="cat">men-shoes · colour: blue</p>
+    <p class="desc">Lightweight running shoes, about 200 km on them. Good cushioning left. Image by markusspiske from Pixabay</p>
+    <ul><li title="trainers">q02 · trainers <b>grade 2</b></li><li title="snekers">q03 · snekers <b>grade 1</b></li><li title="outfit for the gym">q19 · outfit for the gym <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q02">
+  <img src="images/football-boots-studs.jpg" alt="Football boots with studs, 42" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>football-boots-studs</code></div>
+    <h2>Football boots with studs, 42 · €15</h2>
+    <p class="cat">men-shoes · colour: yellow</p>
+    <p class="desc">Neon yellow firm ground football boots. Son grew out of them after one season. Image by Glamourpixel from Pixabay</p>
+    <ul><li title="trainers">q02 · trainers <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q02 q19">
+  <img src="images/training-trousers-black.jpg" alt="Training trousers, black M" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role distractor">distractor</span> <code>training-trousers-black</code></div>
+    <h2>Training trousers, black M · €12</h2>
+    <p class="cat">men-bottoms · colour: black</p>
+    <p class="desc">Black training trousers with a yellow side stripe and zip pockets. Good for the gym or running. Image by Engin_Akyurt from Pixabay</p>
+    <ul><li title="trainers">q02 · trainers <b>not relevant</b></li><li title="outfit for the gym">q19 · outfit for the gym <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q02 q03 q07">
+  <img src="images/kids-sneakers-light-up-28.jpg" alt="Star print canvas shoes, size 28" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>kids-sneakers-light-up-28</code></div>
+    <h2>Star print canvas shoes, size 28 · €8</h2>
+    <p class="cat">kids-shoes · colour: —</p>
+    <p class="desc">Grey canvas shoes with little white stars, velcro straps. Lots of life left. Image by Alexas_Fotos from Pixabay</p>
+    <ul><li title="trainers">q02 · trainers <b>grade 1</b></li><li title="snekers">q03 · snekers <b>grade 1</b></li><li title="for my 5 year old">q07 · for my 5 year old <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q02 q03">
+  <img src="images/red-canvas-sneakers-37.jpg" alt="Red canvas high tops 37" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>red-canvas-sneakers-37</code></div>
+    <h2>Red canvas high tops 37 · €14</h2>
+    <p class="cat">women-shoes · colour: red</p>
+    <p class="desc">Red canvas high tops. Some dirt on the white toe, washes off. Image by Momentmal from Pixabay</p>
+    <ul><li title="trainers">q02 · trainers <b>grade 2</b></li><li title="snekers">q03 · snekers <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q03">
+  <img src="images/sneaker-socks-5-pack.jpg" alt="Sneaker socks, 3 pairs" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role distractor">distractor</span> <code>sneaker-socks-5-pack</code></div>
+    <h2>Sneaker socks, 3 pairs · €5</h2>
+    <p class="cat">men-accessories · colour: blue</p>
+    <p class="desc">3 pairs of low sneaker socks in grey and blue, size 39-42. Unworn. Image by Wounds_and_Cracks from Pixabay</p>
+    <ul><li title="snekers">q03 · snekers <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q04 q17">
+  <img src="images/levis-501-mens.jpg" alt="Levi's 501 jeans, W32 L32" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>levis-501-mens</code></div>
+    <h2>Levi's 501 jeans, W32 L32 · €45</h2>
+    <p class="cat">men-bottoms · colour: blue</p>
+    <p class="desc">Classic Levi's 501 straight fit. Faded nicely, no holes. Image by StockSnap from Pixabay</p>
+    <ul><li title="Levi's jeans">q04 · Levi's jeans <b>grade 2</b></li><li title="jeans under 15€">q17 · jeans under 15€ <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q04">
+  <img src="images/levis-womens-high-waist.jpg" alt="High waist mom jeans S" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>levis-womens-high-waist</code></div>
+    <h2>High waist mom jeans S · €30</h2>
+    <p class="cat">women-bottoms · colour: blue</p>
+    <p class="desc">levis mom jeans, high waist, light wash. W26. love them but they dont fit anymore Image by Couleur from Pixabay</p>
+    <ul><li title="Levi's jeans">q04 · Levi's jeans <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q04 q01">
+  <img src="images/levis-trucker-jacket.jpg" alt="Levi's trucker jacket, 90s" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role distractor">distractor</span> <code>levis-trucker-jacket</code></div>
+    <h2>Levi's trucker jacket, 90s · €40</h2>
+    <p class="cat">men-tops · colour: blue</p>
+    <p class="desc">Old Levi's dark denim trucker jacket from the 90s, real vintage. Size L. Great for autumn. Image by MabelAmber from Pixabay</p>
+    <ul><li title="Levi's jeans">q04 · Levi's jeans <b>not relevant</b></li><li title="vintage jacket for autumn">q01 · vintage jacket for autumn <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q04 q17">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>wrangler-jeans-mens</code></div>
+    <h2>Wrangler jeans L · €25</h2>
+    <p class="cat">men-bottoms · colour: blue</p>
+    <p class="desc">Wrangler regular fit, dark blue. Barely worn.</p>
+    <ul><li title="Levi's jeans">q04 · Levi's jeans <b>not relevant</b></li><li title="jeans under 15€">q17 · jeans under 15€ <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q05">
+  <img src="images/navy-suit-mens.jpg" alt="Navy suit, jacket + trousers" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>navy-suit-mens</code></div>
+    <h2>Navy suit, jacket + trousers · €60</h2>
+    <p class="cat">men-bundles · colour: blue</p>
+    <p class="desc">Two piece navy suit, jacket 50 and trousers 50. Worn twice, dry cleaned. Photo shows the trousers. Image by clangs from Pixabay</p>
+    <ul><li title="something for a wedding">q05 · something for a wedding <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q05">
+  <img src="images/green-satin-dress.jpg" alt="Green satin mini dress M" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>green-satin-dress</code></div>
+    <h2>Green satin mini dress M · €40</h2>
+    <p class="cat">women-tops · colour: green</p>
+    <p class="desc">Worn once to a wedding. Green satin, ruched, long sleeves. Image by Sunriseforever from Pixabay</p>
+    <ul><li title="something for a wedding">q05 · something for a wedding <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q05 q20">
+  <img src="images/floral-midi-dress.jpg" alt="Floral midi dress S" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>floral-midi-dress</code></div>
+    <h2>Floral midi dress S · €25</h2>
+    <p class="cat">women-tops · colour: multicolor</p>
+    <p class="desc">Cream midi dress with a small brown floral print, buttons all the way down. Perfect for summer parties and garden events. Image by Icsilviu from Pixabay</p>
+    <ul><li title="something for a wedding">q05 · something for a wedding <b>grade 2</b></li><li title="summer holiday clothes">q20 · summer holiday clothes <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q05">
+  <img src="images/bride-squad-tshirt.jpg" alt="Bride squad t-shirt" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role distractor">distractor</span> <code>bride-squad-tshirt</code></div>
+    <h2>Bride squad t-shirt · €5</h2>
+    <p class="cat">women-tops · colour: white</p>
+    <p class="desc">From my friend's hen party before her wedding. White tee, the Bride squad print is on the back. Worn once. Size M. Image by T-Shirtbedrucken from Pixabay</p>
+    <ul><li title="something for a wedding">q05 · something for a wedding <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q05">
+  <img src="images/sequin-party-top.jpg" alt="Sequin top S" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>sequin-party-top</code></div>
+    <h2>Sequin top S · €12</h2>
+    <p class="cat">women-tops · colour: blue</p>
+    <p class="desc">Blue sequin top for NYE or parties. Some sequins missing on the back. Image by Hans from Pixabay</p>
+    <ul><li title="something for a wedding">q05 · something for a wedding <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q05">
+  <img src="images/silk-tie-burgundy.jpg" alt="Dark green silk tie" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>silk-tie-burgundy</code></div>
+    <h2>Dark green silk tie · €8</h2>
+    <p class="cat">men-accessories · colour: green</p>
+    <p class="desc">Dark green silk tie with tiny dots, classic width. Like new. Image by Pexels from Pixabay</p>
+    <ul><li title="something for a wedding">q05 · something for a wedding <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q05">
+  <img src="images/nude-heels-39.jpg" alt="Gold glitter heels 39" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>nude-heels-39</code></div>
+    <h2>Gold glitter heels 39 · €20</h2>
+    <p class="cat">women-shoes · colour: gold</p>
+    <p class="desc">Gold glitter strappy sandals with a block heel. Worn to two events. Image by cosmistic from Pixabay</p>
+    <ul><li title="something for a wedding">q05 · something for a wedding <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q06 q10 q23">
+  <img src="images/down-parka-black.jpg" alt="Warm winter parka M" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>down-parka-black</code></div>
+    <h2>Warm winter parka M · €45</h2>
+    <p class="cat">women-tops · colour: black</p>
+    <p class="desc">Black puffer parka with a hood. Really warm, I just moved somewhere warmer. Womens M. Image by Pexels from Pixabay</p>
+    <ul><li title="warm for winter">q06 · warm for winter <b>grade 2</b></li><li title="warm but not wool">q10 · warm but not wool <b>grade 2</b></li><li title="warm coat for women size M under 50€">q23 · warm coat for women size M under 50€ <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q06">
+  <img src="images/knit-hat-mittens.jpg" alt="Knitted scarf and mittens" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>knit-hat-mittens</code></div>
+    <h2>Knitted scarf and mittens · €10</h2>
+    <p class="cat">women-accessories · colour: —</p>
+    <p class="desc">Hand knitted striped scarf with matching crochet mittens. Wool. Image by 11082974 from Pixabay</p>
+    <ul><li title="warm for winter">q06 · warm for winter <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q06 q10">
+  <img src="images/winter-boots-lined.jpg" alt="Lined boots 39" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>winter-boots-lined</code></div>
+    <h2>Lined boots 39 · €30</h2>
+    <p class="cat">women-shoes · colour: —</p>
+    <p class="desc">Faux fur lined ankle boots with laces and a buckle, thick sole with good grip. Used two seasons. Image by ds_30 from Pixabay</p>
+    <ul><li title="warm for winter">q06 · warm for winter <b>grade 2</b></li><li title="warm but not wool">q10 · warm but not wool <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q06">
+  <img src="images/light-rain-jacket.jpg" alt="Rain poncho M" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>light-rain-jacket</code></div>
+    <h2>Rain poncho M · €15</h2>
+    <p class="cat">women-tops · colour: yellow</p>
+    <p class="desc">Thin see-through yellow rain poncho. No lining, packs small. Image by Sunriseforever from Pixabay</p>
+    <ul><li title="warm for winter">q06 · warm for winter <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q06">
+  <img src="images/christmas-tshirt-winter.jpg" alt="Christmas sweatshirt L" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role distractor">distractor</span> <code>christmas-tshirt-winter</code></div>
+    <h2>Christmas sweatshirt L · €6</h2>
+    <p class="cat">men-tops · colour: multicolor</p>
+    <p class="desc">Thin Christmas pattern sweatshirt. Fun for the office party. Image by giangnguyen123utt from Pixabay</p>
+    <ul><li title="warm for winter">q06 · warm for winter <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q10 q06">
+  <img src="images/fleece-jacket-grey.jpg" alt="Fleece jacket M, very warm" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>fleece-jacket-grey</code></div>
+    <h2>Fleece jacket M, very warm · €18</h2>
+    <p class="cat">men-tops · colour: blue</p>
+    <p class="desc">Blue melange fleece, full zip. Warm and light, polyester so no itching. Image by metaliza01 from Pixabay</p>
+    <ul><li title="warm but not wool">q10 · warm but not wool <b>grade 2</b></li><li title="warm for winter">q06 · warm for winter <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q07">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>kids-rain-jacket-5y</code></div>
+    <h2>Kids rain jacket, 5 years · €12</h2>
+    <p class="cat">kids-tops · colour: yellow</p>
+    <p class="desc">Rain jacket for a 5 year old, reflectors on the back. Small tear inside the hood, otherwise ok.</p>
+    <ul><li title="for my 5 year old">q07 · for my 5 year old <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q07">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>kids-dino-tshirt-5y</code></div>
+    <h2>Dino t-shirt 110 cm · €4</h2>
+    <p class="cat">kids-tops · colour: green</p>
+    <p class="desc">Dinosaur print t-shirt, 110 cm. Washed many times but still bright.</p>
+    <ul><li title="for my 5 year old">q07 · for my 5 year old <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q07 q11">
+  <img src="images/kids-jeans-9y.jpg" alt="Kids jeans 9 years" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>kids-jeans-9y</code></div>
+    <h2>Kids jeans 9 years · €7</h2>
+    <p class="cat">kids-bottoms · colour: blue</p>
+    <p class="desc">Regular jeans for 9y, adjustable waist. Image by Uki_71 from Pixabay</p>
+    <ul><li title="for my 5 year old">q07 · for my 5 year old <b>not relevant</b></li><li title="kids clothes 8 years, no bundles">q11 · kids clothes 8 years, no bundles <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q08">
+  <img src="images/baby-bodysuits-6m.jpg" alt="Baby tops and bodysuits x6, 6 months" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>baby-bodysuits-6m</code></div>
+    <h2>Baby tops and bodysuits x6, 6 months · €10</h2>
+    <p class="cat">kids-bundles · colour: multicolor</p>
+    <p class="desc">6 soft baby tops and bodysuits in pastel colours, size 68 (6 months). Image by freestocks-photos from Pixabay</p>
+    <ul><li title="baby clothes 6 months">q08 · baby clothes 6 months <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q08">
+  <img src="images/baby-knit-cardigan-6m.jpg" alt="Tiny knitted cardigan, 68 cm" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>baby-knit-cardigan-6m</code></div>
+    <h2>Tiny knitted cardigan, 68 cm · €6</h2>
+    <p class="cat">kids-tops · colour: —</p>
+    <p class="desc">Cream lace knit cardigan with 3 buttons. 68 cm. Image by viv1973 from Pixabay</p>
+    <ul><li title="baby clothes 6 months">q08 · baby clothes 6 months <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q08">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>baby-romper-3m</code></div>
+    <h2>Baby romper 3 months · €5</h2>
+    <p class="cat">kids-tops · colour: —</p>
+    <p class="desc">Soft romper with feet, 62 cm.</p>
+    <ul><li title="baby clothes 6 months">q08 · baby clothes 6 months <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q08 q13">
+  <img src="images/babydoll-dress-black.jpg" alt="Babydoll dress, black S" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role distractor">distractor</span> <code>babydoll-dress-black</code></div>
+    <h2>Babydoll dress, black S · €15</h2>
+    <p class="cat">women-tops · colour: black</p>
+    <p class="desc">Short black babydoll dress. Womens size S. Image by MDphoto from Pixabay</p>
+    <ul><li title="baby clothes 6 months">q08 · baby clothes 6 months <b>not relevant</b></li><li title="baby blue dress">q13 · baby blue dress <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q09">
+  <img src="images/black-ankle-boots-38.jpg" alt="Black ankle boots 38" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>black-ankle-boots-38</code></div>
+    <h2>Black ankle boots 38 · €28</h2>
+    <p class="cat">women-shoes · colour: black</p>
+    <p class="desc">Black leather ankle boots with a slouchy shaft, block heel and side zip. Image by Mdutschke from Pixabay</p>
+    <ul><li title="black ankle boots size 38 under 40€">q09 · black ankle boots size 38 under 40€ <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q09">
+  <img src="images/chelsea-boots-38.jpg" alt="Zip ankle boots, size 38" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>chelsea-boots-38</code></div>
+    <h2>Zip ankle boots, size 38 · €35</h2>
+    <p class="cat">women-shoes · colour: —</p>
+    <p class="desc">Leather ankle boots with a side zip and low heel. Comfortable, resoled last year. Image by RiekerCanada from Pixabay</p>
+    <ul><li title="black ankle boots size 38 under 40€">q09 · black ankle boots size 38 under 40€ <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q09">
+  <img src="images/black-ankle-boots-39.jpg" alt="Black buckle boots 39" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>black-ankle-boots-39</code></div>
+    <h2>Black buckle boots 39 · €25</h2>
+    <p class="cat">women-shoes · colour: black</p>
+    <p class="desc">Black lace-up boots with studs and buckles. Size 39. Image by NickyPe from Pixabay</p>
+    <ul><li title="black ankle boots size 38 under 40€">q09 · black ankle boots size 38 under 40€ <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q09">
+  <img src="images/leather-ankle-boots-38-pricey.jpg" alt="Designer ankle boots 38" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>leather-ankle-boots-38-pricey</code></div>
+    <h2>Designer ankle boots 38 · €65</h2>
+    <p class="cat">women-shoes · colour: black</p>
+    <p class="desc">Dark leather lace-up ankle boots, worn a handful of times. Original box included. Image by gershoots from Pixabay</p>
+    <ul><li title="black ankle boots size 38 under 40€">q09 · black ankle boots size 38 under 40€ <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q09">
+  <img src="images/brown-ankle-boots-38.jpg" alt="Brown ankle boots 38" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>brown-ankle-boots-38</code></div>
+    <h2>Brown ankle boots 38 · €30</h2>
+    <p class="cat">women-shoes · colour: brown</p>
+    <p class="desc">Tan suede lace-up ankle boots, size 38. Image by Pexels from Pixabay</p>
+    <ul><li title="black ankle boots size 38 under 40€">q09 · black ankle boots size 38 under 40€ <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q09 q17">
+  <img src="images/bootcut-jeans-black.jpg" alt="Black bootcut jeans M" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role distractor">distractor</span> <code>bootcut-jeans-black</code></div>
+    <h2>Black bootcut jeans M · €14</h2>
+    <p class="cat">women-bottoms · colour: black</p>
+    <p class="desc">Bootcut jeans, black, stretchy. Size M. Image by SnapwireSnaps from Pixabay</p>
+    <ul><li title="black ankle boots size 38 under 40€">q09 · black ankle boots size 38 under 40€ <b>not relevant</b></li><li title="jeans under 15€">q17 · jeans under 15€ <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q10 q23 q06">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>wool-coat-camel</code></div>
+    <h2>Camel wool coat M · €40</h2>
+    <p class="cat">women-tops · colour: brown</p>
+    <p class="desc">Classic camel coat, 80% wool. Warm and smart. Womens M.</p>
+    <ul><li title="warm but not wool">q10 · warm but not wool <b>not relevant</b></li><li title="warm coat for women size M under 50€">q23 · warm coat for women size M under 50€ <b>grade 2</b></li><li title="warm for winter">q06 · warm for winter <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q10">
+  <img src="images/sherpa-hoodie.jpg" alt="Sherpa hoodie L" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>sherpa-hoodie</code></div>
+    <h2>Sherpa hoodie L · €20</h2>
+    <p class="cat">men-tops · colour: —</p>
+    <p class="desc">Super cosy fleece lined hoodie, polyester. Unisex, basically wearing a blanket. Image by StockSnap from Pixabay</p>
+    <ul><li title="warm but not wool">q10 · warm but not wool <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q10">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>merino-base-layer</code></div>
+    <h2>Merino base layer top S · €22</h2>
+    <p class="cat">women-tops · colour: black</p>
+    <p class="desc">Thin merino long sleeve, great under ski clothes.</p>
+    <ul><li title="warm but not wool">q10 · warm but not wool <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q11">
+  <img src="images/kids-hoodie-8y.jpg" alt="Kids sweatshirt 8 years" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>kids-hoodie-8y</code></div>
+    <h2>Kids sweatshirt 8 years · €9</h2>
+    <p class="cat">kids-tops · colour: grey</p>
+    <p class="desc">Light grey sweatshirt with a snake print for 8y. Image by TeeFarm from Pixabay</p>
+    <ul><li title="kids clothes 8 years, no bundles">q11 · kids clothes 8 years, no bundles <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q11 q17">
+  <img src="images/kids-jeans-8y.jpg" alt="Jeans for 8 year old" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>kids-jeans-8y</code></div>
+    <h2>Jeans for 8 year old · €8</h2>
+    <p class="cat">kids-bottoms · colour: blue</p>
+    <p class="desc">Slim jeans, 128 cm / 8 years. Knees fine. Image by Republica from Pixabay</p>
+    <ul><li title="kids clothes 8 years, no bundles">q11 · kids clothes 8 years, no bundles <b>grade 2</b></li><li title="jeans under 15€">q17 · jeans under 15€ <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q11">
+  <img src="images/kids-joggers-8y.jpg" alt="Joggers 128 cm" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>kids-joggers-8y</code></div>
+    <h2>Joggers 128 cm · €5</h2>
+    <p class="cat">kids-bottoms · colour: —</p>
+    <p class="desc">Soft joggers with a print, 128 cm. Image by danimini from Pixabay</p>
+    <ul><li title="kids clothes 8 years, no bundles">q11 · kids clothes 8 years, no bundles <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q11">
+  <img src="images/kids-bundle-8y-girls.jpg" alt="Girls clothes bundle 8y" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>kids-bundle-8y-girls</code></div>
+    <h2>Girls clothes bundle 8y · €15</h2>
+    <p class="cat">kids-bundles · colour: multicolor</p>
+    <p class="desc">8 items for an 8 year old girl: knit sweaters, tops and a shirt. Image by Pexels from Pixabay</p>
+    <ul><li title="kids clothes 8 years, no bundles">q11 · kids clothes 8 years, no bundles <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q12 q08">
+  <img src="images/y2k-baby-tee.jpg" alt="Y2K baby tee, white eyelet" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>y2k-baby-tee</code></div>
+    <h2>Y2K baby tee, white eyelet · €10</h2>
+    <p class="cat">women-tops · colour: white</p>
+    <p class="desc">Cropped white eyelet baby tee with puff sleeves, so 2000s. XS. Image by majestical_jasmin from Pixabay</p>
+    <ul><li title="y2k">q12 · y2k <b>grade 2</b></li><li title="baby clothes 6 months">q08 · baby clothes 6 months <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q12">
+  <img src="images/low-rise-flare-jeans.jpg" alt="Low rise flared jeans S" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>low-rise-flare-jeans</code></div>
+    <h2>Low rise flared jeans S · €22</h2>
+    <p class="cat">women-bottoms · colour: blue</p>
+    <p class="desc">Low rise flares, early 2000s style. Dark wash. Image by shilmar from Pixabay</p>
+    <ul><li title="y2k">q12 · y2k <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q12">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>velour-zip-hoodie-pink</code></div>
+    <h2>Velour zip hoodie M · €16</h2>
+    <p class="cat">women-tops · colour: pink</p>
+    <p class="desc">Velour zip-up, the kind everyone had in 2003.</p>
+    <ul><li title="y2k">q12 · y2k <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q12 q20">
+  <img src="images/tinted-sunglasses-oval.jpg" alt="Cat-eye sunglasses" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>tinted-sunglasses-oval</code></div>
+    <h2>Cat-eye sunglasses · €8</h2>
+    <p class="cat">women-accessories · colour: —</p>
+    <p class="desc">Black cat-eye sunnies, tinted lenses. Image by Surprising_Media from Pixabay</p>
+    <ul><li title="y2k">q12 · y2k <b>grade 1</b></li><li title="summer holiday clothes">q20 · summer holiday clothes <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q13 q20">
+  <img src="images/light-blue-summer-dress.jpg" alt="Light blue summer dress M" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>light-blue-summer-dress</code></div>
+    <h2>Light blue summer dress M · €18</h2>
+    <p class="cat">women-tops · colour: blue</p>
+    <p class="desc">Baby blue tiered cotton sundress. Perfect for summer. Image by klimkin from Pixabay</p>
+    <ul><li title="baby blue dress">q13 · baby blue dress <b>grade 2</b></li><li title="summer holiday clothes">q20 · summer holiday clothes <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q13">
+  <img src="images/powder-blue-midi-dress.jpg" alt="Flowy midi dress S" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>powder-blue-midi-dress</code></div>
+    <h2>Flowy midi dress S · €22</h2>
+    <p class="cat">women-tops · colour: —</p>
+    <p class="desc">Flowy sheer midi dress with long sleeves and tiny sequins, worn twice. Image by Sunriseforever from Pixabay</p>
+    <ul><li title="baby blue dress">q13 · baby blue dress <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q13">
+  <img src="images/navy-dress.jpg" alt="Dark blue party dress M" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>navy-dress</code></div>
+    <h2>Dark blue party dress M · €20</h2>
+    <p class="cat">women-tops · colour: blue</p>
+    <p class="desc">Dark teal-blue strapless party dress. Image by Sunriseforever from Pixabay</p>
+    <ul><li title="baby blue dress">q13 · baby blue dress <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q13 q07">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>kids-blue-dress-4y</code></div>
+    <h2>Blue dress for girls, 4 years · €7</h2>
+    <p class="cat">kids-tops · colour: blue</p>
+    <p class="desc">Blue party dress with a tulle skirt, 104 cm.</p>
+    <ul><li title="baby blue dress">q13 · baby blue dress <b>not relevant</b></li><li title="for my 5 year old">q07 · for my 5 year old <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q14 q06 q10">
+  <img src="images/green-parka-hidden.jpg" alt="Padded parka L, barely used" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>green-parka-hidden</code></div>
+    <h2>Padded parka L, barely used · €40</h2>
+    <p class="cat">men-tops · colour: —</p>
+    <p class="desc">Padded parka with a high collar. Barely used, too big for me. Image by Gromovataya from Pixabay</p>
+    <ul><li title="green jacket">q14 · green jacket <b>grade 2</b></li><li title="warm for winter">q06 · warm for winter <b>grade 2</b></li><li title="warm but not wool">q10 · warm but not wool <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q14 q01">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>olive-bomber-jacket</code></div>
+    <h2>Olive green bomber jacket M · €28</h2>
+    <p class="cat">men-tops · colour: green</p>
+    <p class="desc">Olive bomber with light padding. Great between seasons.</p>
+    <ul><li title="green jacket">q14 · green jacket <b>grade 2</b></li><li title="vintage jacket for autumn">q01 · vintage jacket for autumn <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q14 q07">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>kids-green-raincoat-6y</code></div>
+    <h2>Green rain jacket kids 6y · €10</h2>
+    <p class="cat">kids-tops · colour: green</p>
+    <p class="desc">Green raincoat 116 cm with fleece lining.</p>
+    <ul><li title="green jacket">q14 · green jacket <b>grade 1</b></li><li title="for my 5 year old">q07 · for my 5 year old <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q14">
+  <img src="images/green-hoodie.jpg" alt="Mint fleece hoodie M" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>green-hoodie</code></div>
+    <h2>Mint fleece hoodie M · €12</h2>
+    <p class="cat">women-tops · colour: green</p>
+    <p class="desc">Mint fleece hoodie with a zip, oversized. Image by aliciarachel from Pixabay</p>
+    <ul><li title="green jacket">q14 · green jacket <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q14">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role distractor">distractor</span> <code>green-day-band-tee</code></div>
+    <h2>Green Day t-shirt M · €10</h2>
+    <p class="cat">men-tops · colour: black</p>
+    <p class="desc">Green Day tour shirt, black, faded print.</p>
+    <ul><li title="green jacket">q14 · green jacket <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q15">
+  <img src="images/red-leather-handbag.jpg" alt="Red striped handbag" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>red-leather-handbag</code></div>
+    <h2>Red striped handbag · €30</h2>
+    <p class="cat">women-accessories · colour: red</p>
+    <p class="desc">Woven handbag with red stripes and a leather flap. Clean inside. Image by rasiddiqui16 from Pixabay</p>
+    <ul><li title="red handbag">q15 · red handbag <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q15">
+  <img src="images/shoulder-bag-chain.jpg" alt="Small shoulder bag with chain" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>shoulder-bag-chain</code></div>
+    <h2>Small shoulder bag with chain · €25</h2>
+    <p class="cat">women-accessories · colour: —</p>
+    <p class="desc">Small quilted bag with a gold chain strap. Fits phone and keys. Image by jaroslaw-igras from Pixabay</p>
+    <ul><li title="red handbag">q15 · red handbag <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q15">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>burgundy-clutch</code></div>
+    <h2>Burgundy clutch · €12</h2>
+    <p class="cat">women-accessories · colour: —</p>
+    <p class="desc">Velvet clutch in burgundy, magnetic closure.</p>
+    <ul><li title="red handbag">q15 · red handbag <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q15">
+  <img src="images/black-handbag.jpg" alt="Black handbag" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>black-handbag</code></div>
+    <h2>Black handbag · €20</h2>
+    <p class="cat">women-accessories · colour: black</p>
+    <p class="desc">Everyday black leather bag with a buckle, lots of room. Image by kaboompics from Pixabay</p>
+    <ul><li title="red handbag">q15 · red handbag <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q15">
+  <img src="images/handmade-red-scarf.jpg" alt="Hand-dyed red scarf" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role distractor">distractor</span> <code>handmade-red-scarf</code></div>
+    <h2>Hand-dyed red scarf · €9</h2>
+    <p class="cat">women-accessories · colour: red</p>
+    <p class="desc">Long light scarf, hand dyed red. Image by Nika_Akin from Pixabay</p>
+    <ul><li title="red handbag">q15 · red handbag <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q16">
+  <img src="images/mens-oxford-shirt-l.jpg" alt="Men's oxford shirt L" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>mens-oxford-shirt-l</code></div>
+    <h2>Men's oxford shirt L · €15</h2>
+    <p class="cat">men-tops · colour: white</p>
+    <p class="desc">White oxford shirt, button down collar. Ironed :) Image by congerdesign from Pixabay</p>
+    <ul><li title="men's shirt size L">q16 · men's shirt size L <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q16">
+  <img src="images/flannel-check-l.jpg" alt="Lumberjack flannel" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>flannel-check-l</code></div>
+    <h2>Lumberjack flannel · €12</h2>
+    <p class="cat">men-tops · colour: —</p>
+    <p class="desc">Thick checked flannel, size L. Soft from washing. Image by tookapic from Pixabay</p>
+    <ul><li title="men's shirt size L">q16 · men's shirt size L <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q16">
+  <img src="images/mens-shirt-m.jpg" alt="Men's shirt M" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>mens-shirt-m</code></div>
+    <h2>Men's shirt M · €12</h2>
+    <p class="cat">men-tops · colour: blue</p>
+    <p class="desc">Navy shirt with tiny white dots, slim fit, M. Image by renzonovoa1 from Pixabay</p>
+    <ul><li title="men's shirt size L">q16 · men's shirt size L <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q16">
+  <img src="images/womens-shirt-l.jpg" alt="White lace top, women's L" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>womens-shirt-l</code></div>
+    <h2>White lace top, women's L · €10</h2>
+    <p class="cat">women-tops · colour: white</p>
+    <p class="desc">Sleeveless white lace top. Image by SnapwireSnaps from Pixabay</p>
+    <ul><li title="men's shirt size L">q16 · men's shirt size L <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q17">
+  <img src="images/skinny-jeans-12.jpg" alt="Skinny jeans S" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>skinny-jeans-12</code></div>
+    <h2>Skinny jeans S · €12</h2>
+    <p class="cat">women-bottoms · colour: blue</p>
+    <p class="desc">Dark skinny jeans, W27. Stretchy. Image by xusenru from Pixabay</p>
+    <ul><li title="jeans under 15€">q17 · jeans under 15€ <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q17">
+  <img src="images/denim-trousers-mens-9.jpg" alt="Denim trousers, straight leg M" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>denim-trousers-mens-9</code></div>
+    <h2>Denim trousers, straight leg M · €9</h2>
+    <p class="cat">men-bottoms · colour: blue</p>
+    <p class="desc">Straight leg light wash denim trousers, ripped knees. Image by mintchipdesigns from Pixabay</p>
+    <ul><li title="jeans under 15€">q17 · jeans under 15€ <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q18">
+  <img src="images/black-leather-biker-jacket.jpg" alt="Tan leather biker jacket M" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>black-leather-biker-jacket</code></div>
+    <h2>Tan leather biker jacket M · €60</h2>
+    <p class="cat">women-tops · colour: brown</p>
+    <p class="desc">Real leather biker jacket in tan. Womens M. Image by Sunriseforever from Pixabay</p>
+    <ul><li title="leather jakcet">q18 · leather jakcet <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q18 q01">
+  <img src="images/mens-leather-jacket-brown.jpg" alt="Brown leather jacket L" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>mens-leather-jacket-brown</code></div>
+    <h2>Brown leather jacket L · €75</h2>
+    <p class="cat">men-tops · colour: brown</p>
+    <p class="desc">Old brown leather jacket, nicely worn in. Lining has a small tear. Image by swarrelmann from Pixabay</p>
+    <ul><li title="leather jakcet">q18 · leather jakcet <b>grade 2</b></li><li title="vintage jacket for autumn">q01 · vintage jacket for autumn <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q18">
+  <img src="images/faux-leather-jacket.jpg" alt="Faux leather jacket S" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>faux-leather-jacket</code></div>
+    <h2>Faux leather jacket S · €20</h2>
+    <p class="cat">women-tops · colour: black</p>
+    <p class="desc">Vegan leather jacket with a faux shearling collar. Peeling a bit on one sleeve. Image by blickpixel from Pixabay</p>
+    <ul><li title="leather jakcet">q18 · leather jakcet <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q18">
+  <img src="images/leather-belt-brown.jpg" alt="Leather belt, brown" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role distractor">distractor</span> <code>leather-belt-brown</code></div>
+    <h2>Leather belt, brown · €8</h2>
+    <p class="cat">men-accessories · colour: brown</p>
+    <p class="desc">Brown leather belt, 95 cm. Image by 39839 from Pixabay</p>
+    <ul><li title="leather jakcet">q18 · leather jakcet <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q19">
+  <img src="images/sports-leggings-black.jpg" alt="Yoga leggings S, navy" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>sports-leggings-black</code></div>
+    <h2>Yoga leggings S, navy · €12</h2>
+    <p class="cat">women-bottoms · colour: blue</p>
+    <p class="desc">High waist navy leggings for yoga or the gym. Image by jeviniya from Pixabay</p>
+    <ul><li title="outfit for the gym">q19 · outfit for the gym <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q19">
+  <img src="images/racerback-tank.jpg" alt="Racerback tank S" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>racerback-tank</code></div>
+    <h2>Racerback tank S · €6</h2>
+    <p class="cat">women-tops · colour: —</p>
+    <p class="desc">Quick-dry racerback tank with a mesh back. Image by thanhchithanh from Pixabay</p>
+    <ul><li title="outfit for the gym">q19 · outfit for the gym <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q19">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>mens-drawstring-shorts</code></div>
+    <h2>Shorts with drawstring L · €7</h2>
+    <p class="cat">men-bottoms · colour: —</p>
+    <p class="desc">Light polyester shorts with a drawstring and zip pocket.</p>
+    <ul><li title="outfit for the gym">q19 · outfit for the gym <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q19">
+  <img src="images/gym-outfit-bundle.jpg" alt="Gym set: hoodie + joggers S" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>gym-outfit-bundle</code></div>
+    <h2>Gym set: hoodie + joggers S · €20</h2>
+    <p class="cat">women-bundles · colour: —</p>
+    <p class="desc">Matching grey hoodie and joggers, size S. Used mostly for the gym. Image by Engin_Akyurt from Pixabay</p>
+    <ul><li title="outfit for the gym">q19 · outfit for the gym <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q20 q16">
+  <img src="images/linen-shirt-white.jpg" alt="White linen shirt L" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>linen-shirt-white</code></div>
+    <h2>White linen shirt L · €18</h2>
+    <p class="cat">men-tops · colour: white</p>
+    <p class="desc">Cream linen shirt with a grandad collar, perfect for summer holidays. Wrinkles, as linen does. Image by Cnippato78 from Pixabay</p>
+    <ul><li title="summer holiday clothes">q20 · summer holiday clothes <b>grade 2</b></li><li title="men's shirt size L">q16 · men's shirt size L <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q20">
+  <img src="images/straw-hat.jpg" alt="Straw cowboy hat" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>straw-hat</code></div>
+    <h2>Straw cowboy hat · €8</h2>
+    <p class="cat">women-accessories · colour: —</p>
+    <p class="desc">Straw cowboy hat with a studded band, one size. Image by garten-gg from Pixabay</p>
+    <ul><li title="summer holiday clothes">q20 · summer holiday clothes <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q20">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>swim-shorts-mens</code></div>
+    <h2>Swim shorts M · €10</h2>
+    <p class="cat">men-bottoms · colour: blue</p>
+    <p class="desc">Quick dry swim shorts with mesh lining. Turquoise.</p>
+    <ul><li title="summer holiday clothes">q20 · summer holiday clothes <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q20">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role distractor">distractor</span> <code>summer-camp-hoodie</code></div>
+    <h2>Summer camp hoodie 12y · €6</h2>
+    <p class="cat">kids-tops · colour: —</p>
+    <p class="desc">Hoodie from summer camp 2019, thick cotton.</p>
+    <ul><li title="summer holiday clothes">q20 · summer holiday clothes <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q21">
+  <img src="images/marimekko-unikko-dress.jpg" alt="Marimekko floral midi dress M" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>marimekko-unikko-dress</code></div>
+    <h2>Marimekko floral midi dress M · €55</h2>
+    <p class="cat">women-tops · colour: multicolor</p>
+    <p class="desc">Marimekko midi dress, cream with a small green flower print. Cotton. Image by quanghoanphotos from Pixabay</p>
+    <ul><li title="marimekko">q21 · marimekko <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q21">
+  <img src="images/striped-top-brand-only.jpg" alt="Striped tee S" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>striped-top-brand-only</code></div>
+    <h2>Striped tee S · €25</h2>
+    <p class="cat">women-tops · colour: —</p>
+    <p class="desc">Classic light blue and white striped tee. Unisex fit. Image by marijana1 from Pixabay</p>
+    <ul><li title="marimekko">q21 · marimekko <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q21">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>marimeko-kids-pants</code></div>
+    <h2>Kids trousers 98 cm · €9</h2>
+    <p class="cat">kids-bottoms · colour: —</p>
+    <p class="desc">marimeko trousers for kids, 98cm, ok condition</p>
+    <ul><li title="marimekko">q21 · marimekko <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q21">
+  <img src="images/poppy-print-dress.jpg" alt="Yellow flower print dress M" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>poppy-print-dress</code></div>
+    <h2>Yellow flower print dress M · €15</h2>
+    <p class="cat">women-tops · colour: yellow</p>
+    <p class="desc">Mustard yellow dress with a white flower print, no brand label. Image by HiteshHtSharma from Pixabay</p>
+    <ul><li title="marimekko">q21 · marimekko <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q22">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>boho-embroidered-blouse</code></div>
+    <h2>Boho embroidered blouse S · €16</h2>
+    <p class="cat">women-tops · colour: white</p>
+    <p class="desc">White boho blouse with colourful embroidery on the sleeves.</p>
+    <ul><li title="boho style top">q22 · boho style top <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q22">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>peasant-top-puff</code></div>
+    <h2>Peasant top with puff sleeves · €10</h2>
+    <p class="cat">women-tops · colour: white</p>
+    <p class="desc">Cotton peasant top with a smocked waist, size M.</p>
+    <ul><li title="boho style top">q22 · boho style top <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q22">
+  <img src="images/boho-maxi-skirt.jpg" alt="Boho striped skirt M" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>boho-maxi-skirt</code></div>
+    <h2>Boho striped skirt M · €18</h2>
+    <p class="cat">women-bottoms · colour: multicolor</p>
+    <p class="desc">Flowy midi skirt in rainbow stripes. Image by mingkeiho from Pixabay</p>
+    <ul><li title="boho style top">q22 · boho style top <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q22">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role distractor">distractor</span> <code>top-hat</code></div>
+    <h2>Top hat · €15</h2>
+    <p class="cat">men-accessories · colour: black</p>
+    <p class="desc">Black felt top hat, for costume parties.</p>
+    <ul><li title="boho style top">q22 · boho style top <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q23 q06 q10">
+  <img src="images/teddy-coat.jpg" alt="Knitted coat with faux fur hood M" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>teddy-coat</code></div>
+    <h2>Knitted coat with faux fur hood M · €35</h2>
+    <p class="cat">women-tops · colour: —</p>
+    <p class="desc">Long chunky knit coat with a faux fur hood, acrylic, very warm. Womens M. Image by Elsemargriet from Pixabay</p>
+    <ul><li title="warm coat for women size M under 50€">q23 · warm coat for women size M under 50€ <b>grade 2</b></li><li title="warm for winter">q06 · warm for winter <b>grade 2</b></li><li title="warm but not wool">q10 · warm but not wool <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q23 q06">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>wool-coat-l</code></div>
+    <h2>Grey wool coat L · €40</h2>
+    <p class="cat">women-tops · colour: grey</p>
+    <p class="desc">Long grey wool coat, womens L.</p>
+    <ul><li title="warm coat for women size M under 50€">q23 · warm coat for women size M under 50€ <b>not relevant</b></li><li title="warm for winter">q06 · warm for winter <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q23 q06">
+  <img src="images/designer-coat-m.jpg" alt="Black hooded coat M" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>designer-coat-m</code></div>
+    <h2>Black hooded coat M · €120</h2>
+    <p class="cat">women-tops · colour: black</p>
+    <p class="desc">Black brocade coat with a big hood and pompoms. Lined, like new. Image by NinaWind from Pixabay</p>
+    <ul><li title="warm coat for women size M under 50€">q23 · warm coat for women size M under 50€ <b>not relevant</b></li><li title="warm for winter">q06 · warm for winter <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q24 q06 q10 q23">
+  <div class="nophoto">no photo</div>
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>red-puffer-coat-l</code></div>
+    <h2>Red puffer coat L · €55</h2>
+    <p class="cat">women-tops · colour: red</p>
+    <p class="desc">Long red puffer coat, warm enough for proper Finnish winters. Two way zip, hood. Womens L.</p>
+    <ul><li title="red winter coat">q24 · red winter coat <b>grade 2</b></li><li title="warm for winter">q06 · warm for winter <b>grade 2</b></li><li title="warm but not wool">q10 · warm but not wool <b>grade 2</b></li><li title="warm coat for women size M under 50€">q23 · warm coat for women size M under 50€ <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q24 q06 q23">
+  <img src="images/talvitakki-koko-m.jpg" alt="Talvitakki, koko M" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>talvitakki-koko-m</code></div>
+    <h2>Talvitakki, koko M · €38</h2>
+    <p class="cat">women-tops · colour: —</p>
+    <p class="desc">Lämmin talvitakki, käytetty kaksi talvea. Hupussa irrotettava karvareunus. Ei reikiä. Image by Surprising_Media from Pixabay</p>
+    <ul><li title="red winter coat">q24 · red winter coat <b>grade 2</b></li><li title="warm for winter">q06 · warm for winter <b>grade 2</b></li><li title="warm coat for women size M under 50€">q23 · warm coat for women size M under 50€ <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q24">
+  <img src="images/kevattakki.jpg" alt="Kevättakki S" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role near-miss">near-miss</span> <code>kevattakki</code></div>
+    <h2>Kevättakki S · €15</h2>
+    <p class="cat">women-tops · colour: —</p>
+    <p class="desc">Ohut kevättakki, vähän käytetty. Image by Surprising_Media from Pixabay</p>
+    <ul><li title="red winter coat">q24 · red winter coat <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q25">
+  <img src="images/knitted-jumper-navy.jpg" alt="Navy and grey knitted jumper L" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>knitted-jumper-navy</code></div>
+    <h2>Navy and grey knitted jumper L · €20</h2>
+    <p class="cat">men-tops · colour: blue</p>
+    <p class="desc">Chunky knit jumper with navy and grey stripes. Cotton. Image by Pexels from Pixabay</p>
+    <ul><li title="jumper">q25 · jumper <b>grade 2</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q25 q10">
+  <img src="images/chunky-pullover.jpg" alt="Chunky knit pullover M" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role hidden">hidden</span> <code>chunky-pullover</code></div>
+    <h2>Chunky knit pullover M · €18</h2>
+    <p class="cat">women-tops · colour: —</p>
+    <p class="desc">Oversized chunky pullover, acrylic so no itch. Image by Engin_Akyurt from Pixabay</p>
+    <ul><li title="jumper">q25 · jumper <b>grade 2</b></li><li title="warm but not wool">q10 · warm but not wool <b>grade 1</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q25">
+  <img src="images/pinafore-jumper-dress.jpg" alt="Denim jumper dress S" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role distractor">distractor</span> <code>pinafore-jumper-dress</code></div>
+    <h2>Denim jumper dress S · €14</h2>
+    <p class="cat">women-tops · colour: blue</p>
+    <p class="desc">Pinafore dress in denim, wear it over a shirt or tee. Image by PublicDomainPictures from Pixabay</p>
+    <ul><li title="jumper">q25 · jumper <b>not relevant</b></li></ul>
+  </div>
+</article>
+<article class="card" data-queries="q25 q07">
+  <img src="images/kids-sweater-6y.jpg" alt="Kids rainbow sweater 6 years" loading="lazy">
+  <div class="body">
+    <div class="meta"><span class="role direct">direct</span> <code>kids-sweater-6y</code></div>
+    <h2>Kids rainbow sweater 6 years · €6</h2>
+    <p class="cat">kids-tops · colour: multicolor</p>
+    <p class="desc">Warm striped knitted sweater for 6y, lots of colours. Image by caradecabra from Pixabay</p>
+    <ul><li title="jumper">q25 · jumper <b>grade 1</b></li><li title="for my 5 year old">q07 · for my 5 year old <b>grade 1</b></li></ul>
+  </div>
+</article>
+</main>
+<script>
+  document.getElementById('q').addEventListener('change', e => {
+    document.querySelectorAll('.card').forEach(c => {
+      c.hidden = !!e.target.value && !c.dataset.queries.split(' ').includes(e.target.value);
+    });
+  });
+</script>
+</body>
+</html>

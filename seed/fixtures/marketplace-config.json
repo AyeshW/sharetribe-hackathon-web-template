@@ -1,0 +1,849 @@
+{
+  "listingFields": [
+    {
+      "listingTypeConfig": {
+        "limitToListingTypeIds": false
+      },
+      "saveConfig": {
+        "label": "Size",
+        "placeholderMessage": "Select a size…",
+        "isRequired": true,
+        "requiredMessage": "You need to select a size."
+      },
+      "key": "size",
+      "filterConfig": {
+        "indexForSearch": true,
+        "showFilter": true,
+        "group": "primary",
+        "filterType": "SelectSingleFilter",
+        "label": "Size"
+      },
+      "schemaType": "enum",
+      "categoryConfig": {
+        "limitToCategoryIds": true,
+        "categoryIds": [
+          "women-tops",
+          "women-bottoms",
+          "men-tops",
+          "men-bottoms"
+        ]
+      },
+      "scope": "public",
+      "label": "Size",
+      "showConfig": {
+        "label": "Size",
+        "isDetail": true
+      },
+      "enumOptions": [
+        {
+          "label": "XS",
+          "option": "xs"
+        },
+        {
+          "label": "S",
+          "option": "s"
+        },
+        {
+          "label": "M",
+          "option": "m"
+        },
+        {
+          "label": "L",
+          "option": "l"
+        },
+        {
+          "label": "XL",
+          "option": "xl"
+        },
+        {
+          "label": "XXL",
+          "option": "xxl"
+        }
+      ]
+    },
+    {
+      "listingTypeConfig": {
+        "limitToListingTypeIds": false
+      },
+      "saveConfig": {
+        "label": "Shoe size",
+        "placeholderMessage": "Select a shoe size…",
+        "isRequired": true,
+        "requiredMessage": "You need to select a shoe size."
+      },
+      "key": "shoeSize",
+      "filterConfig": {
+        "indexForSearch": true,
+        "showFilter": true,
+        "group": "primary",
+        "filterType": "SelectSingleFilter",
+        "label": "Shoe size"
+      },
+      "schemaType": "enum",
+      "categoryConfig": {
+        "limitToCategoryIds": true,
+        "categoryIds": [
+          "women-shoes",
+          "men-shoes",
+          "kids-shoes"
+        ]
+      },
+      "scope": "public",
+      "label": "Shoe size",
+      "showConfig": {
+        "label": "Shoe size",
+        "isDetail": true
+      },
+      "enumOptions": [
+        {
+          "label": "EU 19",
+          "option": "19"
+        },
+        {
+          "label": "EU 20",
+          "option": "20"
+        },
+        {
+          "label": "EU 21",
+          "option": "21"
+        },
+        {
+          "label": "EU 22",
+          "option": "22"
+        },
+        {
+          "label": "EU 23",
+          "option": "23"
+        },
+        {
+          "label": "EU 24",
+          "option": "24"
+        },
+        {
+          "label": "EU 25",
+          "option": "25"
+        },
+        {
+          "label": "EU 26",
+          "option": "26"
+        },
+        {
+          "label": "EU 27",
+          "option": "27"
+        },
+        {
+          "label": "EU 28",
+          "option": "28"
+        },
+        {
+          "label": "EU 29",
+          "option": "29"
+        },
+        {
+          "label": "EU 30",
+          "option": "30"
+        },
+        {
+          "label": "EU 31",
+          "option": "31"
+        },
+        {
+          "label": "EU 32",
+          "option": "32"
+        },
+        {
+          "label": "EU 33",
+          "option": "33"
+        },
+        {
+          "label": "EU 34",
+          "option": "34"
+        },
+        {
+          "label": "EU 35",
+          "option": "35"
+        },
+        {
+          "label": "EU 36",
+          "option": "36"
+        },
+        {
+          "label": "EU 37",
+          "option": "37"
+        },
+        {
+          "label": "EU 38",
+          "option": "38"
+        },
+        {
+          "label": "EU 39",
+          "option": "39"
+        },
+        {
+          "label": "EU 40",
+          "option": "40"
+        },
+        {
+          "label": "EU 41",
+          "option": "41"
+        },
+        {
+          "label": "EU 42",
+          "option": "42"
+        },
+        {
+          "label": "EU 43",
+          "option": "43"
+        },
+        {
+          "label": "EU 44",
+          "option": "44"
+        },
+        {
+          "label": "EU 45",
+          "option": "45"
+        },
+        {
+          "label": "EU 46",
+          "option": "46"
+        },
+        {
+          "label": "EU 47",
+          "option": "47"
+        },
+        {
+          "label": "EU 48",
+          "option": "48"
+        }
+      ]
+    },
+    {
+      "listingTypeConfig": {
+        "limitToListingTypeIds": false
+      },
+      "saveConfig": {
+        "label": "Size",
+        "placeholderMessage": "Select an age…",
+        "isRequired": true,
+        "requiredMessage": "You need to select a size."
+      },
+      "key": "kidsSize",
+      "filterConfig": {
+        "indexForSearch": true,
+        "showFilter": true,
+        "group": "primary",
+        "filterType": "SelectSingleFilter",
+        "label": "Size"
+      },
+      "schemaType": "enum",
+      "categoryConfig": {
+        "limitToCategoryIds": true,
+        "categoryIds": [
+          "kids-tops",
+          "kids-bottoms"
+        ]
+      },
+      "scope": "public",
+      "label": "Size",
+      "showConfig": {
+        "label": "Size",
+        "isDetail": true
+      },
+      "enumOptions": [
+        {
+          "label": "3 months",
+          "option": "3m"
+        },
+        {
+          "label": "6 months",
+          "option": "6m"
+        },
+        {
+          "label": "9 months",
+          "option": "9m"
+        },
+        {
+          "label": "1 year",
+          "option": "1y"
+        },
+        {
+          "label": "2 years",
+          "option": "2y"
+        },
+        {
+          "label": "3 years",
+          "option": "3y"
+        },
+        {
+          "label": "4 years",
+          "option": "4y"
+        },
+        {
+          "label": "5 years",
+          "option": "5y"
+        },
+        {
+          "label": "6 years",
+          "option": "6y"
+        },
+        {
+          "label": "7 years",
+          "option": "7y"
+        },
+        {
+          "label": "8 years",
+          "option": "8y"
+        },
+        {
+          "label": "9 years",
+          "option": "9y"
+        },
+        {
+          "label": "10 years",
+          "option": "10y"
+        },
+        {
+          "label": "11 years",
+          "option": "11y"
+        },
+        {
+          "label": "12 years",
+          "option": "12y"
+        },
+        {
+          "label": "13 years",
+          "option": "13y"
+        },
+        {
+          "label": "14 years",
+          "option": "14y"
+        }
+      ]
+    },
+    {
+      "listingTypeConfig": {
+        "limitToListingTypeIds": true,
+        "listingTypeIds": [
+          "sell-used-products"
+        ]
+      },
+      "saveConfig": {
+        "label": "Size details",
+        "placeholderMessage": "E.g. exact measurements, or how the item fits…",
+        "isRequired": false
+      },
+      "key": "sizeDetails",
+      "filterConfig": {
+        "indexForSearch": false
+      },
+      "schemaType": "text",
+      "categoryConfig": {
+        "limitToCategoryIds": false
+      },
+      "scope": "public",
+      "label": "Size details",
+      "showConfig": {
+        "label": "Size details"
+      }
+    },
+    {
+      "listingTypeConfig": {
+        "limitToListingTypeIds": false
+      },
+      "saveConfig": {
+        "label": "Condition",
+        "placeholderMessage": "Select a condition…",
+        "isRequired": true,
+        "requiredMessage": "You need to select the condition."
+      },
+      "key": "condition",
+      "filterConfig": {
+        "indexForSearch": true,
+        "showFilter": true,
+        "group": "primary",
+        "filterType": "SelectSingleFilter",
+        "label": "Condition"
+      },
+      "schemaType": "enum",
+      "categoryConfig": {
+        "limitToCategoryIds": true,
+        "categoryIds": [
+          "women-tops",
+          "women-bottoms",
+          "women-shoes",
+          "women-accessories",
+          "men-tops",
+          "men-bottoms",
+          "men-shoes",
+          "men-accessories",
+          "kids-tops",
+          "kids-bottoms",
+          "kids-shoes",
+          "kids-accessories"
+        ]
+      },
+      "scope": "public",
+      "label": "Condition",
+      "showConfig": {
+        "label": "Condition",
+        "isDetail": true
+      },
+      "enumOptions": [
+        {
+          "label": "Like new",
+          "option": "like-new"
+        },
+        {
+          "label": "Gently used",
+          "option": "gently-used"
+        },
+        {
+          "label": "Well used",
+          "option": "well-used"
+        },
+        {
+          "label": "Heavily used",
+          "option": "heavily-used"
+        },
+        {
+          "label": "Needs repair",
+          "option": "needs-repair"
+        }
+      ]
+    },
+    {
+      "listingTypeConfig": {
+        "limitToListingTypeIds": false
+      },
+      "saveConfig": {
+        "label": "Condition details",
+        "isRequired": true,
+        "requiredMessage": "You need to describe the condition of the items in this bundle."
+      },
+      "key": "conditionDetails",
+      "filterConfig": {
+        "indexForSearch": false
+      },
+      "schemaType": "text",
+      "categoryConfig": {
+        "limitToCategoryIds": true,
+        "categoryIds": [
+          "women-bundles",
+          "men-bundles",
+          "kids-bundles"
+        ]
+      },
+      "scope": "public",
+      "helpText": "Describe the condition of each item included in the bundle.",
+      "label": "Condition details",
+      "showConfig": {
+        "label": "Condition details"
+      }
+    },
+    {
+      "listingTypeConfig": {
+        "limitToListingTypeIds": false
+      },
+      "saveConfig": {
+        "label": "Brand(s)",
+        "placeholderMessage": "E.g. Nike, Zara, Marimekko…",
+        "isRequired": false
+      },
+      "key": "brand",
+      "filterConfig": {
+        "indexForSearch": false
+      },
+      "schemaType": "text",
+      "categoryConfig": {
+        "limitToCategoryIds": false
+      },
+      "scope": "public",
+      "label": "Brand(s)",
+      "showConfig": {
+        "label": "Brand(s)"
+      }
+    },
+    {
+      "listingTypeConfig": {
+        "limitToListingTypeIds": false
+      },
+      "saveConfig": {
+        "label": "Pet-free home",
+        "placeholderMessage": "Select an option…",
+        "isRequired": false
+      },
+      "key": "petFreeHome",
+      "filterConfig": {
+        "indexForSearch": true,
+        "showFilter": true,
+        "group": "secondary",
+        "filterType": "SelectSingleFilter",
+        "label": "Pet-free home"
+      },
+      "schemaType": "enum",
+      "categoryConfig": {
+        "limitToCategoryIds": false
+      },
+      "scope": "public",
+      "label": "Pet-free home",
+      "showConfig": {
+        "label": "Pet-free home",
+        "isDetail": true
+      },
+      "enumOptions": [
+        {
+          "label": "Yes",
+          "option": "yes"
+        },
+        {
+          "label": "No",
+          "option": "no"
+        }
+      ]
+    },
+    {
+      "listingTypeConfig": {
+        "limitToListingTypeIds": false
+      },
+      "saveConfig": {
+        "label": "Smoke-free home",
+        "placeholderMessage": "Select an option…",
+        "isRequired": false
+      },
+      "key": "smokeFreeHome",
+      "filterConfig": {
+        "indexForSearch": true,
+        "showFilter": true,
+        "group": "secondary",
+        "filterType": "SelectSingleFilter",
+        "label": "Smoke-free home"
+      },
+      "schemaType": "enum",
+      "categoryConfig": {
+        "limitToCategoryIds": false
+      },
+      "scope": "public",
+      "label": "Smoke-free home",
+      "showConfig": {
+        "label": "Smoke-free home",
+        "isDetail": true
+      },
+      "enumOptions": [
+        {
+          "label": "Yes",
+          "option": "yes"
+        },
+        {
+          "label": "No",
+          "option": "no"
+        }
+      ]
+    },
+    {
+      "listingTypeConfig": {
+        "limitToListingTypeIds": false,
+        "listingTypeIds": []
+      },
+      "saveConfig": {
+        "label": "Material(s)",
+        "placeholderMessage": "E.g. cotton, wool, polyester…",
+        "isRequired": false
+      },
+      "key": "material",
+      "filterConfig": {
+        "indexForSearch": false
+      },
+      "schemaType": "text",
+      "categoryConfig": {
+        "limitToCategoryIds": false
+      },
+      "scope": "public",
+      "label": "Material(s)",
+      "showConfig": {
+        "label": "Material(s)"
+      }
+    },
+    {
+      "listingTypeConfig": {
+        "limitToListingTypeIds": false
+      },
+      "saveConfig": {
+        "label": "Color",
+        "placeholderMessage": "Select a color…",
+        "isRequired": false
+      },
+      "key": "color",
+      "filterConfig": {
+        "indexForSearch": true,
+        "showFilter": true,
+        "group": "primary",
+        "filterType": "SelectSingleFilter",
+        "label": "Color"
+      },
+      "schemaType": "enum",
+      "categoryConfig": {
+        "limitToCategoryIds": false
+      },
+      "scope": "public",
+      "label": "Color",
+      "showConfig": {
+        "label": "Color",
+        "isDetail": true
+      },
+      "enumOptions": [
+        {
+          "label": "Black",
+          "option": "black"
+        },
+        {
+          "label": "White",
+          "option": "white"
+        },
+        {
+          "label": "Grey",
+          "option": "grey"
+        },
+        {
+          "label": "Red",
+          "option": "red"
+        },
+        {
+          "label": "Orange",
+          "option": "orange"
+        },
+        {
+          "label": "Yellow",
+          "option": "yellow"
+        },
+        {
+          "label": "Green",
+          "option": "green"
+        },
+        {
+          "label": "Blue",
+          "option": "blue"
+        },
+        {
+          "label": "Purple",
+          "option": "purple"
+        },
+        {
+          "label": "Pink",
+          "option": "pink"
+        },
+        {
+          "label": "Brown",
+          "option": "brown"
+        },
+        {
+          "label": "Gold",
+          "option": "gold"
+        },
+        {
+          "label": "Silver",
+          "option": "silver"
+        },
+        {
+          "label": "Bronze",
+          "option": "bronze"
+        },
+        {
+          "label": "Multicolor",
+          "option": "multicolor"
+        }
+      ]
+    },
+    {
+      "listingTypeConfig": {
+        "limitToListingTypeIds": true,
+        "listingTypeIds": [
+          "sell-used-products"
+        ]
+      },
+      "saveConfig": {
+        "label": "Care instructions",
+        "isRequired": false
+      },
+      "key": "careInstructions",
+      "filterConfig": {
+        "indexForSearch": false
+      },
+      "schemaType": "text",
+      "categoryConfig": {
+        "limitToCategoryIds": true,
+        "categoryIds": [
+          "women-tops",
+          "women-bottoms",
+          "men-tops",
+          "men-bottoms",
+          "kids-tops",
+          "kids-bottoms",
+          "women-bundles",
+          "men-bundles",
+          "kids-bundles"
+        ]
+      },
+      "scope": "public",
+      "helpText": "How to wash, dry, or otherwise care for the item (e.g. wash 40° or no tumble dryer)",
+      "label": "Care instructions",
+      "showConfig": {
+        "label": "Care instructions"
+      }
+    }
+  ],
+  "categories": [
+    {
+      "name": "Women",
+      "id": "women",
+      "subcategories": [
+        {
+          "name": "Tops",
+          "id": "women-tops",
+          "subcategories": []
+        },
+        {
+          "name": "Bottoms",
+          "id": "women-bottoms",
+          "subcategories": []
+        },
+        {
+          "name": "Shoes",
+          "id": "women-shoes",
+          "subcategories": []
+        },
+        {
+          "name": "Accessories",
+          "id": "women-accessories",
+          "subcategories": []
+        },
+        {
+          "name": "Bundles",
+          "id": "women-bundles",
+          "subcategories": []
+        }
+      ]
+    },
+    {
+      "name": "Men",
+      "id": "men",
+      "subcategories": [
+        {
+          "name": "Tops",
+          "id": "men-tops",
+          "subcategories": []
+        },
+        {
+          "name": "Bottoms",
+          "id": "men-bottoms",
+          "subcategories": []
+        },
+        {
+          "name": "Shoes",
+          "id": "men-shoes",
+          "subcategories": []
+        },
+        {
+          "name": "Accessories",
+          "id": "men-accessories",
+          "subcategories": []
+        },
+        {
+          "name": "Bundles",
+          "id": "men-bundles",
+          "subcategories": []
+        }
+      ]
+    },
+    {
+      "name": "Kids",
+      "id": "kids",
+      "subcategories": [
+        {
+          "name": "Tops",
+          "id": "kids-tops",
+          "subcategories": []
+        },
+        {
+          "name": "Bottoms",
+          "id": "kids-bottoms",
+          "subcategories": []
+        },
+        {
+          "name": "Shoes",
+          "id": "kids-shoes",
+          "subcategories": []
+        },
+        {
+          "name": "Accessories",
+          "id": "kids-accessories",
+          "subcategories": []
+        },
+        {
+          "name": "Bundles",
+          "id": "kids-bundles",
+          "subcategories": []
+        }
+      ]
+    }
+  ],
+  "listingTypes": [
+    {
+      "availabilityType": "oneSeat",
+      "transactionFields": [],
+      "stockType": "oneItem",
+      "label": "Sell products",
+      "id": "sell-used-products",
+      "messagingOptions": {
+        "fileAttachments": false
+      },
+      "unitType": "item",
+      "transactionProcess": {
+        "name": "default-purchase",
+        "alias": "default-purchase/release-1"
+      },
+      "defaultListingFields": {
+        "description": true,
+        "availability": false,
+        "payoutDetails": true,
+        "images": true,
+        "pickup": true,
+        "title": true,
+        "files": false,
+        "shipping": true,
+        "location": false,
+        "price": true,
+        "stock": false
+      }
+    },
+    {
+      "label": "In search of",
+      "id": "in-search-of-clothing",
+      "transactionProcess": {
+        "name": "default-negotiation",
+        "alias": "default-negotiation/release-1"
+      },
+      "transactionFields": [],
+      "messagingOptions": {
+        "fileAttachments": true
+      },
+      "defaultListingFields": {
+        "description": true,
+        "availability": false,
+        "payoutDetails": false,
+        "images": false,
+        "pickup": false,
+        "title": true,
+        "files": false,
+        "shipping": false,
+        "location": false,
+        "price": false,
+        "stock": false
+      },
+      "unitType": "request",
+      "negotiationOptions": {
+        "customerCounterOffer": true,
+        "providerUpdateOffer": true
+      }
+    }
+  ]
+}

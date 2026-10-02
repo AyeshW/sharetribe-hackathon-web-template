@@ -2,7 +2,12 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 
-const { buildGroundTruth, seededListingsByKey, loadGroundTruth } = require('./ground-truth');
+const {
+  buildGroundTruth,
+  seededListingsByKey,
+  loadGroundTruth,
+  UPLOADED_FILE,
+} = require('./ground-truth');
 
 const plan = {
   queries: [
@@ -128,5 +133,30 @@ describe('loadGroundTruth', () => {
         existingListingsFile: write('existing.json', existingListings),
       })
     ).toThrow(/uploaded\.json not found.*Run the seeder first/s);
+  });
+});
+
+// The real seed files, so a re-run of the seeder that misses a listing fails here rather than
+// halfway through an eval run. Skipped before the seeder has ever run.
+const withSeedData = fs.existsSync(UPLOADED_FILE) ? describe : describe.skip;
+
+withSeedData('the real seed/plan.json and seed/uploaded.json', () => {
+  it('resolves every query and every correct listing to an id and a title', () => {
+    const queries = loadGroundTruth();
+    const relevant = queries.flatMap(query => query.relevant);
+
+    expect(queries.length).toBeGreaterThan(0);
+    expect(relevant.length).toBeGreaterThan(0);
+    queries.forEach(query => {
+      expect(query.text).toBeTruthy();
+      expect(query.relevant.length).toBeGreaterThan(0);
+      // Every query needs a clearly right listing, or "best in top 3" can never pass.
+      expect(query.relevant.some(item => item.grade === 2)).toBe(true);
+    });
+    relevant.forEach(item => {
+      expect(item.id).toMatch(/^[0-9a-f-]{36}$/);
+      // The report shows titles, so no entry may fall back to showing its id.
+      expect(item.title).not.toBe(item.id);
+    });
   });
 });

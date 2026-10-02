@@ -1,0 +1,2901 @@
+{
+  "queries": [
+    {
+      "id": "q01",
+      "text": "vintage jacket for autumn",
+      "tests": "synonyms",
+      "relevant": [
+        {
+          "ref": "seed:suede-jacket-80s",
+          "grade": 2
+        },
+        {
+          "ref": "seed:corduroy-blazer-retro",
+          "grade": 2
+        },
+        {
+          "ref": "seed:levis-trucker-jacket",
+          "grade": 2
+        },
+        {
+          "ref": "seed:denim-jacket-oversized",
+          "grade": 1
+        },
+        {
+          "ref": "seed:retro-windbreaker-80s",
+          "grade": 1
+        },
+        {
+          "ref": "seed:olive-bomber-jacket",
+          "grade": 1
+        },
+        {
+          "ref": "seed:mens-leather-jacket-brown",
+          "grade": 1
+        },
+        {
+          "ref": "existing:6ab28b71-364e-46e7-8286-b597a7c8852f",
+          "grade": 1
+        },
+        {
+          "ref": "existing:6ab28b71-71c2-4540-ad64-28003a4c68ef",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "text": "trainers",
+      "tests": "synonyms",
+      "relevant": [
+        {
+          "ref": "seed:trainers-grey-mens-43",
+          "grade": 2
+        },
+        {
+          "ref": "seed:white-sneakers-womens-39",
+          "grade": 2
+        },
+        {
+          "ref": "seed:running-shoes-blue-41",
+          "grade": 2
+        },
+        {
+          "ref": "seed:red-canvas-sneakers-37",
+          "grade": 2
+        },
+        {
+          "ref": "existing:6ab28b71-4240-4ba1-b168-7f238eb9e97d",
+          "grade": 2
+        },
+        {
+          "ref": "seed:kids-sneakers-light-up-28",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "id": "q03",
+      "text": "snekers",
+      "tests": "typos",
+      "relevant": [
+        {
+          "ref": "seed:trainers-grey-mens-43",
+          "grade": 2
+        },
+        {
+          "ref": "seed:white-sneakers-womens-39",
+          "grade": 2
+        },
+        {
+          "ref": "seed:red-canvas-sneakers-37",
+          "grade": 2
+        },
+        {
+          "ref": "existing:6ab28b71-4240-4ba1-b168-7f238eb9e97d",
+          "grade": 2
+        },
+        {
+          "ref": "seed:running-shoes-blue-41",
+          "grade": 1
+        },
+        {
+          "ref": "seed:kids-sneakers-light-up-28",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "id": "q04",
+      "text": "Levi's jeans",
+      "tests": "brand",
+      "relevant": [
+        {
+          "ref": "seed:levis-501-mens",
+          "grade": 2
+        },
+        {
+          "ref": "seed:levis-womens-high-waist",
+          "grade": 2
+        }
+      ]
+    },
+    {
+      "id": "q05",
+      "text": "something for a wedding",
+      "tests": "occasion",
+      "relevant": [
+        {
+          "ref": "seed:green-satin-dress",
+          "grade": 2
+        },
+        {
+          "ref": "seed:navy-suit-mens",
+          "grade": 2
+        },
+        {
+          "ref": "seed:floral-midi-dress",
+          "grade": 2
+        },
+        {
+          "ref": "existing:6ab28b71-310d-4cf6-85d2-aaa92bc9214c",
+          "grade": 2
+        },
+        {
+          "ref": "seed:silk-tie-burgundy",
+          "grade": 1
+        },
+        {
+          "ref": "seed:nude-heels-39",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "id": "q06",
+      "text": "warm for winter",
+      "tests": "season",
+      "relevant": [
+        {
+          "ref": "seed:down-parka-black",
+          "grade": 2
+        },
+        {
+          "ref": "seed:puffer-jacket-winter-heavy",
+          "grade": 2
+        },
+        {
+          "ref": "seed:red-puffer-coat-l",
+          "grade": 2
+        },
+        {
+          "ref": "seed:winter-boots-lined",
+          "grade": 2
+        },
+        {
+          "ref": "seed:talvitakki-koko-m",
+          "grade": 2
+        },
+        {
+          "ref": "seed:green-parka-hidden",
+          "grade": 2
+        },
+        {
+          "ref": "seed:teddy-coat",
+          "grade": 2
+        },
+        {
+          "ref": "seed:wool-coat-camel",
+          "grade": 2
+        },
+        {
+          "ref": "seed:knit-hat-mittens",
+          "grade": 1
+        },
+        {
+          "ref": "seed:fleece-jacket-grey",
+          "grade": 1
+        },
+        {
+          "ref": "seed:designer-coat-m",
+          "grade": 1
+        },
+        {
+          "ref": "seed:wool-coat-l",
+          "grade": 1
+        },
+        {
+          "ref": "existing:6ab28b71-b709-44f6-808a-4f6dd41e861e",
+          "grade": 1
+        },
+        {
+          "ref": "existing:6ab28b71-71c2-4540-ad64-28003a4c68ef",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "id": "q07",
+      "text": "for my 5 year old",
+      "tests": "kids",
+      "relevant": [
+        {
+          "ref": "seed:kids-rain-jacket-5y",
+          "grade": 2
+        },
+        {
+          "ref": "seed:kids-dino-tshirt-5y",
+          "grade": 2
+        },
+        {
+          "ref": "seed:kids-sneakers-light-up-28",
+          "grade": 1
+        },
+        {
+          "ref": "seed:kids-green-raincoat-6y",
+          "grade": 1
+        },
+        {
+          "ref": "seed:kids-blue-dress-4y",
+          "grade": 1
+        },
+        {
+          "ref": "seed:kids-sweater-6y",
+          "grade": 1
+        },
+        {
+          "ref": "existing:6ab28b71-911f-4ca3-aea6-de0770288485",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "id": "q08",
+      "text": "baby clothes 6 months",
+      "tests": "kids",
+      "relevant": [
+        {
+          "ref": "seed:baby-bodysuits-6m",
+          "grade": 2
+        },
+        {
+          "ref": "seed:baby-knit-cardigan-6m",
+          "grade": 2
+        },
+        {
+          "ref": "existing:6ab28b71-c361-4a5b-b119-e675153ff2c6",
+          "grade": 2
+        }
+      ]
+    },
+    {
+      "id": "q09",
+      "text": "black ankle boots size 38 under 40€",
+      "tests": "multi-constraint",
+      "relevant": [
+        {
+          "ref": "seed:black-ankle-boots-38",
+          "grade": 2
+        },
+        {
+          "ref": "seed:chelsea-boots-38",
+          "grade": 2
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": "warm but not wool",
+      "tests": "negation",
+      "relevant": [
+        {
+          "ref": "seed:down-parka-black",
+          "grade": 2
+        },
+        {
+          "ref": "seed:puffer-jacket-winter-heavy",
+          "grade": 2
+        },
+        {
+          "ref": "seed:red-puffer-coat-l",
+          "grade": 2
+        },
+        {
+          "ref": "seed:fleece-jacket-grey",
+          "grade": 2
+        },
+        {
+          "ref": "seed:sherpa-hoodie",
+          "grade": 2
+        },
+        {
+          "ref": "seed:teddy-coat",
+          "grade": 2
+        },
+        {
+          "ref": "seed:green-parka-hidden",
+          "grade": 1
+        },
+        {
+          "ref": "seed:winter-boots-lined",
+          "grade": 1
+        },
+        {
+          "ref": "seed:chunky-pullover",
+          "grade": 1
+        },
+        {
+          "ref": "existing:6ab28b71-039b-473d-aa40-2732d022b883",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "text": "kids clothes 8 years, no bundles",
+      "tests": "negation",
+      "relevant": [
+        {
+          "ref": "seed:kids-hoodie-8y",
+          "grade": 2
+        },
+        {
+          "ref": "seed:kids-jeans-8y",
+          "grade": 2
+        },
+        {
+          "ref": "seed:kids-joggers-8y",
+          "grade": 2
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "text": "y2k",
+      "tests": "style",
+      "relevant": [
+        {
+          "ref": "seed:y2k-baby-tee",
+          "grade": 2
+        },
+        {
+          "ref": "seed:low-rise-flare-jeans",
+          "grade": 2
+        },
+        {
+          "ref": "seed:velour-zip-hoodie-pink",
+          "grade": 2
+        },
+        {
+          "ref": "seed:tinted-sunglasses-oval",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "text": "baby blue dress",
+      "tests": "edge-case",
+      "relevant": [
+        {
+          "ref": "seed:light-blue-summer-dress",
+          "grade": 2
+        },
+        {
+          "ref": "seed:powder-blue-midi-dress",
+          "grade": 2
+        },
+        {
+          "ref": "existing:6ab28b71-16c5-4232-9b19-31217de9ea56",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "text": "green jacket",
+      "tests": "colour-in-photo",
+      "relevant": [
+        {
+          "ref": "seed:green-parka-hidden",
+          "grade": 2
+        },
+        {
+          "ref": "seed:olive-bomber-jacket",
+          "grade": 2
+        },
+        {
+          "ref": "seed:kids-green-raincoat-6y",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "text": "red handbag",
+      "tests": "colour-in-photo",
+      "relevant": [
+        {
+          "ref": "seed:red-leather-handbag",
+          "grade": 2
+        },
+        {
+          "ref": "seed:shoulder-bag-chain",
+          "grade": 2
+        },
+        {
+          "ref": "seed:burgundy-clutch",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "text": "men's shirt size L",
+      "tests": "constraints",
+      "relevant": [
+        {
+          "ref": "seed:mens-oxford-shirt-l",
+          "grade": 2
+        },
+        {
+          "ref": "seed:flannel-check-l",
+          "grade": 2
+        },
+        {
+          "ref": "seed:linen-shirt-white",
+          "grade": 2
+        },
+        {
+          "ref": "existing:6ab28b71-816a-40bd-8487-a4b0e3185a4e",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "text": "jeans under 15€",
+      "tests": "constraints",
+      "relevant": [
+        {
+          "ref": "seed:skinny-jeans-12",
+          "grade": 2
+        },
+        {
+          "ref": "seed:denim-trousers-mens-9",
+          "grade": 2
+        },
+        {
+          "ref": "seed:bootcut-jeans-black",
+          "grade": 2
+        },
+        {
+          "ref": "seed:kids-jeans-8y",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "text": "leather jakcet",
+      "tests": "typos",
+      "relevant": [
+        {
+          "ref": "seed:black-leather-biker-jacket",
+          "grade": 2
+        },
+        {
+          "ref": "seed:mens-leather-jacket-brown",
+          "grade": 2
+        },
+        {
+          "ref": "seed:suede-jacket-80s",
+          "grade": 1
+        },
+        {
+          "ref": "seed:faux-leather-jacket",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "text": "outfit for the gym",
+      "tests": "occasion",
+      "relevant": [
+        {
+          "ref": "seed:sports-leggings-black",
+          "grade": 2
+        },
+        {
+          "ref": "seed:gym-outfit-bundle",
+          "grade": 2
+        },
+        {
+          "ref": "seed:racerback-tank",
+          "grade": 2
+        },
+        {
+          "ref": "seed:mens-drawstring-shorts",
+          "grade": 2
+        },
+        {
+          "ref": "seed:training-trousers-black",
+          "grade": 2
+        },
+        {
+          "ref": "seed:running-shoes-blue-41",
+          "grade": 2
+        },
+        {
+          "ref": "seed:trainers-grey-mens-43",
+          "grade": 1
+        },
+        {
+          "ref": "seed:white-sneakers-womens-39",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "text": "summer holiday clothes",
+      "tests": "season",
+      "relevant": [
+        {
+          "ref": "seed:linen-shirt-white",
+          "grade": 2
+        },
+        {
+          "ref": "seed:light-blue-summer-dress",
+          "grade": 2
+        },
+        {
+          "ref": "seed:floral-midi-dress",
+          "grade": 2
+        },
+        {
+          "ref": "seed:swim-shorts-mens",
+          "grade": 2
+        },
+        {
+          "ref": "existing:6ab28b71-deaa-44c8-bc3b-46ff52fb042a",
+          "grade": 2
+        },
+        {
+          "ref": "seed:straw-hat",
+          "grade": 1
+        },
+        {
+          "ref": "seed:tinted-sunglasses-oval",
+          "grade": 1
+        },
+        {
+          "ref": "existing:6ab28b71-6155-49fd-9ffa-5eb0901eaab2",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "text": "marimekko",
+      "tests": "brand",
+      "relevant": [
+        {
+          "ref": "seed:marimekko-unikko-dress",
+          "grade": 2
+        },
+        {
+          "ref": "seed:striped-top-brand-only",
+          "grade": 2
+        },
+        {
+          "ref": "seed:marimeko-kids-pants",
+          "grade": 1
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "text": "boho style top",
+      "tests": "style",
+      "relevant": [
+        {
+          "ref": "seed:boho-embroidered-blouse",
+          "grade": 2
+        },
+        {
+          "ref": "seed:peasant-top-puff",
+          "grade": 2
+        },
+        {
+          "ref": "existing:6ab28b71-6155-49fd-9ffa-5eb0901eaab2",
+          "grade": 2
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "text": "warm coat for women size M under 50€",
+      "tests": "multi-constraint",
+      "relevant": [
+        {
+          "ref": "seed:down-parka-black",
+          "grade": 2
+        },
+        {
+          "ref": "seed:wool-coat-camel",
+          "grade": 2
+        },
+        {
+          "ref": "seed:teddy-coat",
+          "grade": 2
+        },
+        {
+          "ref": "seed:talvitakki-koko-m",
+          "grade": 2
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "text": "red winter coat",
+      "tests": "edge-case",
+      "relevant": [
+        {
+          "ref": "seed:red-puffer-coat-l",
+          "grade": 2
+        },
+        {
+          "ref": "seed:talvitakki-koko-m",
+          "grade": 2
+        }
+      ]
+    },
+    {
+      "id": "q25",
+      "text": "jumper",
+      "tests": "synonyms",
+      "relevant": [
+        {
+          "ref": "seed:knitted-jumper-navy",
+          "grade": 2
+        },
+        {
+          "ref": "seed:chunky-pullover",
+          "grade": 2
+        },
+        {
+          "ref": "existing:6ab28b71-b709-44f6-808a-4f6dd41e861e",
+          "grade": 2
+        },
+        {
+          "ref": "existing:6ab28b71-039b-473d-aa40-2732d022b883",
+          "grade": 2
+        },
+        {
+          "ref": "existing:6ab28b71-71c2-4540-ad64-28003a4c68ef",
+          "grade": 1
+        },
+        {
+          "ref": "seed:kids-sweater-6y",
+          "grade": 1
+        }
+      ]
+    }
+  ],
+  "listings": [
+    {
+      "key": "suede-jacket-80s",
+      "role": "direct",
+      "forQueries": ["q01", "q18"],
+      "photoSearch": "brown jacket",
+      "title": "Vintage suede jacket, 80s",
+      "description": "Real suede, found it at a flea market in Berlin years ago. Soft and broken in, classic cut. Fits like a M. Small mark on the left cuff.",
+      "priceEur": 35,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "m",
+        "condition": "well-used",
+        "color": "brown",
+        "material": "Suede",
+        "petFreeHome": "yes"
+      },
+      "author": 0
+    },
+    {
+      "key": "corduroy-blazer-retro",
+      "role": "hidden",
+      "forQueries": ["q01"],
+      "photoSearch": "corduroy jacket",
+      "title": "Corduroy blazer from the 70s",
+      "description": "Was my dad's. Grey corduroy with star buttons, very 70s. Good for cooler days. Size L, a bit boxy. Image by tookapic from Pixabay",
+      "priceEur": 28,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-tops",
+        "size": "l",
+        "condition": "gently-used",
+        "material": "Cotton corduroy"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/corduroy-blazer-retro.jpg",
+        "pixabayUser": "tookapic",
+        "pixabayUrl": "https://pixabay.com/photos/corduroy-fabric-pants-jacket-932242/"
+      }
+    },
+    {
+      "key": "denim-jacket-oversized",
+      "role": "direct",
+      "forQueries": ["q01"],
+      "photoSearch": "denim jacket",
+      "title": "Oversized denim jacket",
+      "description": "Light wash denim jacket, oversized fit. Worn a few times, no damage. Image by StockSnap from Pixabay",
+      "priceEur": 22,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "l",
+        "condition": "gently-used",
+        "color": "blue",
+        "material": "Cotton denim",
+        "careInstructions": "Machine wash 30"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/denim-jacket-oversized.jpg",
+        "pixabayUser": "StockSnap",
+        "pixabayUrl": "https://pixabay.com/photos/bike-bicycle-rock-denim-jacket-2583052/"
+      }
+    },
+    {
+      "key": "puffer-jacket-winter-heavy",
+      "role": "direct",
+      "forQueries": ["q06", "q10", "q01"],
+      "photoSearch": "down jacket",
+      "title": "Down puffer jacket XL",
+      "description": "Very warm down jacket with a fur-trim hood, kept me warm at -20 in Lapland. Some pilling on the cuffs. Image by jackmac34 from Pixabay",
+      "priceEur": 50,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-tops",
+        "size": "xl",
+        "condition": "well-used",
+        "color": "yellow",
+        "material": "Nylon shell, down filling",
+        "smokeFreeHome": "yes"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/puffer-jacket-winter-heavy.jpg",
+        "pixabayUser": "jackmac34",
+        "pixabayUrl": "https://pixabay.com/photos/fur-winter-clothes-down-jacket-3117033/"
+      }
+    },
+    {
+      "key": "life-jacket-kids",
+      "role": "distractor",
+      "forQueries": ["q01"],
+      "photoSearch": "life vest",
+      "title": "Kids life jacket 15-30 kg",
+      "description": "Life jacket for kids, used for one summer at the cottage. Buckles work fine.",
+      "priceEur": 10,
+      "publicData": {
+        "categoryLevel1": "kids",
+        "categoryLevel2": "kids-accessories",
+        "condition": "gently-used",
+        "color": "orange"
+      },
+      "author": 1
+    },
+    {
+      "key": "retro-windbreaker-80s",
+      "role": "near-miss",
+      "forQueries": ["q12", "q01"],
+      "photoSearch": "vintage windbreaker",
+      "title": "Retro 80s jacket, royal blue",
+      "description": "Proper 80s jacket in royal blue with big gold buttons. Light, more of a spring/autumn layer. Mens M. Image by kaboompics from Pixabay",
+      "priceEur": 18,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-tops",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "blue",
+        "material": "Polyester"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/retro-windbreaker-80s.jpg",
+        "pixabayUser": "kaboompics",
+        "pixabayUrl": "https://pixabay.com/photos/fashion-jewellery-blue-jacket-791976/"
+      }
+    },
+    {
+      "key": "trainers-grey-mens-43",
+      "role": "direct",
+      "forQueries": ["q02", "q03", "q19"],
+      "photoSearch": "grey trainers shoes",
+      "title": "Olive knit trainers, size 43",
+      "description": "Comfy olive green knit trainers, slip on. Used for walking, soles still good. Image by FitNishMedia from Pixabay",
+      "priceEur": 25,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-shoes",
+        "shoeSize": "43",
+        "condition": "gently-used",
+        "color": "green"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/trainers-grey-mens-43.jpg",
+        "pixabayUser": "FitNishMedia",
+        "pixabayUrl": "https://pixabay.com/photos/shoes-sneakers-adidas-trainers-3850175/"
+      }
+    },
+    {
+      "key": "white-sneakers-womens-39",
+      "role": "hidden",
+      "forQueries": ["q02", "q03", "q19"],
+      "photoSearch": "white leather sneakers",
+      "title": "White canvas sneakers 39",
+      "description": "White canvas sneakers, worn a lot and a bit dirty but nothing a wash cant fix. A bit too small for me. Image by jackjbarton from Pixabay",
+      "priceEur": 20,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-shoes",
+        "shoeSize": "39",
+        "condition": "well-used",
+        "color": "white",
+        "material": "Canvas",
+        "petFreeHome": "yes",
+        "smokeFreeHome": "yes"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/white-sneakers-womens-39.jpg",
+        "pixabayUser": "jackjbarton",
+        "pixabayUrl": "https://pixabay.com/photos/shoe-macro-laces-fashion-footwear-2400094/"
+      }
+    },
+    {
+      "key": "running-shoes-blue-41",
+      "role": "hidden",
+      "forQueries": ["q02", "q03", "q19"],
+      "photoSearch": "blue running shoes",
+      "title": "Running shoes 41",
+      "description": "Lightweight running shoes, about 200 km on them. Good cushioning left. Image by markusspiske from Pixabay",
+      "priceEur": 30,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-shoes",
+        "shoeSize": "41",
+        "condition": "gently-used",
+        "color": "blue"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/running-shoes-blue-41.jpg",
+        "pixabayUser": "markusspiske",
+        "pixabayUrl": "https://pixabay.com/photos/running-walk-sports-shoes-blue-1611585/"
+      }
+    },
+    {
+      "key": "football-boots-studs",
+      "role": "near-miss",
+      "forQueries": ["q02"],
+      "photoSearch": "football boots",
+      "title": "Football boots with studs, 42",
+      "description": "Neon yellow firm ground football boots. Son grew out of them after one season. Image by Glamourpixel from Pixabay",
+      "priceEur": 15,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-shoes",
+        "shoeSize": "42",
+        "condition": "gently-used",
+        "color": "yellow"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/football-boots-studs.jpg",
+        "pixabayUser": "Glamourpixel",
+        "pixabayUrl": "https://pixabay.com/photos/footwear-soccer-football-boots-7042722/"
+      }
+    },
+    {
+      "key": "training-trousers-black",
+      "role": "distractor",
+      "forQueries": ["q02", "q19"],
+      "photoSearch": "black track pants",
+      "title": "Training trousers, black M",
+      "description": "Black training trousers with a yellow side stripe and zip pockets. Good for the gym or running. Image by Engin_Akyurt from Pixabay",
+      "priceEur": 12,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-bottoms",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "black",
+        "material": "Polyester"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/training-trousers-black.jpg",
+        "pixabayUser": "Engin_Akyurt",
+        "pixabayUrl": "https://pixabay.com/photos/sweatpants-yellow-writing-brand-5108696/"
+      }
+    },
+    {
+      "key": "kids-sneakers-light-up-28",
+      "role": "hidden",
+      "forQueries": ["q02", "q03", "q07"],
+      "photoSearch": "children shoes",
+      "title": "Star print canvas shoes, size 28",
+      "description": "Grey canvas shoes with little white stars, velcro straps. Lots of life left. Image by Alexas_Fotos from Pixabay",
+      "priceEur": 8,
+      "publicData": {
+        "categoryLevel1": "kids",
+        "categoryLevel2": "kids-shoes",
+        "shoeSize": "28",
+        "condition": "well-used"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/kids-sneakers-light-up-28.jpg",
+        "pixabayUser": "Alexas_Fotos",
+        "pixabayUrl": "https://pixabay.com/photos/childrens-shoes-cute-sports-shoes-3057511/"
+      }
+    },
+    {
+      "key": "red-canvas-sneakers-37",
+      "role": "direct",
+      "forQueries": ["q02", "q03"],
+      "photoSearch": "red canvas sneakers",
+      "title": "Red canvas high tops 37",
+      "description": "Red canvas high tops. Some dirt on the white toe, washes off. Image by Momentmal from Pixabay",
+      "priceEur": 14,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-shoes",
+        "shoeSize": "37",
+        "condition": "well-used",
+        "color": "red",
+        "material": "Canvas"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/red-canvas-sneakers-37.jpg",
+        "pixabayUser": "Momentmal",
+        "pixabayUrl": "https://pixabay.com/photos/shoe-foot-footwear-clothing-3069891/"
+      }
+    },
+    {
+      "key": "sneaker-socks-5-pack",
+      "role": "distractor",
+      "forQueries": ["q03"],
+      "photoSearch": "socks",
+      "title": "Sneaker socks, 3 pairs",
+      "description": "3 pairs of low sneaker socks in grey and blue, size 39-42. Unworn. Image by Wounds_and_Cracks from Pixabay",
+      "priceEur": 5,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-accessories",
+        "condition": "like-new",
+        "color": "blue",
+        "material": "Cotton blend"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/sneaker-socks-5-pack.jpg",
+        "pixabayUser": "Wounds_and_Cracks",
+        "pixabayUrl": "https://pixabay.com/photos/sock-socks-colors-colours-colorful-4330279/"
+      }
+    },
+    {
+      "key": "levis-501-mens",
+      "role": "direct",
+      "forQueries": ["q04", "q17"],
+      "photoSearch": "blue jeans",
+      "title": "Levi's 501 jeans, W32 L32",
+      "description": "Classic Levi's 501 straight fit. Faded nicely, no holes. Image by StockSnap from Pixabay",
+      "priceEur": 45,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-bottoms",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "blue",
+        "brand": "Levi's",
+        "sizeDetails": "W32 L32",
+        "material": "100% cotton"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/levis-501-mens.jpg",
+        "pixabayUser": "StockSnap",
+        "pixabayUrl": "https://pixabay.com/photos/shoes-laces-pants-fashion-hardwood-925178/"
+      }
+    },
+    {
+      "key": "levis-womens-high-waist",
+      "role": "hidden",
+      "forQueries": ["q04"],
+      "photoSearch": "light blue jeans",
+      "title": "High waist mom jeans S",
+      "description": "levis mom jeans, high waist, light wash. W26. love them but they dont fit anymore Image by Couleur from Pixabay",
+      "priceEur": 30,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-bottoms",
+        "size": "s",
+        "condition": "gently-used",
+        "color": "blue"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/levis-womens-high-waist.jpg",
+        "pixabayUser": "Couleur",
+        "pixabayUrl": "https://pixabay.com/photos/blue-jeans-belt-belt-buckle-buckle-2160265/"
+      }
+    },
+    {
+      "key": "levis-trucker-jacket",
+      "role": "distractor",
+      "forQueries": ["q04", "q01"],
+      "photoSearch": "jean jacket",
+      "title": "Levi's trucker jacket, 90s",
+      "description": "Old Levi's dark denim trucker jacket from the 90s, real vintage. Size L. Great for autumn. Image by MabelAmber from Pixabay",
+      "priceEur": 40,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-tops",
+        "size": "l",
+        "condition": "well-used",
+        "color": "blue",
+        "brand": "Levi's"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/levis-trucker-jacket.jpg",
+        "pixabayUser": "MabelAmber",
+        "pixabayUrl": "https://pixabay.com/photos/denim-fabric-jacket-jeans-buttons-1550266/"
+      }
+    },
+    {
+      "key": "wrangler-jeans-mens",
+      "role": "near-miss",
+      "forQueries": ["q04", "q17"],
+      "photoSearch": "dark jeans",
+      "title": "Wrangler jeans L",
+      "description": "Wrangler regular fit, dark blue. Barely worn.",
+      "priceEur": 25,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-bottoms",
+        "size": "l",
+        "condition": "like-new",
+        "color": "blue",
+        "brand": "Wrangler"
+      },
+      "author": 2
+    },
+    {
+      "key": "navy-suit-mens",
+      "role": "hidden",
+      "forQueries": ["q05"],
+      "photoSearch": "suit jacket",
+      "title": "Navy suit, jacket + trousers",
+      "description": "Two piece navy suit, jacket 50 and trousers 50. Worn twice, dry cleaned. Photo shows the trousers. Image by clangs from Pixabay",
+      "priceEur": 60,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-bundles",
+        "conditionDetails": "Jacket and trousers like new, dry cleaned.",
+        "color": "blue",
+        "material": "Wool blend"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/navy-suit-mens.jpg",
+        "pixabayUser": "clangs",
+        "pixabayUrl": "https://pixabay.com/photos/trousers-clothing-mens-pants-2685231/"
+      }
+    },
+    {
+      "key": "green-satin-dress",
+      "role": "direct",
+      "forQueries": ["q05"],
+      "photoSearch": "emerald dress",
+      "title": "Green satin mini dress M",
+      "description": "Worn once to a wedding. Green satin, ruched, long sleeves. Image by Sunriseforever from Pixabay",
+      "priceEur": 40,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "m",
+        "condition": "like-new",
+        "color": "green",
+        "material": "Satin (polyester)"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/green-satin-dress.jpg",
+        "pixabayUser": "Sunriseforever",
+        "pixabayUrl": "https://pixabay.com/photos/woman-classic-portrait-french-style-9620906/"
+      }
+    },
+    {
+      "key": "floral-midi-dress",
+      "role": "hidden",
+      "forQueries": ["q05", "q20"],
+      "photoSearch": "floral dress",
+      "title": "Floral midi dress S",
+      "description": "Cream midi dress with a small brown floral print, buttons all the way down. Perfect for summer parties and garden events. Image by Icsilviu from Pixabay",
+      "priceEur": 25,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "s",
+        "condition": "gently-used",
+        "color": "multicolor",
+        "material": "Viscose"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/floral-midi-dress.jpg",
+        "pixabayUser": "Icsilviu",
+        "pixabayUrl": "https://pixabay.com/photos/woman-portrait-model-dress-fashion-5679284/"
+      }
+    },
+    {
+      "key": "bride-squad-tshirt",
+      "role": "distractor",
+      "forQueries": ["q05"],
+      "photoSearch": "white t-shirt",
+      "title": "Bride squad t-shirt",
+      "description": "From my friend's hen party before her wedding. White tee, the Bride squad print is on the back. Worn once. Size M. Image by T-Shirtbedrucken from Pixabay",
+      "priceEur": 5,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "m",
+        "condition": "like-new",
+        "color": "white"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/bride-squad-tshirt.jpg",
+        "pixabayUser": "T-Shirtbedrucken",
+        "pixabayUrl": "https://pixabay.com/photos/t-shirt-white-t-shirt-t-shirt-mockup-9611374/"
+      }
+    },
+    {
+      "key": "sequin-party-top",
+      "role": "near-miss",
+      "forQueries": ["q05"],
+      "photoSearch": "sequin",
+      "title": "Sequin top S",
+      "description": "Blue sequin top for NYE or parties. Some sequins missing on the back. Image by Hans from Pixabay",
+      "priceEur": 12,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "s",
+        "condition": "well-used",
+        "color": "blue"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/sequin-party-top.jpg",
+        "pixabayUser": "Hans",
+        "pixabayUrl": "https://pixabay.com/photos/sequin-dress-sequins-dress-blue-80284/"
+      }
+    },
+    {
+      "key": "silk-tie-burgundy",
+      "role": "hidden",
+      "forQueries": ["q05"],
+      "photoSearch": "silk tie",
+      "title": "Dark green silk tie",
+      "description": "Dark green silk tie with tiny dots, classic width. Like new. Image by Pexels from Pixabay",
+      "priceEur": 8,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-accessories",
+        "condition": "like-new",
+        "color": "green",
+        "material": "Silk"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/silk-tie-burgundy.jpg",
+        "pixabayUser": "Pexels",
+        "pixabayUrl": "https://pixabay.com/photos/necktie-leather-shoes-fashion-style-1284463/"
+      }
+    },
+    {
+      "key": "nude-heels-39",
+      "role": "direct",
+      "forQueries": ["q05"],
+      "photoSearch": "high heels shoes",
+      "title": "Gold glitter heels 39",
+      "description": "Gold glitter strappy sandals with a block heel. Worn to two events. Image by cosmistic from Pixabay",
+      "priceEur": 20,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-shoes",
+        "shoeSize": "39",
+        "condition": "gently-used",
+        "color": "gold"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/nude-heels-39.jpg",
+        "pixabayUser": "cosmistic",
+        "pixabayUrl": "https://pixabay.com/photos/shoes-footwear-fashion-high-heels-6701631/"
+      }
+    },
+    {
+      "key": "down-parka-black",
+      "role": "direct",
+      "forQueries": ["q06", "q10", "q23"],
+      "photoSearch": "black winter jacket",
+      "title": "Warm winter parka M",
+      "description": "Black puffer parka with a hood. Really warm, I just moved somewhere warmer. Womens M. Image by Pexels from Pixabay",
+      "priceEur": 45,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "black",
+        "material": "Polyester, down filling"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/down-parka-black.jpg",
+        "pixabayUser": "Pexels",
+        "pixabayUrl": "https://pixabay.com/photos/woman-portrait-cold-jacket-gloves-1284029/"
+      }
+    },
+    {
+      "key": "knit-hat-mittens",
+      "role": "hidden",
+      "forQueries": ["q06"],
+      "photoSearch": "knitted hat mittens",
+      "title": "Knitted scarf and mittens",
+      "description": "Hand knitted striped scarf with matching crochet mittens. Wool. Image by 11082974 from Pixabay",
+      "priceEur": 10,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-accessories",
+        "condition": "gently-used",
+        "material": "Wool"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/knit-hat-mittens.jpg",
+        "pixabayUser": "11082974",
+        "pixabayUrl": "https://pixabay.com/photos/knitted-scarf-mittens-gloves-5742293/"
+      }
+    },
+    {
+      "key": "winter-boots-lined",
+      "role": "hidden",
+      "forQueries": ["q06", "q10"],
+      "photoSearch": "fur boots",
+      "title": "Lined boots 39",
+      "description": "Faux fur lined ankle boots with laces and a buckle, thick sole with good grip. Used two seasons. Image by ds_30 from Pixabay",
+      "priceEur": 30,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-shoes",
+        "shoeSize": "39",
+        "condition": "well-used"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/winter-boots-lined.jpg",
+        "pixabayUser": "ds_30",
+        "pixabayUrl": "https://pixabay.com/photos/shoes-boots-objects-heat-winter-5324169/"
+      }
+    },
+    {
+      "key": "light-rain-jacket",
+      "role": "near-miss",
+      "forQueries": ["q06"],
+      "photoSearch": "raincoat",
+      "title": "Rain poncho M",
+      "description": "Thin see-through yellow rain poncho. No lining, packs small. Image by Sunriseforever from Pixabay",
+      "priceEur": 15,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "yellow"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/light-rain-jacket.jpg",
+        "pixabayUser": "Sunriseforever",
+        "pixabayUrl": "https://pixabay.com/photos/woman-park-stroll-summer-umbrella-9452734/"
+      }
+    },
+    {
+      "key": "christmas-tshirt-winter",
+      "role": "distractor",
+      "forQueries": ["q06"],
+      "photoSearch": "christmas sweater",
+      "title": "Christmas sweatshirt L",
+      "description": "Thin Christmas pattern sweatshirt. Fun for the office party. Image by giangnguyen123utt from Pixabay",
+      "priceEur": 6,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-tops",
+        "size": "l",
+        "condition": "gently-used",
+        "color": "multicolor"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/christmas-tshirt-winter.jpg",
+        "pixabayUser": "giangnguyen123utt",
+        "pixabayUrl": "https://pixabay.com/photos/christmas-sweater-man-xmas-5887600/"
+      }
+    },
+    {
+      "key": "fleece-jacket-grey",
+      "role": "direct",
+      "forQueries": ["q10", "q06"],
+      "photoSearch": "fleece jacket",
+      "title": "Fleece jacket M, very warm",
+      "description": "Blue melange fleece, full zip. Warm and light, polyester so no itching. Image by metaliza01 from Pixabay",
+      "priceEur": 18,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-tops",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "blue",
+        "material": "Polyester fleece"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/fleece-jacket-grey.jpg",
+        "pixabayUser": "metaliza01",
+        "pixabayUrl": "https://pixabay.com/photos/jacket-crivit-sport-highlights-2899728/"
+      }
+    },
+    {
+      "key": "kids-rain-jacket-5y",
+      "role": "direct",
+      "forQueries": ["q07"],
+      "photoSearch": "rubber boots",
+      "title": "Kids rain jacket, 5 years",
+      "description": "Rain jacket for a 5 year old, reflectors on the back. Small tear inside the hood, otherwise ok.",
+      "priceEur": 12,
+      "publicData": {
+        "categoryLevel1": "kids",
+        "categoryLevel2": "kids-tops",
+        "kidsSize": "5y",
+        "condition": "well-used",
+        "color": "yellow"
+      },
+      "author": 1
+    },
+    {
+      "key": "kids-dino-tshirt-5y",
+      "role": "hidden",
+      "forQueries": ["q07"],
+      "photoSearch": "children t-shirt",
+      "title": "Dino t-shirt 110 cm",
+      "description": "Dinosaur print t-shirt, 110 cm. Washed many times but still bright.",
+      "priceEur": 4,
+      "publicData": {
+        "categoryLevel1": "kids",
+        "categoryLevel2": "kids-tops",
+        "kidsSize": "5y",
+        "condition": "well-used",
+        "color": "green",
+        "careInstructions": "Machine wash 40"
+      },
+      "author": 2
+    },
+    {
+      "key": "kids-jeans-9y",
+      "role": "near-miss",
+      "forQueries": ["q07", "q11"],
+      "photoSearch": "children jeans",
+      "title": "Kids jeans 9 years",
+      "description": "Regular jeans for 9y, adjustable waist. Image by Uki_71 from Pixabay",
+      "priceEur": 7,
+      "publicData": {
+        "categoryLevel1": "kids",
+        "categoryLevel2": "kids-bottoms",
+        "kidsSize": "9y",
+        "condition": "gently-used",
+        "color": "blue"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/kids-jeans-9y.jpg",
+        "pixabayUser": "Uki_71",
+        "pixabayUrl": "https://pixabay.com/photos/zipper-jeans-clothing-detail-shot-1686635/"
+      }
+    },
+    {
+      "key": "baby-bodysuits-6m",
+      "role": "direct",
+      "forQueries": ["q08"],
+      "photoSearch": "baby clothes",
+      "title": "Baby tops and bodysuits x6, 6 months",
+      "description": "6 soft baby tops and bodysuits in pastel colours, size 68 (6 months). Image by freestocks-photos from Pixabay",
+      "priceEur": 10,
+      "publicData": {
+        "categoryLevel1": "kids",
+        "categoryLevel2": "kids-bundles",
+        "conditionDetails": "All gently used, no stains.",
+        "color": "multicolor",
+        "material": "Cotton",
+        "petFreeHome": "yes",
+        "smokeFreeHome": "yes"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/baby-bodysuits-6m.jpg",
+        "pixabayUser": "freestocks-photos",
+        "pixabayUrl": "https://pixabay.com/photos/fashion-baby-big-blue-bodysuit-2939989/"
+      }
+    },
+    {
+      "key": "baby-knit-cardigan-6m",
+      "role": "hidden",
+      "forQueries": ["q08"],
+      "photoSearch": "baby knitted cardigan",
+      "title": "Tiny knitted cardigan, 68 cm",
+      "description": "Cream lace knit cardigan with 3 buttons. 68 cm. Image by viv1973 from Pixabay",
+      "priceEur": 6,
+      "publicData": {
+        "categoryLevel1": "kids",
+        "categoryLevel2": "kids-tops",
+        "kidsSize": "6m",
+        "condition": "like-new",
+        "material": "Cotton"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/baby-knit-cardigan-6m.jpg",
+        "pixabayUser": "viv1973",
+        "pixabayUrl": "https://pixabay.com/photos/baby-cardigan-knitted-fashion-2779843/"
+      }
+    },
+    {
+      "key": "baby-romper-3m",
+      "role": "near-miss",
+      "forQueries": ["q08"],
+      "photoSearch": "baby onesie",
+      "title": "Baby romper 3 months",
+      "description": "Soft romper with feet, 62 cm.",
+      "priceEur": 5,
+      "publicData": {
+        "categoryLevel1": "kids",
+        "categoryLevel2": "kids-tops",
+        "kidsSize": "3m",
+        "condition": "gently-used"
+      },
+      "author": 0
+    },
+    {
+      "key": "babydoll-dress-black",
+      "role": "distractor",
+      "forQueries": ["q08", "q13"],
+      "photoSearch": "black dress",
+      "title": "Babydoll dress, black S",
+      "description": "Short black babydoll dress. Womens size S. Image by MDphoto from Pixabay",
+      "priceEur": 15,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "s",
+        "condition": "gently-used",
+        "color": "black"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/babydoll-dress-black.jpg",
+        "pixabayUser": "MDphoto",
+        "pixabayUrl": "https://pixabay.com/photos/girl-piano-grand-piano-woman-music-711087/"
+      }
+    },
+    {
+      "key": "black-ankle-boots-38",
+      "role": "direct",
+      "forQueries": ["q09"],
+      "photoSearch": "black ankle boots",
+      "title": "Black ankle boots 38",
+      "description": "Black leather ankle boots with a slouchy shaft, block heel and side zip. Image by Mdutschke from Pixabay",
+      "priceEur": 28,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-shoes",
+        "shoeSize": "38",
+        "condition": "gently-used",
+        "color": "black",
+        "material": "Leather"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/black-ankle-boots-38.jpg",
+        "pixabayUser": "Mdutschke",
+        "pixabayUrl": "https://pixabay.com/photos/ankle-boots-shoes-fashion-boots-5982004/"
+      }
+    },
+    {
+      "key": "chelsea-boots-38",
+      "role": "hidden",
+      "forQueries": ["q09"],
+      "photoSearch": "ankle boots black",
+      "title": "Zip ankle boots, size 38",
+      "description": "Leather ankle boots with a side zip and low heel. Comfortable, resoled last year. Image by RiekerCanada from Pixabay",
+      "priceEur": 35,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-shoes",
+        "shoeSize": "38",
+        "condition": "well-used"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/chelsea-boots-38.jpg",
+        "pixabayUser": "RiekerCanada",
+        "pixabayUrl": "https://pixabay.com/photos/ankle-boots-short-boot-footwear-4882295/"
+      }
+    },
+    {
+      "key": "black-ankle-boots-39",
+      "role": "near-miss",
+      "forQueries": ["q09"],
+      "photoSearch": "black boots",
+      "title": "Black buckle boots 39",
+      "description": "Black lace-up boots with studs and buckles. Size 39. Image by NickyPe from Pixabay",
+      "priceEur": 25,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-shoes",
+        "shoeSize": "39",
+        "condition": "gently-used",
+        "color": "black"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/black-ankle-boots-39.jpg",
+        "pixabayUser": "NickyPe",
+        "pixabayUrl": "https://pixabay.com/photos/shoes-boots-black-belt-belt-buckle-3999844/"
+      }
+    },
+    {
+      "key": "leather-ankle-boots-38-pricey",
+      "role": "near-miss",
+      "forQueries": ["q09"],
+      "photoSearch": "black leather boots",
+      "title": "Designer ankle boots 38",
+      "description": "Dark leather lace-up ankle boots, worn a handful of times. Original box included. Image by gershoots from Pixabay",
+      "priceEur": 65,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-shoes",
+        "shoeSize": "38",
+        "condition": "like-new",
+        "color": "black",
+        "brand": "Dr. Martens",
+        "material": "Leather"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/leather-ankle-boots-38-pricey.jpg",
+        "pixabayUser": "gershoots",
+        "pixabayUrl": "https://pixabay.com/photos/fashion-boots-shoes-footwear-5515135/"
+      }
+    },
+    {
+      "key": "brown-ankle-boots-38",
+      "role": "near-miss",
+      "forQueries": ["q09"],
+      "photoSearch": "brown boots",
+      "title": "Brown ankle boots 38",
+      "description": "Tan suede lace-up ankle boots, size 38. Image by Pexels from Pixabay",
+      "priceEur": 30,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-shoes",
+        "shoeSize": "38",
+        "condition": "gently-used",
+        "color": "brown",
+        "material": "Suede"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/brown-ankle-boots-38.jpg",
+        "pixabayUser": "Pexels",
+        "pixabayUrl": "https://pixabay.com/photos/autumn-boots-dry-leaves-fall-feet-1869461/"
+      }
+    },
+    {
+      "key": "bootcut-jeans-black",
+      "role": "distractor",
+      "forQueries": ["q09", "q17"],
+      "photoSearch": "black jeans",
+      "title": "Black bootcut jeans M",
+      "description": "Bootcut jeans, black, stretchy. Size M. Image by SnapwireSnaps from Pixabay",
+      "priceEur": 14,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-bottoms",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "black"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/bootcut-jeans-black.jpg",
+        "pixabayUser": "SnapwireSnaps",
+        "pixabayUrl": "https://pixabay.com/photos/shoes-black-hipster-socks-style-598214/"
+      }
+    },
+    {
+      "key": "wool-coat-camel",
+      "role": "near-miss",
+      "forQueries": ["q10", "q23", "q06"],
+      "photoSearch": "trench coat",
+      "title": "Camel wool coat M",
+      "description": "Classic camel coat, 80% wool. Warm and smart. Womens M.",
+      "priceEur": 40,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "brown",
+        "material": "80% wool, 20% polyamide",
+        "careInstructions": "Dry clean only"
+      },
+      "author": 2
+    },
+    {
+      "key": "sherpa-hoodie",
+      "role": "hidden",
+      "forQueries": ["q10"],
+      "photoSearch": "fleece hoodie",
+      "title": "Sherpa hoodie L",
+      "description": "Super cosy fleece lined hoodie, polyester. Unisex, basically wearing a blanket. Image by StockSnap from Pixabay",
+      "priceEur": 20,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-tops",
+        "size": "l",
+        "condition": "gently-used",
+        "material": "Polyester"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/sherpa-hoodie.jpg",
+        "pixabayUser": "StockSnap",
+        "pixabayUrl": "https://pixabay.com/photos/people-woman-travel-adventure-trek-2591874/"
+      }
+    },
+    {
+      "key": "merino-base-layer",
+      "role": "near-miss",
+      "forQueries": ["q10"],
+      "photoSearch": "turtleneck",
+      "title": "Merino base layer top S",
+      "description": "Thin merino long sleeve, great under ski clothes.",
+      "priceEur": 22,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "s",
+        "condition": "gently-used",
+        "color": "black",
+        "material": "Merino"
+      },
+      "author": 1
+    },
+    {
+      "key": "kids-hoodie-8y",
+      "role": "direct",
+      "forQueries": ["q11"],
+      "photoSearch": "grey sweatshirt",
+      "title": "Kids sweatshirt 8 years",
+      "description": "Light grey sweatshirt with a snake print for 8y. Image by TeeFarm from Pixabay",
+      "priceEur": 9,
+      "publicData": {
+        "categoryLevel1": "kids",
+        "categoryLevel2": "kids-tops",
+        "kidsSize": "8y",
+        "condition": "gently-used",
+        "color": "grey"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/kids-hoodie-8y.jpg",
+        "pixabayUser": "TeeFarm",
+        "pixabayUrl": "https://pixabay.com/photos/pullover-sweatshirt-screen-printing-1843619/"
+      }
+    },
+    {
+      "key": "kids-jeans-8y",
+      "role": "direct",
+      "forQueries": ["q11", "q17"],
+      "photoSearch": "kids jeans",
+      "title": "Jeans for 8 year old",
+      "description": "Slim jeans, 128 cm / 8 years. Knees fine. Image by Republica from Pixabay",
+      "priceEur": 8,
+      "publicData": {
+        "categoryLevel1": "kids",
+        "categoryLevel2": "kids-bottoms",
+        "kidsSize": "8y",
+        "condition": "gently-used",
+        "color": "blue"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/kids-jeans-8y.jpg",
+        "pixabayUser": "Republica",
+        "pixabayUrl": "https://pixabay.com/photos/jeans-blue-pocket-fashion-clothing-89042/"
+      }
+    },
+    {
+      "key": "kids-joggers-8y",
+      "role": "hidden",
+      "forQueries": ["q11"],
+      "photoSearch": "sweatpants",
+      "title": "Joggers 128 cm",
+      "description": "Soft joggers with a print, 128 cm. Image by danimini from Pixabay",
+      "priceEur": 5,
+      "publicData": {
+        "categoryLevel1": "kids",
+        "categoryLevel2": "kids-bottoms",
+        "kidsSize": "8y",
+        "condition": "well-used"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/kids-joggers-8y.jpg",
+        "pixabayUser": "danimini",
+        "pixabayUrl": "https://pixabay.com/photos/sweatpants-trainer-dance-pants-5966313/"
+      }
+    },
+    {
+      "key": "kids-bundle-8y-girls",
+      "role": "near-miss",
+      "forQueries": ["q11"],
+      "photoSearch": "girls clothes folded",
+      "title": "Girls clothes bundle 8y",
+      "description": "8 items for an 8 year old girl: knit sweaters, tops and a shirt. Image by Pexels from Pixabay",
+      "priceEur": 15,
+      "publicData": {
+        "categoryLevel1": "kids",
+        "categoryLevel2": "kids-bundles",
+        "conditionDetails": "Gently used, one top has a small stain.",
+        "color": "multicolor"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/kids-bundle-8y-girls.jpg",
+        "pixabayUser": "Pexels",
+        "pixabayUrl": "https://pixabay.com/photos/cabinet-clothes-garments-wardrobe-1853504/"
+      }
+    },
+    {
+      "key": "y2k-baby-tee",
+      "role": "direct",
+      "forQueries": ["q12", "q08"],
+      "photoSearch": "crop top",
+      "title": "Y2K baby tee, white eyelet",
+      "description": "Cropped white eyelet baby tee with puff sleeves, so 2000s. XS. Image by majestical_jasmin from Pixabay",
+      "priceEur": 10,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "xs",
+        "condition": "gently-used",
+        "color": "white"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/y2k-baby-tee.jpg",
+        "pixabayUser": "majestical_jasmin",
+        "pixabayUrl": "https://pixabay.com/photos/clothing-crop-top-jeans-denim-5440735/"
+      }
+    },
+    {
+      "key": "low-rise-flare-jeans",
+      "role": "hidden",
+      "forQueries": ["q12"],
+      "photoSearch": "bell bottom jeans",
+      "title": "Low rise flared jeans S",
+      "description": "Low rise flares, early 2000s style. Dark wash. Image by shilmar from Pixabay",
+      "priceEur": 22,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-bottoms",
+        "size": "s",
+        "condition": "gently-used",
+        "color": "blue"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/low-rise-flare-jeans.jpg",
+        "pixabayUser": "shilmar",
+        "pixabayUrl": "https://pixabay.com/photos/jean-blue-jeans-jeans-trousers-200042/"
+      }
+    },
+    {
+      "key": "velour-zip-hoodie-pink",
+      "role": "hidden",
+      "forQueries": ["q12"],
+      "photoSearch": "pink hoodie",
+      "title": "Velour zip hoodie M",
+      "description": "Velour zip-up, the kind everyone had in 2003.",
+      "priceEur": 16,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "pink"
+      },
+      "author": 2
+    },
+    {
+      "key": "tinted-sunglasses-oval",
+      "role": "hidden",
+      "forQueries": ["q12", "q20"],
+      "photoSearch": "sunglasses",
+      "title": "Cat-eye sunglasses",
+      "description": "Black cat-eye sunnies, tinted lenses. Image by Surprising_Media from Pixabay",
+      "priceEur": 8,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-accessories",
+        "condition": "gently-used"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/tinted-sunglasses-oval.jpg",
+        "pixabayUser": "Surprising_Media",
+        "pixabayUrl": "https://pixabay.com/photos/women-casual-fashion-walking-9032945/"
+      }
+    },
+    {
+      "key": "light-blue-summer-dress",
+      "role": "direct",
+      "forQueries": ["q13", "q20"],
+      "photoSearch": "sundress",
+      "title": "Light blue summer dress M",
+      "description": "Baby blue tiered cotton sundress. Perfect for summer. Image by klimkin from Pixabay",
+      "priceEur": 18,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "blue",
+        "material": "Cotton"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/light-blue-summer-dress.jpg",
+        "pixabayUser": "klimkin",
+        "pixabayUrl": "https://pixabay.com/photos/young-woman-model-fairy-sundress-2539475/"
+      }
+    },
+    {
+      "key": "powder-blue-midi-dress",
+      "role": "hidden",
+      "forQueries": ["q13"],
+      "photoSearch": "light blue dress",
+      "title": "Flowy midi dress S",
+      "description": "Flowy sheer midi dress with long sleeves and tiny sequins, worn twice. Image by Sunriseforever from Pixabay",
+      "priceEur": 22,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "s",
+        "condition": "like-new"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/powder-blue-midi-dress.jpg",
+        "pixabayUser": "Sunriseforever",
+        "pixabayUrl": "https://pixabay.com/photos/woman-model-dress-blonde-pose-7806089/"
+      }
+    },
+    {
+      "key": "navy-dress",
+      "role": "near-miss",
+      "forQueries": ["q13"],
+      "photoSearch": "dark blue dress",
+      "title": "Dark blue party dress M",
+      "description": "Dark teal-blue strapless party dress. Image by Sunriseforever from Pixabay",
+      "priceEur": 20,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "blue"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/navy-dress.jpg",
+        "pixabayUser": "Sunriseforever",
+        "pixabayUrl": "https://pixabay.com/photos/model-spaghetti-strap-dress-10475378/"
+      }
+    },
+    {
+      "key": "kids-blue-dress-4y",
+      "role": "near-miss",
+      "forQueries": ["q13", "q07"],
+      "photoSearch": "girl dress",
+      "title": "Blue dress for girls, 4 years",
+      "description": "Blue party dress with a tulle skirt, 104 cm.",
+      "priceEur": 7,
+      "publicData": {
+        "categoryLevel1": "kids",
+        "categoryLevel2": "kids-tops",
+        "kidsSize": "4y",
+        "condition": "gently-used",
+        "color": "blue"
+      },
+      "author": 1
+    },
+    {
+      "key": "green-parka-hidden",
+      "role": "hidden",
+      "forQueries": ["q14", "q06", "q10"],
+      "photoSearch": "hooded jacket",
+      "title": "Padded parka L, barely used",
+      "description": "Padded parka with a high collar. Barely used, too big for me. Image by Gromovataya from Pixabay",
+      "priceEur": 40,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-tops",
+        "size": "l",
+        "condition": "like-new"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/green-parka-hidden.jpg",
+        "pixabayUser": "Gromovataya",
+        "pixabayUrl": "https://pixabay.com/photos/portrait-woman-fashion-people-3190849/"
+      }
+    },
+    {
+      "key": "olive-bomber-jacket",
+      "role": "direct",
+      "forQueries": ["q14", "q01"],
+      "photoSearch": "khaki jacket",
+      "title": "Olive green bomber jacket M",
+      "description": "Olive bomber with light padding. Great between seasons.",
+      "priceEur": 28,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-tops",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "green"
+      },
+      "author": 0
+    },
+    {
+      "key": "kids-green-raincoat-6y",
+      "role": "direct",
+      "forQueries": ["q14", "q07"],
+      "photoSearch": "child jacket",
+      "title": "Green rain jacket kids 6y",
+      "description": "Green raincoat 116 cm with fleece lining.",
+      "priceEur": 10,
+      "publicData": {
+        "categoryLevel1": "kids",
+        "categoryLevel2": "kids-tops",
+        "kidsSize": "6y",
+        "condition": "gently-used",
+        "color": "green"
+      },
+      "author": 1
+    },
+    {
+      "key": "green-hoodie",
+      "role": "near-miss",
+      "forQueries": ["q14"],
+      "photoSearch": "green hoodie",
+      "title": "Mint fleece hoodie M",
+      "description": "Mint fleece hoodie with a zip, oversized. Image by aliciarachel from Pixabay",
+      "priceEur": 12,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "green"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/green-hoodie.jpg",
+        "pixabayUser": "aliciarachel",
+        "pixabayUrl": "https://pixabay.com/photos/sweater-patagonia-green-4984943/"
+      }
+    },
+    {
+      "key": "green-day-band-tee",
+      "role": "distractor",
+      "forQueries": ["q14"],
+      "photoSearch": "rock t-shirt",
+      "title": "Green Day t-shirt M",
+      "description": "Green Day tour shirt, black, faded print.",
+      "priceEur": 10,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-tops",
+        "size": "m",
+        "condition": "well-used",
+        "color": "black"
+      },
+      "author": 0
+    },
+    {
+      "key": "red-leather-handbag",
+      "role": "direct",
+      "forQueries": ["q15"],
+      "photoSearch": "red handbag",
+      "title": "Red striped handbag",
+      "description": "Woven handbag with red stripes and a leather flap. Clean inside. Image by rasiddiqui16 from Pixabay",
+      "priceEur": 30,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-accessories",
+        "condition": "gently-used",
+        "color": "red",
+        "material": "Woven fabric, leather"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/red-leather-handbag.jpg",
+        "pixabayUser": "rasiddiqui16",
+        "pixabayUrl": "https://pixabay.com/photos/bag-leather-bag-shoulder-bag-5748628/"
+      }
+    },
+    {
+      "key": "shoulder-bag-chain",
+      "role": "hidden",
+      "forQueries": ["q15"],
+      "photoSearch": "crossbody bag",
+      "title": "Small shoulder bag with chain",
+      "description": "Small quilted bag with a gold chain strap. Fits phone and keys. Image by jaroslaw-igras from Pixabay",
+      "priceEur": 25,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-accessories",
+        "condition": "gently-used",
+        "material": "Leather"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/shoulder-bag-chain.jpg",
+        "pixabayUser": "jaroslaw-igras",
+        "pixabayUrl": "https://pixabay.com/photos/bag-clutch-bag-shopping-handbag-2661412/"
+      }
+    },
+    {
+      "key": "burgundy-clutch",
+      "role": "hidden",
+      "forQueries": ["q15"],
+      "photoSearch": "clutch purse",
+      "title": "Burgundy clutch",
+      "description": "Velvet clutch in burgundy, magnetic closure.",
+      "priceEur": 12,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-accessories",
+        "condition": "like-new"
+      },
+      "author": 0
+    },
+    {
+      "key": "black-handbag",
+      "role": "near-miss",
+      "forQueries": ["q15"],
+      "photoSearch": "black handbag",
+      "title": "Black handbag",
+      "description": "Everyday black leather bag with a buckle, lots of room. Image by kaboompics from Pixabay",
+      "priceEur": 20,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-accessories",
+        "condition": "well-used",
+        "color": "black"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/black-handbag.jpg",
+        "pixabayUser": "kaboompics",
+        "pixabayUrl": "https://pixabay.com/photos/handbag-fashion-trendy-stylish-791978/"
+      }
+    },
+    {
+      "key": "handmade-red-scarf",
+      "role": "distractor",
+      "forQueries": ["q15"],
+      "photoSearch": "red scarf",
+      "title": "Hand-dyed red scarf",
+      "description": "Long light scarf, hand dyed red. Image by Nika_Akin from Pixabay",
+      "priceEur": 9,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-accessories",
+        "condition": "like-new",
+        "color": "red",
+        "material": "Polyester chiffon"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/handmade-red-scarf.jpg",
+        "pixabayUser": "Nika_Akin",
+        "pixabayUrl": "https://pixabay.com/photos/red-silk-scarf-textile-fashion-4646367/"
+      }
+    },
+    {
+      "key": "mens-oxford-shirt-l",
+      "role": "direct",
+      "forQueries": ["q16"],
+      "photoSearch": "white shirt men",
+      "title": "Men's oxford shirt L",
+      "description": "White oxford shirt, button down collar. Ironed :) Image by congerdesign from Pixabay",
+      "priceEur": 15,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-tops",
+        "size": "l",
+        "condition": "gently-used",
+        "color": "white",
+        "careInstructions": "Machine wash 40, iron"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/mens-oxford-shirt-l.jpg",
+        "pixabayUser": "congerdesign",
+        "pixabayUrl": "https://pixabay.com/photos/wardrobe-coat-hanger-dressing-room-5961193/"
+      }
+    },
+    {
+      "key": "flannel-check-l",
+      "role": "hidden",
+      "forQueries": ["q16"],
+      "photoSearch": "plaid shirt",
+      "title": "Lumberjack flannel",
+      "description": "Thick checked flannel, size L. Soft from washing. Image by tookapic from Pixabay",
+      "priceEur": 12,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-tops",
+        "size": "l",
+        "condition": "well-used"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/flannel-check-l.jpg",
+        "pixabayUser": "tookapic",
+        "pixabayUrl": "https://pixabay.com/photos/shirt-collar-men-fashion-business-933671/"
+      }
+    },
+    {
+      "key": "mens-shirt-m",
+      "role": "near-miss",
+      "forQueries": ["q16"],
+      "photoSearch": "blue shirt",
+      "title": "Men's shirt M",
+      "description": "Navy shirt with tiny white dots, slim fit, M. Image by renzonovoa1 from Pixabay",
+      "priceEur": 12,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-tops",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "blue"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/mens-shirt-m.jpg",
+        "pixabayUser": "renzonovoa1",
+        "pixabayUrl": "https://pixabay.com/photos/shirt-men-blue-fashion-peru-2947549/"
+      }
+    },
+    {
+      "key": "womens-shirt-l",
+      "role": "near-miss",
+      "forQueries": ["q16"],
+      "photoSearch": "white blouse",
+      "title": "White lace top, women's L",
+      "description": "Sleeveless white lace top. Image by SnapwireSnaps from Pixabay",
+      "priceEur": 10,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "l",
+        "condition": "gently-used",
+        "color": "white"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/womens-shirt-l.jpg",
+        "pixabayUser": "SnapwireSnaps",
+        "pixabayUrl": "https://pixabay.com/photos/fashion-woman-female-girl-yellow-731827/"
+      }
+    },
+    {
+      "key": "skinny-jeans-12",
+      "role": "direct",
+      "forQueries": ["q17"],
+      "photoSearch": "dark skinny jeans",
+      "title": "Skinny jeans S",
+      "description": "Dark skinny jeans, W27. Stretchy. Image by xusenru from Pixabay",
+      "priceEur": 12,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-bottoms",
+        "size": "s",
+        "condition": "gently-used",
+        "color": "blue",
+        "sizeDetails": "W27 L30"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/skinny-jeans-12.jpg",
+        "pixabayUser": "xusenru",
+        "pixabayUrl": "https://pixabay.com/photos/high-jeans-skinny-jeans-long-hair-1725032/"
+      }
+    },
+    {
+      "key": "denim-trousers-mens-9",
+      "role": "hidden",
+      "forQueries": ["q17"],
+      "photoSearch": "denim trousers",
+      "title": "Denim trousers, straight leg M",
+      "description": "Straight leg light wash denim trousers, ripped knees. Image by mintchipdesigns from Pixabay",
+      "priceEur": 9,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-bottoms",
+        "size": "m",
+        "condition": "well-used",
+        "color": "blue"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/denim-trousers-mens-9.jpg",
+        "pixabayUser": "mintchipdesigns",
+        "pixabayUrl": "https://pixabay.com/photos/jeans-denim-torn-ripped-worn-499387/"
+      }
+    },
+    {
+      "key": "black-leather-biker-jacket",
+      "role": "direct",
+      "forQueries": ["q18"],
+      "photoSearch": "leather jacket",
+      "title": "Tan leather biker jacket M",
+      "description": "Real leather biker jacket in tan. Womens M. Image by Sunriseforever from Pixabay",
+      "priceEur": 60,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "brown",
+        "material": "Leather"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/black-leather-biker-jacket.jpg",
+        "pixabayUser": "Sunriseforever",
+        "pixabayUrl": "https://pixabay.com/photos/parking-parking-lot-fashion-style-5008461/"
+      }
+    },
+    {
+      "key": "mens-leather-jacket-brown",
+      "role": "direct",
+      "forQueries": ["q18", "q01"],
+      "photoSearch": "brown leather jacket",
+      "title": "Brown leather jacket L",
+      "description": "Old brown leather jacket, nicely worn in. Lining has a small tear. Image by swarrelmann from Pixabay",
+      "priceEur": 75,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-tops",
+        "size": "l",
+        "condition": "well-used",
+        "color": "brown",
+        "material": "Leather"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/mens-leather-jacket-brown.jpg",
+        "pixabayUser": "swarrelmann",
+        "pixabayUrl": "https://pixabay.com/photos/fashion-jacket-leather-jacket-brown-3766441/"
+      }
+    },
+    {
+      "key": "faux-leather-jacket",
+      "role": "direct",
+      "forQueries": ["q18"],
+      "photoSearch": "leather jacket hanger",
+      "title": "Faux leather jacket S",
+      "description": "Vegan leather jacket with a faux shearling collar. Peeling a bit on one sleeve. Image by blickpixel from Pixabay",
+      "priceEur": 20,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "s",
+        "condition": "well-used",
+        "color": "black",
+        "material": "PU"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/faux-leather-jacket.jpg",
+        "pixabayUser": "blickpixel",
+        "pixabayUrl": "https://pixabay.com/photos/zipper-closure-hack-detail-jacket-656134/"
+      }
+    },
+    {
+      "key": "leather-belt-brown",
+      "role": "distractor",
+      "forQueries": ["q18"],
+      "photoSearch": "brown leather belt",
+      "title": "Leather belt, brown",
+      "description": "Brown leather belt, 95 cm. Image by 39839 from Pixabay",
+      "priceEur": 8,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-accessories",
+        "condition": "gently-used",
+        "color": "brown",
+        "material": "Leather"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/leather-belt-brown.jpg",
+        "pixabayUser": "39839",
+        "pixabayUrl": "https://pixabay.com/photos/belt-belt-buckle-metal-leather-139757/"
+      }
+    },
+    {
+      "key": "sports-leggings-black",
+      "role": "direct",
+      "forQueries": ["q19"],
+      "photoSearch": "yoga pants",
+      "title": "Yoga leggings S, navy",
+      "description": "High waist navy leggings for yoga or the gym. Image by jeviniya from Pixabay",
+      "priceEur": 12,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-bottoms",
+        "size": "s",
+        "condition": "gently-used",
+        "color": "blue"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/sports-leggings-black.jpg",
+        "pixabayUser": "jeviniya",
+        "pixabayUrl": "https://pixabay.com/photos/yoga-sports-asana-1146281/"
+      }
+    },
+    {
+      "key": "racerback-tank",
+      "role": "hidden",
+      "forQueries": ["q19"],
+      "photoSearch": "tank top",
+      "title": "Racerback tank S",
+      "description": "Quick-dry racerback tank with a mesh back. Image by thanhchithanh from Pixabay",
+      "priceEur": 6,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "s",
+        "condition": "gently-used"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/racerback-tank.jpg",
+        "pixabayUser": "thanhchithanh",
+        "pixabayUrl": "https://pixabay.com/photos/girl-woman-female-tank-top-shorts-3533969/"
+      }
+    },
+    {
+      "key": "mens-drawstring-shorts",
+      "role": "hidden",
+      "forQueries": ["q19"],
+      "photoSearch": "running shorts",
+      "title": "Shorts with drawstring L",
+      "description": "Light polyester shorts with a drawstring and zip pocket.",
+      "priceEur": 7,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-bottoms",
+        "size": "l",
+        "condition": "gently-used"
+      },
+      "author": 0
+    },
+    {
+      "key": "gym-outfit-bundle",
+      "role": "direct",
+      "forQueries": ["q19"],
+      "photoSearch": "sportswear",
+      "title": "Gym set: hoodie + joggers S",
+      "description": "Matching grey hoodie and joggers, size S. Used mostly for the gym. Image by Engin_Akyurt from Pixabay",
+      "priceEur": 20,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-bundles",
+        "conditionDetails": "Both gently used, no pilling."
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/gym-outfit-bundle.jpg",
+        "pixabayUser": "Engin_Akyurt",
+        "pixabayUrl": "https://pixabay.com/photos/sweatpants-fashion-clothes-woman-5185570/"
+      }
+    },
+    {
+      "key": "linen-shirt-white",
+      "role": "direct",
+      "forQueries": ["q20", "q16"],
+      "photoSearch": "white linen shirt",
+      "title": "White linen shirt L",
+      "description": "Cream linen shirt with a grandad collar, perfect for summer holidays. Wrinkles, as linen does. Image by Cnippato78 from Pixabay",
+      "priceEur": 18,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-tops",
+        "size": "l",
+        "condition": "gently-used",
+        "color": "white",
+        "material": "100% linen"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/linen-shirt-white.jpg",
+        "pixabayUser": "Cnippato78",
+        "pixabayUrl": "https://pixabay.com/photos/shirt-vintage-fabric-white-linen-3558931/"
+      }
+    },
+    {
+      "key": "straw-hat",
+      "role": "hidden",
+      "forQueries": ["q20"],
+      "photoSearch": "straw hat",
+      "title": "Straw cowboy hat",
+      "description": "Straw cowboy hat with a studded band, one size. Image by garten-gg from Pixabay",
+      "priceEur": 8,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-accessories",
+        "condition": "gently-used"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/straw-hat.jpg",
+        "pixabayUser": "garten-gg",
+        "pixabayUrl": "https://pixabay.com/photos/cap-clothing-headgear-cowboy-hat-2738831/"
+      }
+    },
+    {
+      "key": "swim-shorts-mens",
+      "role": "hidden",
+      "forQueries": ["q20"],
+      "photoSearch": "swim shorts",
+      "title": "Swim shorts M",
+      "description": "Quick dry swim shorts with mesh lining. Turquoise.",
+      "priceEur": 10,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-bottoms",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "blue"
+      },
+      "author": 1
+    },
+    {
+      "key": "summer-camp-hoodie",
+      "role": "distractor",
+      "forQueries": ["q20"],
+      "photoSearch": "sweatshirt",
+      "title": "Summer camp hoodie 12y",
+      "description": "Hoodie from summer camp 2019, thick cotton.",
+      "priceEur": 6,
+      "publicData": {
+        "categoryLevel1": "kids",
+        "categoryLevel2": "kids-tops",
+        "kidsSize": "12y",
+        "condition": "well-used"
+      },
+      "author": 2
+    },
+    {
+      "key": "marimekko-unikko-dress",
+      "role": "direct",
+      "forQueries": ["q21"],
+      "photoSearch": "flower dress",
+      "title": "Marimekko floral midi dress M",
+      "description": "Marimekko midi dress, cream with a small green flower print. Cotton. Image by quanghoanphotos from Pixabay",
+      "priceEur": 55,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "multicolor",
+        "brand": "Marimekko"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/marimekko-unikko-dress.jpg",
+        "pixabayUser": "quanghoanphotos",
+        "pixabayUrl": "https://pixabay.com/photos/rose-woman-outdoors-dress-garden-7228242/"
+      }
+    },
+    {
+      "key": "striped-top-brand-only",
+      "role": "hidden",
+      "forQueries": ["q21"],
+      "photoSearch": "striped shirt",
+      "title": "Striped tee S",
+      "description": "Classic light blue and white striped tee. Unisex fit. Image by marijana1 from Pixabay",
+      "priceEur": 25,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "s",
+        "condition": "gently-used",
+        "brand": "Marimekko"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/striped-top-brand-only.jpg",
+        "pixabayUser": "marijana1",
+        "pixabayUrl": "https://pixabay.com/photos/summer-straw-hat-hat-summer-hat-3490145/"
+      }
+    },
+    {
+      "key": "marimeko-kids-pants",
+      "role": "hidden",
+      "forQueries": ["q21"],
+      "photoSearch": "kids pants",
+      "title": "Kids trousers 98 cm",
+      "description": "marimeko trousers for kids, 98cm, ok condition",
+      "priceEur": 9,
+      "publicData": {
+        "categoryLevel1": "kids",
+        "categoryLevel2": "kids-bottoms",
+        "kidsSize": "3y",
+        "condition": "well-used",
+        "brand": "Marimeko"
+      },
+      "author": 2
+    },
+    {
+      "key": "poppy-print-dress",
+      "role": "near-miss",
+      "forQueries": ["q21"],
+      "photoSearch": "floral print dress",
+      "title": "Yellow flower print dress M",
+      "description": "Mustard yellow dress with a white flower print, no brand label. Image by HiteshHtSharma from Pixabay",
+      "priceEur": 15,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "yellow"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/poppy-print-dress.jpg",
+        "pixabayUser": "HiteshHtSharma",
+        "pixabayUrl": "https://pixabay.com/photos/srishti-textile-9876622/"
+      }
+    },
+    {
+      "key": "boho-embroidered-blouse",
+      "role": "direct",
+      "forQueries": ["q22"],
+      "photoSearch": "embroidered blouse",
+      "title": "Boho embroidered blouse S",
+      "description": "White boho blouse with colourful embroidery on the sleeves.",
+      "priceEur": 16,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "s",
+        "condition": "gently-used",
+        "color": "white"
+      },
+      "author": 1
+    },
+    {
+      "key": "peasant-top-puff",
+      "role": "hidden",
+      "forQueries": ["q22"],
+      "photoSearch": "white blouse woman",
+      "title": "Peasant top with puff sleeves",
+      "description": "Cotton peasant top with a smocked waist, size M.",
+      "priceEur": 10,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "white",
+        "material": "Cotton"
+      },
+      "author": 2
+    },
+    {
+      "key": "boho-maxi-skirt",
+      "role": "near-miss",
+      "forQueries": ["q22"],
+      "photoSearch": "maxi skirt",
+      "title": "Boho striped skirt M",
+      "description": "Flowy midi skirt in rainbow stripes. Image by mingkeiho from Pixabay",
+      "priceEur": 18,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-bottoms",
+        "size": "m",
+        "condition": "gently-used",
+        "color": "multicolor"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/boho-maxi-skirt.jpg",
+        "pixabayUser": "mingkeiho",
+        "pixabayUrl": "https://pixabay.com/photos/skirt-striped-rainbow-colors-775217/"
+      }
+    },
+    {
+      "key": "top-hat",
+      "role": "distractor",
+      "forQueries": ["q22"],
+      "photoSearch": "steampunk hat",
+      "title": "Top hat",
+      "description": "Black felt top hat, for costume parties.",
+      "priceEur": 15,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-accessories",
+        "condition": "gently-used",
+        "color": "black"
+      },
+      "author": 1
+    },
+    {
+      "key": "teddy-coat",
+      "role": "hidden",
+      "forQueries": ["q23", "q06", "q10"],
+      "photoSearch": "teddy jacket",
+      "title": "Knitted coat with faux fur hood M",
+      "description": "Long chunky knit coat with a faux fur hood, acrylic, very warm. Womens M. Image by Elsemargriet from Pixabay",
+      "priceEur": 35,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "m",
+        "condition": "gently-used",
+        "material": "Acrylic knit, faux fur"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/teddy-coat.jpg",
+        "pixabayUser": "Elsemargriet",
+        "pixabayUrl": "https://pixabay.com/photos/hare-pasture-grass-long-ears-5359003/"
+      }
+    },
+    {
+      "key": "wool-coat-l",
+      "role": "near-miss",
+      "forQueries": ["q23", "q06"],
+      "photoSearch": "long coat",
+      "title": "Grey wool coat L",
+      "description": "Long grey wool coat, womens L.",
+      "priceEur": 40,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "l",
+        "condition": "gently-used",
+        "color": "grey",
+        "material": "Wool blend"
+      },
+      "author": 0
+    },
+    {
+      "key": "designer-coat-m",
+      "role": "near-miss",
+      "forQueries": ["q23", "q06"],
+      "photoSearch": "black coat",
+      "title": "Black hooded coat M",
+      "description": "Black brocade coat with a big hood and pompoms. Lined, like new. Image by NinaWind from Pixabay",
+      "priceEur": 120,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "m",
+        "condition": "like-new",
+        "color": "black",
+        "material": "Polyester brocade"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/designer-coat-m.jpg",
+        "pixabayUser": "NinaWind",
+        "pixabayUrl": "https://pixabay.com/photos/dark-fashion-gothic-style-10444436/"
+      }
+    },
+    {
+      "key": "red-puffer-coat-l",
+      "role": "direct",
+      "forQueries": ["q24", "q06", "q10", "q23"],
+      "photoSearch": "red jacket",
+      "title": "Red puffer coat L",
+      "description": "Long red puffer coat, warm enough for proper Finnish winters. Two way zip, hood. Womens L.",
+      "priceEur": 55,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "l",
+        "condition": "gently-used",
+        "color": "red",
+        "material": "Polyester, synthetic filling"
+      },
+      "author": 0
+    },
+    {
+      "key": "talvitakki-koko-m",
+      "role": "hidden",
+      "forQueries": ["q24", "q06", "q23"],
+      "photoSearch": "red coat",
+      "title": "Talvitakki, koko M",
+      "description": "Lämmin talvitakki, käytetty kaksi talvea. Hupussa irrotettava karvareunus. Ei reikiä. Image by Surprising_Media from Pixabay",
+      "priceEur": 38,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "m",
+        "condition": "gently-used"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/talvitakki-koko-m.jpg",
+        "pixabayUser": "Surprising_Media",
+        "pixabayUrl": "https://pixabay.com/photos/woman-overcoat-stairs-descending-7021364/"
+      }
+    },
+    {
+      "key": "kevattakki",
+      "role": "near-miss",
+      "forQueries": ["q24"],
+      "photoSearch": "red rain jacket",
+      "title": "Kevättakki S",
+      "description": "Ohut kevättakki, vähän käytetty. Image by Surprising_Media from Pixabay",
+      "priceEur": 15,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "s",
+        "condition": "like-new"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/kevattakki.jpg",
+        "pixabayUser": "Surprising_Media",
+        "pixabayUrl": "https://pixabay.com/photos/woman-young-blonde-red-coat-6863352/"
+      }
+    },
+    {
+      "key": "knitted-jumper-navy",
+      "role": "direct",
+      "forQueries": ["q25"],
+      "photoSearch": "knitted sweater",
+      "title": "Navy and grey knitted jumper L",
+      "description": "Chunky knit jumper with navy and grey stripes. Cotton. Image by Pexels from Pixabay",
+      "priceEur": 20,
+      "publicData": {
+        "categoryLevel1": "men",
+        "categoryLevel2": "men-tops",
+        "size": "l",
+        "condition": "gently-used",
+        "color": "blue",
+        "material": "Cotton"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/knitted-jumper-navy.jpg",
+        "pixabayUser": "Pexels",
+        "pixabayUrl": "https://pixabay.com/photos/fashion-sweater-wool-clothing-1283863/"
+      }
+    },
+    {
+      "key": "chunky-pullover",
+      "role": "hidden",
+      "forQueries": ["q25", "q10"],
+      "photoSearch": "sweater",
+      "title": "Chunky knit pullover M",
+      "description": "Oversized chunky pullover, acrylic so no itch. Image by Engin_Akyurt from Pixabay",
+      "priceEur": 18,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "m",
+        "condition": "gently-used",
+        "material": "Acrylic"
+      },
+      "author": 2,
+      "image": {
+        "file": "seed/images/chunky-pullover.jpg",
+        "pixabayUser": "Engin_Akyurt",
+        "pixabayUrl": "https://pixabay.com/photos/sweater-yarn-fabric-knitting-6788998/"
+      }
+    },
+    {
+      "key": "pinafore-jumper-dress",
+      "role": "distractor",
+      "forQueries": ["q25"],
+      "photoSearch": "denim dress",
+      "title": "Denim jumper dress S",
+      "description": "Pinafore dress in denim, wear it over a shirt or tee. Image by PublicDomainPictures from Pixabay",
+      "priceEur": 14,
+      "publicData": {
+        "categoryLevel1": "women",
+        "categoryLevel2": "women-tops",
+        "size": "s",
+        "condition": "gently-used",
+        "color": "blue"
+      },
+      "author": 0,
+      "image": {
+        "file": "seed/images/pinafore-jumper-dress.jpg",
+        "pixabayUser": "PublicDomainPictures",
+        "pixabayUrl": "https://pixabay.com/photos/jeans-blue-zipper-clothes-clothing-216695/"
+      }
+    },
+    {
+      "key": "kids-sweater-6y",
+      "role": "direct",
+      "forQueries": ["q25", "q07"],
+      "photoSearch": "children sweater",
+      "title": "Kids rainbow sweater 6 years",
+      "description": "Warm striped knitted sweater for 6y, lots of colours. Image by caradecabra from Pixabay",
+      "priceEur": 6,
+      "publicData": {
+        "categoryLevel1": "kids",
+        "categoryLevel2": "kids-tops",
+        "kidsSize": "6y",
+        "condition": "gently-used",
+        "color": "multicolor"
+      },
+      "author": 1,
+      "image": {
+        "file": "seed/images/kids-sweater-6y.jpg",
+        "pixabayUser": "caradecabra",
+        "pixabayUrl": "https://pixabay.com/photos/sweaters-culture-clothes-clothing-279563/"
+      }
+    }
+  ]
+}

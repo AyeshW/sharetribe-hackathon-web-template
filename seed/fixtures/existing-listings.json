@@ -1,0 +1,717 @@
+[
+  {
+    "id": "6abe05ef-470a-41a3-b799-6c4f880dbb4f",
+    "title": "shoes",
+    "description": "im looking for shoes ,size 38 \ncolor should be white  and the condition must be very good .",
+    "price": null,
+    "publicData": {
+      "brand": "adidas , nike , Skecher ",
+      "cardStyle": "white",
+      "categoryLevel1": "women",
+      "categoryLevel2": "women-shoes",
+      "color": "white",
+      "condition": "like-new",
+      "listingType": "in-search-of-clothing",
+      "petFreeHome": "yes",
+      "shoeSize": "38",
+      "smokeFreeHome": "no",
+      "transactionProcessAlias": "default-negotiation/release-1",
+      "unitType": "request"
+    }
+  },
+  {
+    "id": "6ab28b71-4240-4ba1-b168-7f238eb9e97d",
+    "title": "Black and white hi-top sneakers",
+    "description": "Classic black and white canvas hi-top sneakers. Comfortable and versatile for everyday wear. Photo by Maria Fernanda Pissioli (https://unsplash.com/@mxpissioli)",
+    "price": {
+      "amount": 1500,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "categoryLevel1": "women",
+      "categoryLevel2": "women-shoes",
+      "color": "multicolor",
+      "condition": "well-used",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Merituulentie 3, 02100 Espoo, Finland",
+        "building": ""
+      },
+      "material": "Canvas and rubber",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "shoeSize": "38",
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-acb7-4134-9a38-02c13c8aaea3",
+    "title": "Toddler white dress & shoes bundle",
+    "description": "Bundle of a toddler-sized white dress and matching shoes. Photo by Céline Druguet (https://unsplash.com/@celala)",
+    "price": {
+      "amount": 1400,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "categoryLevel1": "kids",
+      "categoryLevel2": "kids-bundles",
+      "color": "white",
+      "conditionDetails": "Dress is like new, shoes show light wear on the soles.",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Olarinluoma 8, 02210 Espoo, Finland",
+        "building": ""
+      },
+      "material": "Cotton, synthetic leather",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-911f-4ca3-aea6-de0770288485",
+    "title": "Kids' work-style boots, 4y",
+    "description": "Brown work-style boots for a 4-year-old, durable synthetic leather construction. Photo by Sven Brandsma (https://unsplash.com/@seffen99)",
+    "price": {
+      "amount": 1200,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "categoryLevel1": "kids",
+      "categoryLevel2": "kids-shoes",
+      "color": "brown",
+      "condition": "gently-used",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Unikkotie 13, 01300 Vantaa, Finland",
+        "building": ""
+      },
+      "material": "Synthetic leather",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "shoeSize": "27",
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-b709-44f6-808a-4f6dd41e861e",
+    "title": "Beige wool sweater M",
+    "description": "Soft beige wool sweater, great for layering in colder months. Classic cut with ribbed cuffs and hem. Photo by Toa Heftiba (https://unsplash.com/@heftiba)",
+    "price": {
+      "amount": 1800,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "careInstructions": "Hand wash cold, dry flat, do not tumble dry.",
+      "categoryLevel1": "women",
+      "categoryLevel2": "women-tops",
+      "condition": "gently-used",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Hiihtomaentie 8, 00810 Helsinki, Finland",
+        "building": ""
+      },
+      "material": "100% wool",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "size": "m",
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-a3c0-493e-9988-a912aeb1c09f",
+    "title": "Looking for denim shorts, size S",
+    "description": "In search of light or medium wash denim shorts, size S.",
+    "price": null,
+    "publicData": {
+      "cardStyle": "grey",
+      "categoryLevel1": "women",
+      "categoryLevel2": "women-bottoms",
+      "color": "blue",
+      "condition": "gently-used",
+      "listingType": "in-search-of-clothing",
+      "material": "Denim",
+      "size": "s",
+      "transactionProcessAlias": "default-negotiation/release-1",
+      "unitType": "request"
+    }
+  },
+  {
+    "id": "6ab28b71-6155-49fd-9ffa-5eb0901eaab2",
+    "title": "Beige crochet poncho with fringe",
+    "description": "Handmade-style beige cotton crochet poncho with fringed trim. Loose, breathable fit. Photo by Milada Vigerova (https://unsplash.com/@milada_vigerova)",
+    "price": {
+      "amount": 1200,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "careInstructions": "Hand wash only.",
+      "categoryLevel1": "women",
+      "categoryLevel2": "women-tops",
+      "condition": "well-used",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Siltavuorenranta 4, 00170 Helsinki, Finland",
+        "building": ""
+      },
+      "material": "100% cotton",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "size": "m",
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-364e-46e7-8286-b597a7c8852f",
+    "title": "Bronze bomber jacket L",
+    "description": "Bronze-toned bomber jacket on hanger, ribbed cuffs and collar. Well cared for. Photo by Tobias Tullius (https://unsplash.com/@tobiastu)",
+    "price": {
+      "amount": 3000,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "categoryLevel1": "men",
+      "categoryLevel2": "men-tops",
+      "color": "bronze",
+      "condition": "well-used",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Pohjolankatu 25, 00600 Helsinki, Finland",
+        "building": ""
+      },
+      "material": "Polyester shell, polyester lining",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "size": "l",
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-46f0-4d5e-a9e2-38af030ace5a",
+    "title": "Green flip-flops, kids",
+    "description": "Well-worn green rubber flip-flops, still comfortable for summer play. Photo by Guillaume de Germain (https://unsplash.com/@guillaumedegermain)",
+    "price": {
+      "amount": 300,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "categoryLevel1": "kids",
+      "categoryLevel2": "kids-shoes",
+      "color": "green",
+      "condition": "heavily-used",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Pakkalankuja 6, 01510 Vantaa, Finland",
+        "building": ""
+      },
+      "material": "Rubber",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": false,
+      "shoeSize": "30",
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-d854-4984-87a1-3a1b41a04bed",
+    "title": "Dark blue Acne jeans M",
+    "description": "Dark blue Acne Studios jeans in good condition. Slim fit with slight stretch. Photo by Matthew Moloney (https://unsplash.com/@mattmoloney)",
+    "price": {
+      "amount": 4000,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "brand": "Acne Studios",
+      "careInstructions": "Machine wash cold inside out, hang dry.",
+      "categoryLevel1": "men",
+      "categoryLevel2": "men-bottoms",
+      "color": "blue",
+      "condition": "gently-used",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Hiihtomaentie 8, 00810 Helsinki, Finland",
+        "building": ""
+      },
+      "material": "98% cotton, 2% elastane",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "size": "m",
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-11f8-4702-b3d4-2b8c312345f8",
+    "title": "Bundle of six t-shirts, assorted colors",
+    "description": "Bundle of six folded cotton t-shirts in red, black, white, navy, wine, and yellow. Photo by Md Salman (https://unsplash.com/@mohammadsalman)",
+    "price": {
+      "amount": 2200,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "categoryLevel1": "men",
+      "categoryLevel2": "men-bundles",
+      "color": "multicolor",
+      "conditionDetails": "All six t-shirts are gently used with no visible flaws.",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Fleminginkatu 5, 00530 Helsinki, Finland",
+        "building": ""
+      },
+      "material": "100% cotton",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-87fc-4f08-a032-4718c2d7e297",
+    "title": "Brown leather work boots",
+    "description": "Sturdy brown leather work boots with visible wear from regular use, still fully functional. Photo by Lucas de Moura (https://unsplash.com/@root_br)",
+    "price": {
+      "amount": 2000,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "categoryLevel1": "men",
+      "categoryLevel2": "men-shoes",
+      "color": "brown",
+      "condition": "heavily-used",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Aleksis Kiven katu 17, 00510 Helsinki, Finland",
+        "building": ""
+      },
+      "material": "Full-grain leather",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": false,
+      "shoeSize": "43",
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-039b-473d-aa40-2732d022b883",
+    "title": "White cotton turtleneck sweater M",
+    "description": "Clean white cotton turtleneck sweater, barely worn. Great layering piece. Photo by Ihor Rapita (https://unsplash.com/@rapitaihor)",
+    "price": {
+      "amount": 1600,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "careInstructions": "Machine wash cold, dry flat.",
+      "categoryLevel1": "men",
+      "categoryLevel2": "men-tops",
+      "color": "white",
+      "condition": "like-new",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Pohjolankatu 25, 00600 Helsinki, Finland",
+        "building": ""
+      },
+      "material": "100% cotton",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "size": "m",
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-deaa-44c8-bc3b-46ff52fb042a",
+    "title": "Light blue denim shorts S",
+    "description": "Light blue denim shorts, classic five-pocket style. Comfortable everyday fit. Photo by engin akyurt (https://unsplash.com/@enginakyurt)",
+    "price": {
+      "amount": 1000,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "careInstructions": "Machine wash cold, tumble dry low.",
+      "categoryLevel1": "women",
+      "categoryLevel2": "women-bottoms",
+      "color": "blue",
+      "condition": "gently-used",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Pakkalankuja 6, 01510 Vantaa, Finland",
+        "building": ""
+      },
+      "material": "100% cotton denim",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "size": "s",
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-310d-4cf6-85d2-aaa92bc9214c",
+    "title": "Dress shoes, sunglasses & tie bundle",
+    "description": "Bundle of brown leather dress shoes, sunglasses, and a matching tie. Photo by Old Youth (https://unsplash.com/@oldyouth)",
+    "price": {
+      "amount": 4500,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "categoryLevel1": "men",
+      "categoryLevel2": "men-bundles",
+      "color": "brown",
+      "conditionDetails": "Dress shoes have light creasing but no damage; sunglasses and tie are like new.",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Siltavuorenranta 4, 00170 Helsinki, Finland",
+        "building": ""
+      },
+      "material": "Leather, acetate, silk",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-ed3c-4b45-82a1-5e85c0638c26",
+    "title": "Looking for a brown leather belt",
+    "description": "In search of a brown leather belt, adult size, good condition.",
+    "price": null,
+    "publicData": {
+      "cardStyle": "main-brand",
+      "categoryLevel1": "men",
+      "categoryLevel2": "men-accessories",
+      "color": "brown",
+      "condition": "gently-used",
+      "listingType": "in-search-of-clothing",
+      "material": "Leather",
+      "transactionProcessAlias": "default-negotiation/release-1",
+      "unitType": "request"
+    }
+  },
+  {
+    "id": "6ab28b71-f696-4ea3-9401-a38a826bd8a9",
+    "title": "Looking for brown leather boots, size 43",
+    "description": "In search of sturdy brown leather boots, EU size 43. Well used is fine.",
+    "price": null,
+    "publicData": {
+      "cardStyle": "black",
+      "categoryLevel1": "men",
+      "categoryLevel2": "men-shoes",
+      "color": "brown",
+      "condition": "well-used",
+      "listingType": "in-search-of-clothing",
+      "material": "Leather",
+      "shoeSize": "43",
+      "transactionProcessAlias": "default-negotiation/release-1",
+      "unitType": "request"
+    }
+  },
+  {
+    "id": "6ab28b71-16a5-410d-8f99-6d6a099b0e04",
+    "title": "Kids' clothing bundle, 9y",
+    "description": "Bundle of 9-year-old sized clothes: two pairs of jeans, a collared white shirt, a beige knit sweater, and blue-black dress shoes. Photo by Joéma Friperie (https://unsplash.com/@joema_friperie)",
+    "price": {
+      "amount": 2500,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "categoryLevel1": "kids",
+      "categoryLevel2": "kids-bundles",
+      "color": "multicolor",
+      "conditionDetails": "Jeans and shirt gently used, sweater like new, dress shoes show minor scuffs.",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Siltavuorenranta 4, 00170 Helsinki, Finland",
+        "building": ""
+      },
+      "material": "Cotton, wool, leather",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-637e-4100-a801-69f592b25dfb",
+    "title": "Kids' clothing bundle, 8y",
+    "description": "Bundle of 8-year-old sized clothes in grey, blue, red, and green. Photo by Giovanna Karla (https://unsplash.com/@giviok)",
+    "price": {
+      "amount": 1800,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "categoryLevel1": "kids",
+      "categoryLevel2": "kids-bundles",
+      "color": "multicolor",
+      "conditionDetails": "All pieces gently used, no stains or holes.",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Mannerheimintie 10, 00100 Helsinki, Finland",
+        "building": ""
+      },
+      "material": "Mixed cotton blends",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-9031-4bbf-97dc-ea05324bb1ac",
+    "title": "Looking for jeans, kids size 5y",
+    "description": "In search of durable jeans for a 5-year-old.",
+    "price": null,
+    "publicData": {
+      "cardStyle": "white",
+      "categoryLevel1": "kids",
+      "categoryLevel2": "kids-bottoms",
+      "color": "blue",
+      "condition": "gently-used",
+      "kidsSize": "5y",
+      "listingType": "in-search-of-clothing",
+      "material": "Denim",
+      "transactionProcessAlias": "default-negotiation/release-1",
+      "unitType": "request"
+    }
+  },
+  {
+    "id": "6ab28b71-4c65-459a-bbac-28c78d81e2b3",
+    "title": "Kids' jeans & denim jacket bundle, 11y",
+    "description": "Bundle of 11-year-old sized denim clothing: a pair of jeans and a matching denim jacket. Photo by engin akyurt (https://unsplash.com/@enginakyurt)",
+    "price": {
+      "amount": 2000,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "categoryLevel1": "kids",
+      "categoryLevel2": "kids-bundles",
+      "color": "blue",
+      "conditionDetails": "Both pieces gently used with minor fading typical of denim.",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Unikkotie 13, 01300 Vantaa, Finland",
+        "building": ""
+      },
+      "material": "100% cotton denim",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-71c2-4540-ad64-28003a4c68ef",
+    "title": "Brown and white wool cardigan S",
+    "description": "Cozy brown and white knitted wool cardigan with a folk-inspired yoke pattern. Warm and lightly worn. Photo by Andreas Eriksson (https://unsplash.com/@aeriksson)",
+    "price": {
+      "amount": 2500,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "careInstructions": "Dry clean only.",
+      "categoryLevel1": "women",
+      "categoryLevel2": "women-tops",
+      "color": "multicolor",
+      "condition": "like-new",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Olarinluoma 8, 02210 Espoo, Finland",
+        "building": ""
+      },
+      "material": "Wool blend",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "size": "s",
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-16c5-4232-9b19-31217de9ea56",
+    "title": "Striped shirt dress, belt & sneakers bundle",
+    "description": "Bundle of a light blue and white striped shirt dress, a white belt, and white and blue sneakers. Photo by engin akyurt (https://unsplash.com/@enginakyurt)",
+    "price": {
+      "amount": 2800,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "categoryLevel1": "women",
+      "categoryLevel2": "women-bundles",
+      "color": "multicolor",
+      "conditionDetails": "Shirt dress and belt are gently used; sneakers show minor scuffing.",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Piispansilta 2, 02230 Espoo, Finland",
+        "building": ""
+      },
+      "material": "Cotton, faux leather, canvas",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-c361-4a5b-b119-e675153ff2c6",
+    "title": "Baby blue dress with butterflies",
+    "description": "Blue cotton baby dress with a butterfly print. Soft and lightly worn. Photo by Adriana Chionetti (https://unsplash.com/@achionetti)",
+    "price": {
+      "amount": 700,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "careInstructions": "Machine wash cold, tumble dry low.",
+      "categoryLevel1": "kids",
+      "categoryLevel2": "kids-tops",
+      "color": "blue",
+      "condition": "gently-used",
+      "kidsSize": "6m",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Olarinluoma 8, 02210 Espoo, Finland",
+        "building": ""
+      },
+      "material": "100% cotton",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 300,
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-3e1c-41fd-a492-0466bcc87030",
+    "title": "Women's clothing bundle - sweaters, boots & skirt",
+    "description": "Bundle of brown-toned women's pieces: a cotton sweater, a knit wool sweater, ankle boots, and a plaid skirt. Photo by Zoe (https://unsplash.com/@_imd)",
+    "price": {
+      "amount": 3500,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "categoryLevel1": "women",
+      "categoryLevel2": "women-bundles",
+      "color": "brown",
+      "conditionDetails": "Sweaters are gently used, ankle boots show light wear on the soles, plaid skirt is like new.",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Kimokuja 5, 01200 Vantaa, Finland",
+        "building": ""
+      },
+      "material": "Cotton, wool, leather",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 500,
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  },
+  {
+    "id": "6ab28b71-eb0b-4eba-9cda-11c3e3d461d1",
+    "title": "Looking for black ankle boots, size 38",
+    "description": "In search of black leather ankle boots, EU size 38, gently used or better.",
+    "price": null,
+    "publicData": {
+      "cardStyle": "white",
+      "categoryLevel1": "women",
+      "categoryLevel2": "women-shoes",
+      "color": "black",
+      "condition": "gently-used",
+      "listingType": "in-search-of-clothing",
+      "material": "Leather",
+      "shoeSize": "38",
+      "transactionProcessAlias": "default-negotiation/release-1",
+      "unitType": "request"
+    }
+  },
+  {
+    "id": "6ab28b71-816a-40bd-8487-a4b0e3185a4e",
+    "title": "Black cotton long-sleeve t-shirt L",
+    "description": "Simple black cotton long-sleeve t-shirt. A wardrobe staple in good condition. Photo by Ryan Hoffman (https://unsplash.com/@ryanhoffman007)",
+    "price": {
+      "amount": 800,
+      "currency": "EUR"
+    },
+    "publicData": {
+      "careInstructions": "Machine wash cold, hang dry.",
+      "categoryLevel1": "men",
+      "categoryLevel2": "men-tops",
+      "color": "black",
+      "condition": "gently-used",
+      "listingType": "sell-used-products",
+      "location": {
+        "address": "Fleminginkatu 5, 00530 Helsinki, Finland",
+        "building": ""
+      },
+      "material": "100% cotton",
+      "petFreeHome": "yes",
+      "pickupEnabled": true,
+      "shippingEnabled": true,
+      "shippingPriceInSubunitsOneItem": 400,
+      "size": "l",
+      "smokeFreeHome": "yes",
+      "transactionProcessAlias": "default-purchase/release-1",
+      "unitType": "item"
+    }
+  }
+]
