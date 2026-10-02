@@ -1,0 +1,216 @@
+{
+  "about": "20 hand-written cases for step 1 (intent). Run live with: node eval/run-intent.js. 'previousState' filters are inferred unless source is 'user'; price values are in cents. 'expect.filters' must all be in the merged state (a scalar matches a list that contains it); 'absent' keys must not be in it.",
+  "cases": [
+    {
+      "id": 1,
+      "text": "size 38 shoes",
+      "expect": {
+        "mode": "new",
+        "filters": [{ "key": "shoeSize", "value": "38" }],
+        "absent": ["size", "kidsSize"]
+      }
+    },
+    {
+      "id": 2,
+      "text": "for my 5 year old",
+      "expect": {
+        "mode": "new",
+        "filters": [
+          { "key": "categoryLevel1", "value": "kids" },
+          { "key": "kidsSize", "value": "5y" }
+        ],
+        "absent": ["size"]
+      }
+    },
+    {
+      "id": 3,
+      "text": "baby blue dress",
+      "expect": {
+        "mode": "new",
+        "filters": [{ "key": "color", "value": "blue" }],
+        "absent": ["kidsSize", "size"]
+      }
+    },
+    {
+      "id": 4,
+      "text": "under 30€",
+      "expect": { "mode": "new", "filters": [{ "key": "price", "value": { "max": 3000 } }] }
+    },
+    {
+      "id": 5,
+      "text": "men's",
+      "expect": { "mode": "new", "filters": [{ "key": "categoryLevel1", "value": "men" }] }
+    },
+    {
+      "id": 6,
+      "text": "no bundles",
+      "expect": {
+        "mode": "new",
+        "filters": [
+          { "key": "categoryLevel2", "value": ["women-bundles", "men-bundles", "kids-bundles"] }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "text": "cheaper",
+      "previousState": {
+        "q": "black jeans",
+        "filters": [
+          { "key": "categoryLevel2", "value": "women-bottoms" },
+          { "key": "color", "value": "black" }
+        ]
+      },
+      "expect": {
+        "mode": "refine",
+        "priceIntent": "cheaper",
+        "filters": [{ "key": "color", "value": "black" }],
+        "absent": ["price"]
+      }
+    },
+    {
+      "id": 8,
+      "text": "now I need sneakers",
+      "previousState": {
+        "q": "black jeans",
+        "filters": [
+          { "key": "categoryLevel2", "value": "women-bottoms" },
+          { "key": "color", "value": "black" }
+        ]
+      },
+      "expect": { "mode": "new", "absent": ["color"] }
+    },
+    {
+      "id": 9,
+      "text": "in black",
+      "previousState": {
+        "q": "jeans",
+        "filters": [{ "key": "categoryLevel2", "value": "women-bottoms" }]
+      },
+      "expect": {
+        "mode": "refine",
+        "filters": [
+          { "key": "categoryLevel2", "value": "women-bottoms" },
+          { "key": "color", "value": "black" }
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "text": "black jeans",
+      "previousState": {
+        "q": "",
+        "filters": [{ "key": "color", "value": "blue", "source": "user" }]
+      },
+      "expect": {
+        "filters": [{ "key": "color", "value": "blue" }],
+        "notices": ["USER_FILTER_KEPT"]
+      }
+    },
+    {
+      "id": 11,
+      "text": "women's tops size M",
+      "expect": {
+        "mode": "new",
+        "filters": [
+          { "key": "categoryLevel1", "value": "women" },
+          { "key": "categoryLevel2", "value": "women-tops" },
+          { "key": "size", "value": "m" }
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "text": "like new leather jacket under 80 euros",
+      "expect": {
+        "mode": "new",
+        "filters": [
+          { "key": "condition", "value": "like-new" },
+          { "key": "price", "value": { "max": 8000 } }
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "text": "Nike sneakers size 42",
+      "expect": {
+        "mode": "new",
+        "filters": [{ "key": "brand", "value": "Nike" }, { "key": "shoeSize", "value": "42" }]
+      }
+    },
+    {
+      "id": 14,
+      "text": "something warm and vintage for winter",
+      "expect": { "mode": "new", "absent": ["size", "shoeSize", "kidsSize", "price", "color"] }
+    },
+    {
+      "id": 15,
+      "text": "remove the size filter",
+      "previousState": {
+        "q": "jeans size M",
+        "filters": [
+          { "key": "categoryLevel2", "value": "women-bottoms" },
+          { "key": "size", "value": "m" }
+        ]
+      },
+      "expect": {
+        "mode": "refine",
+        "filters": [{ "key": "categoryLevel2", "value": "women-bottoms" }],
+        "absent": ["size"],
+        "removed": ["size"]
+      }
+    },
+    {
+      "id": 16,
+      "text": "red dress size L",
+      "expect": {
+        "mode": "new",
+        "filters": [{ "key": "color", "value": "red" }, { "key": "size", "value": "l" }]
+      }
+    },
+    {
+      "id": 17,
+      "text": "kids jeans age 8",
+      "expect": {
+        "mode": "new",
+        "filters": [
+          { "key": "categoryLevel1", "value": "kids" },
+          { "key": "kidsSize", "value": "8y" }
+        ],
+        "absent": ["size"]
+      }
+    },
+    {
+      "id": 18,
+      "text": "can be shipped, from a smoke-free home",
+      "expect": {
+        "mode": "new",
+        "filters": [
+          { "key": "shippingEnabled", "value": true },
+          { "key": "smokeFreeHome", "value": "yes" }
+        ]
+      }
+    },
+    {
+      "id": 19,
+      "text": "also in green",
+      "previousState": {
+        "q": "black jeans",
+        "filters": [
+          { "key": "categoryLevel2", "value": "women-bottoms" },
+          { "key": "color", "value": "black" }
+        ]
+      },
+      "expect": { "mode": "refine", "filters": [{ "key": "color", "value": "green" }] }
+    },
+    {
+      "id": 20,
+      "text": "even cheaper",
+      "previousState": {
+        "q": "jackets under 60",
+        "filters": [{ "key": "price", "value": { "max": 6000 } }]
+      },
+      "expect": { "mode": "refine", "priceIntent": "cheaper" }
+    }
+  ]
+}

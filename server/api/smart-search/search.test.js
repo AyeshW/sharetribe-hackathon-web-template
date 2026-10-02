@@ -1,7 +1,15 @@
 const { types } = require('sharetribe-flex-sdk');
 const { deserialize } = require('../../api-util/sdk');
 const { runSearch, createSmartSearchHandler } = require('./index');
-const { config, listing, fakeSdk, filter, state } = require('./test-data');
+const {
+  config,
+  listing,
+  fakeSdk,
+  filter,
+  state,
+  fakeAnthropic,
+  rawIntent,
+} = require('./test-data');
 
 const VECTORS = { model: 'Xenova/bge-small-en-v1.5', listings: {} };
 
@@ -11,8 +19,11 @@ const catalog = [
   listing({ id: 'women-m', price: 2000, publicData: { categoryLevel1: 'women', size: 'm' } }),
 ];
 const uuids = entities => entities.map(e => e.id.uuid);
+const logUsage = jest.fn();
 
 describe('runSearch', () => {
+  beforeEach(() => logUsage.mockClear());
+
   it('starts a new search for text, keeping only the buyer filters', async () => {
     const sdk = fakeSdk(catalog);
     const incoming = state(
@@ -24,9 +35,10 @@ describe('runSearch', () => {
       { preferences: ['vintage'], removed: ['color'], terms: ['coat'] }
     );
 
+    const anthropic = fakeAnthropic(rawIntent({ terms: ['sneakers'] }));
     const body = await runSearch(
       { q: 'something new', state: incoming },
-      { sdk, config, vectors: VECTORS }
+      { sdk, config, vectors: VECTORS, anthropic, logUsage }
     );
 
     expect(body.state).toEqual({
@@ -35,7 +47,7 @@ describe('runSearch', () => {
       preferences: [],
       removed: [],
       similarTo: null,
-      terms: [],
+      terms: ['sneakers'],
     });
     const [params] = sdk.listings.query.mock.calls[0];
     expect(params).toMatchObject({
@@ -46,11 +58,101 @@ describe('runSearch', () => {
   });
 
   it('searches all sell listings for text without any filters', async () => {
-    const body = await runSearch({ q: 'anything' }, { sdk: fakeSdk(catalog), config });
+    const anthropic = fakeAnthropic(rawIntent({ terms: ['anything'] }));
+    const body = await runSearch(
+      { q: 'anything' },
+      { sdk: fakeSdk(catalog), config, anthropic, logUsage }
+    );
     expect(uuids(body.results)).toEqual(['men-l', 'men-m', 'women-m']);
     expect(body.results.every(r => r.tier === 'best' && r.reason === null)).toBe(true);
     expect(body.notices).toEqual([]);
     expect(body.meta).toMatchObject({ reranked: false, warnings: [] });
+    expect(body.meta.intent).toMatchObject({ mode: 'new', terms: ['anything'] });
+  });
+
+  it('applies the filters Claude read from the text', async () => {
+    const anthropic = fakeAnthropic(
+      rawIntent({
+        filters: [
+          { key: 'size', op: 'eq', value: 'm' },
+          { key: 'color', op: 'eq', value: 'purple' },
+        ],
+      })
+    );
+    const body = await runSearch(
+      { q: 'purple jeans size M' },
+      { sdk: fakeSdk(catalog), config, anthropic, logUsage }
+    );
+    expect(body.state.filters.map(f => [f.key, f.label, f.mode])).toEqual([
+      ['size', 'Size M', 'hard'],
+      ['color', 'Purple', 'soft'],
+    ]);
+    // size M is applied in memory; the soft colour hides nothing
+    expect(uuids(body.results)).toEqual(['men-m', 'women-m']);
+  });
+
+  it('returns USER_FILTER_KEPT when the text conflicts with a buyer filter', async () => {
+    const anthropic = fakeAnthropic(
+      rawIntent({ filters: [{ key: 'size', op: 'eq', value: 'l' }] })
+    );
+    const userSize = filter('size', 'm', { source: 'user', label: 'Size M' });
+    const sdk = fakeSdk(catalog);
+    const body = await runSearch(
+      { q: 'size L please', state: state([userSize]) },
+      { sdk, config, anthropic, logUsage }
+    );
+    expect(body.state.filters).toEqual([userSize]);
+    expect(body.notices).toEqual([{ code: 'USER_FILTER_KEPT', params: { label: 'Size M' } }]);
+    // the buyer's size M goes into the Marketplace query, not the text's size L
+    expect(sdk.listings.query.mock.calls[0][0].pub_size).toBe('m');
+  });
+
+  it('sets a cheaper price from the fetched candidates after the query', async () => {
+    const anthropic = fakeAnthropic(rawIntent({ mode: 'refine', priceIntent: 'cheaper' }));
+    const previous = state([filter('categoryLevel1', 'men')], { q: 'jackets' });
+    const body = await runSearch(
+      { q: 'cheaper', state: previous },
+      { sdk: fakeSdk(catalog), config, anthropic, logUsage }
+    );
+    // men listings cost 30 € and 50 €: median 40 €, 80% is 32 €
+    const price = body.state.filters.find(f => f.key === 'price');
+    expect(price).toMatchObject({ value: { max: 3200 }, label: 'Under €32' });
+    expect(uuids(body.results)).toEqual(['men-l']);
+  });
+
+  it('lowers the existing price max for "cheaper"', async () => {
+    const anthropic = fakeAnthropic(rawIntent({ mode: 'refine', priceIntent: 'cheaper' }));
+    const previous = state([filter('price', { max: 4000 })], { q: 'jackets' });
+    const body = await runSearch(
+      { q: 'cheaper', state: previous },
+      { sdk: fakeSdk(catalog), config, anthropic, logUsage }
+    );
+    expect(body.state.filters[0].value).toEqual({ max: 3200 });
+  });
+
+  it('does not call Claude without text', async () => {
+    const anthropic = fakeAnthropic(rawIntent());
+    const body = await runSearch(
+      { q: null, state: state([filter('size', 'm')]) },
+      { sdk: fakeSdk(catalog), config, anthropic, logUsage }
+    );
+    expect(anthropic.messages.create).not.toHaveBeenCalled();
+    expect(logUsage).not.toHaveBeenCalled();
+    expect(body.meta).toMatchObject({ intent: null, warnings: [] });
+  });
+
+  it('adds INTENT_FALLBACK and still searches when Claude fails', async () => {
+    const anthropic = { messages: { create: jest.fn(() => Promise.reject(new Error('529'))) } };
+    const state0 = state([filter('size', 'm', { source: 'user' })]);
+    const sdk = fakeSdk(catalog);
+    const body = await runSearch(
+      { q: 'black jeans', state: state0 },
+      { sdk, config, anthropic, logUsage }
+    );
+    expect(body.meta.warnings).toEqual(['INTENT_FALLBACK']);
+    expect(body.state).toMatchObject({ q: 'black jeans', terms: ['black', 'jeans'] });
+    expect(body.state.filters).toEqual(state0.filters);
+    expect(sdk.listings.query.mock.calls[0][0].pub_size).toBe('m');
   });
 
   it('uses the state as it is without text, applying inferred filters in memory', async () => {
@@ -125,9 +227,18 @@ const fakeRes = () => {
 describe('createSmartSearchHandler', () => {
   const log = { error: jest.fn() };
   const handlerWith = (sdk, getStaticData = () => Promise.resolve({ config, vectors: VECTORS })) =>
-    createSmartSearchHandler({ getStaticData, getSdk: () => sdk, log });
+    createSmartSearchHandler({
+      getStaticData,
+      getSdk: () => sdk,
+      getAnthropic: () => fakeAnthropic(rawIntent()),
+      logUsage,
+      log,
+    });
 
-  beforeEach(() => log.error.mockClear());
+  beforeEach(() => {
+    log.error.mockClear();
+    logUsage.mockClear();
+  });
 
   it('responds 200 with application/transit+json carrying SDK types', async () => {
     const res = fakeRes();
@@ -140,6 +251,25 @@ describe('createSmartSearchHandler', () => {
     expect(body.listings.data[0].attributes.price).toBeInstanceOf(types.Money);
     expect(uuids(body.listings.data)).toEqual(['men-l', 'men-m']);
     expect(body.totalPages).toBe(2);
+  });
+
+  it('searches without inferred filters when the Anthropic client can not be created', async () => {
+    const res = fakeRes();
+    const missingKey = new Error('Missing environment variable ANTHROPIC_API_KEY. Set it in .env.');
+    const handler = createSmartSearchHandler({
+      getStaticData: () => Promise.resolve({ config, vectors: VECTORS }),
+      getSdk: () => fakeSdk(catalog),
+      getAnthropic: () => {
+        throw missingKey;
+      },
+      logUsage,
+      log,
+    });
+    await handler({ body: { q: 'jacket' } }, res);
+
+    expect(res.statusCode).toBe(200);
+    expect(deserialize(res.body).meta.warnings).toEqual(['INTENT_FALLBACK']);
+    expect(log.error).toHaveBeenCalledWith(missingKey, 'smart-search-anthropic-unavailable');
   });
 
   it('responds 400 with { code, message } for an invalid request', async () => {

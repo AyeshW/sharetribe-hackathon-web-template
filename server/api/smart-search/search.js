@@ -2,30 +2,36 @@
  * runSearch: the whole smart search for one request. The Express handler (index.js), tests and
  * the eval all call this.
  *
- * Built so far: ② fetch, ③ filter + relax, ⑥ respond. Not yet: ① intent (Phase 5),
- * ④ initial ranking (Phase 6), ⑤ rerank (deferred, D18).
+ * Built so far: ① intent, ② fetch, ③ filter + relax, ⑥ respond. Not yet: ④ initial ranking (Phase 6), ⑤ rerank (deferred, D18).
  */
 const { validateRequest, searchError } = require('./request');
 const { buildQueryParams, fetchAllListings } = require('./query');
 const { applyFilters } = require('./filters');
 const { buildResponse } = require('./respond');
+const { parseIntent } = require('./intent');
+const { mergeIntent, applyCheaper } = require('./state');
 
 /**
- * The state this request searches with. New text starts a new search that keeps only the
- * buyer's own filters (D3 rule 3); intent parsing (Phase 5) will add inferred filters here.
- * Without text the state is used as it is.
+ * Step ①: the state this request searches with. New text goes through intent parsing and the
+ * merge rules (D3); without text (a chip edit, sort or page change) the state is used as it is
+ * and Claude is not called.
  */
-const nextState = ({ q, state }) =>
-  q
-    ? {
-        q,
-        filters: state ? state.filters.filter(f => f.source === 'user') : [],
-        preferences: [],
-        removed: [],
-        similarTo: null,
-        terms: [],
-      }
-    : state;
+const resolveState = async ({ q, state }, deps) => {
+  if (!q) {
+    return { state, notices: [], warnings: [], intent: null };
+  }
+  const { intent, warnings } = await parseIntent({
+    q,
+    state,
+    config: deps.config,
+    anthropic: deps.anthropic,
+    logUsage: deps.logUsage,
+    timeoutMs: deps.intentTimeoutMs,
+    onError: deps.onIntentError,
+  });
+  const merged = mergeIntent({ q, state, intent });
+  return { ...merged, warnings, intent };
+};
 
 // Placeholder until the initial ranking (Phase 6): every listing scores 1 and is relevant.
 const initialScores = listings => new Map(listings.map(listing => [listing.id.uuid, 1]));
@@ -46,6 +52,10 @@ const fetchCandidates = (sdk, params) =>
  * @param {Object} deps.sdk Marketplace API SDK (anything with listings.query)
  * @param {Object} deps.config marketplace config from startup.js
  * @param {Object} deps.vectors vectors.json content from startup.js (used from Phase 6)
+ * @param {?Object} [deps.anthropic] Anthropic client for the intent call (null: intent falls back)
+ * @param {Function} [deps.logUsage] Claude usage logger (defaults to the usage log)
+ * @param {number} [deps.intentTimeoutMs] intent call timeout
+ * @param {Function} [deps.onIntentError] called with the error when the intent call falls back
  * @param {() => number} [deps.now] clock, for tookMs
  * @returns {Promise<Object>} response body (CONTRACT.md §4, plus backend-only meta)
  * @throws a search error with status and code (CONTRACT.md §9)
@@ -55,10 +65,16 @@ const runSearch = async (body, deps) => {
   const startedAt = now();
 
   const request = validateRequest(body);
-  const state = nextState(request);
+  const resolved = await resolveState(request, deps);
 
-  const params = buildQueryParams(state, request.image, config);
+  const params = buildQueryParams(resolved.state, request.image, config);
   const { listings, included } = await fetchCandidates(sdk, params);
+
+  // "Cheaper" needs the fetched candidates (median price), so it runs after step ②.
+  const { state, notices } =
+    resolved.intent && resolved.intent.priceIntent === 'cheaper'
+      ? applyCheaper({ ...resolved, listings, config })
+      : resolved;
 
   const scores = initialScores(listings);
   const { results, auto, suggestions } = applyFilters(
@@ -76,14 +92,21 @@ const runSearch = async (body, deps) => {
     .map(listing => ({ listing, score: scores.get(listing.id.uuid) }))
     .sort((a, b) => b.score - a.score);
 
-  return buildResponse({
+  const response = buildResponse({
     state: responseState,
     ranked,
     included,
     request,
     relaxation: { auto, suggestions },
-    meta: { tookMs: now() - startedAt, reranked: false, intent: null, warnings: [] },
+    meta: {
+      tookMs: now() - startedAt,
+      reranked: false,
+      intent: resolved.intent,
+      warnings: resolved.warnings,
+    },
   });
+  // The buyer-facing notices (USER_FILTER_KEPT) come before NO_RESULTS.
+  return { ...response, notices: [...notices, ...response.notices] };
 };
 
-module.exports = { runSearch, nextState };
+module.exports = { runSearch };

@@ -6,6 +6,7 @@
  */
 const sdkUtils = require('../../api-util/sdk');
 const defaultLog = require('../../log');
+const { createAnthropicClient } = require('../../smart-search-lib/clients');
 const { searchError } = require('./request');
 const { runSearch } = require('./search');
 
@@ -28,13 +29,27 @@ const sendError = (res, error, log) => {
  * @param {Object} deps
  * @param {() => Promise<{ config, vectors }>} deps.getStaticData from startup.js
  * @param {(req, res) => Object} [deps.getSdk] Marketplace SDK for this request
+ * @param {() => Object} [deps.getAnthropic] Anthropic client for the intent call
+ * @param {Function} [deps.logUsage] Claude usage logger (defaults to the usage log)
  * @param {Object} [deps.log] logger with error(error, code, data)
  */
 const createSmartSearchHandler = ({
   getStaticData,
   getSdk = sdkUtils.getSdk,
+  getAnthropic = createAnthropicClient,
+  logUsage,
   log = defaultLog,
 }) => (req, res) => {
+  // A missing API key must not break search: the intent step falls back (D6, INTENT_FALLBACK).
+  const anthropicOrNull = () => {
+    try {
+      return getAnthropic();
+    } catch (e) {
+      log.error(e, 'smart-search-anthropic-unavailable');
+      return null;
+    }
+  };
+
   const staticData = Promise.resolve()
     .then(getStaticData)
     .catch(e => {
@@ -44,7 +59,16 @@ const createSmartSearchHandler = ({
     });
 
   return staticData
-    .then(({ config, vectors }) => runSearch(req.body, { sdk: getSdk(req, res), config, vectors }))
+    .then(({ config, vectors }) =>
+      runSearch(req.body, {
+        sdk: getSdk(req, res),
+        config,
+        vectors,
+        anthropic: anthropicOrNull(),
+        logUsage,
+        onIntentError: e => log.error(e, 'smart-search-intent-failed'),
+      })
+    )
     .then(body => {
       res
         .status(200)

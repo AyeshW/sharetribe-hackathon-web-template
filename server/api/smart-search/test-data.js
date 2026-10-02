@@ -89,4 +89,45 @@ const state = (filters = [], overrides = {}) => ({
   ...overrides,
 });
 
-module.exports = { config, listing, fakeSdk, filter, state, imageOf, userOf };
+/**
+ * Fake Anthropic client whose messages.create replies with `reply` as JSON text, like the real
+ * client does with structured output. Tests never call the real Claude API.
+ */
+const claudeReply = (reply, overrides = {}) => ({
+  model: 'claude-haiku-4-5-20251001',
+  stop_reason: 'end_turn',
+  content: [{ type: 'text', text: typeof reply === 'string' ? reply : JSON.stringify(reply) }],
+  usage: { input_tokens: 100, output_tokens: 20 },
+  ...overrides,
+});
+
+const fakeAnthropic = (reply, overrides) => ({
+  messages: { create: jest.fn(() => Promise.resolve(claudeReply(reply, overrides))) },
+});
+
+/**
+ * An intent as Claude returns it (before validation), with the empty defaults.
+ */
+const rawIntent = (overrides = {}) => ({
+  mode: 'new',
+  filters: [],
+  removeKeys: [],
+  preferences: [],
+  removePreferences: [],
+  terms: [],
+  priceIntent: 'none',
+  ...overrides,
+});
+
+module.exports = {
+  config,
+  listing,
+  fakeSdk,
+  filter,
+  state,
+  imageOf,
+  userOf,
+  claudeReply,
+  fakeAnthropic,
+  rawIntent,
+};
