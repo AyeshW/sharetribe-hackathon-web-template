@@ -10,7 +10,8 @@ Each entry has a status: **Accepted**, **Superseded** (link to the replacement) 
 
 ## D1. Two-stage ranking: initial ranking for every candidate, then a Claude rerank of the top 20
 
-**Status:** Accepted
+**Status:** Accepted. **The rerank stage is deferred (D18)**: the first build ships initial
+ranking only.
 
 ### Decision
 
@@ -83,12 +84,12 @@ The reranker sees only 20 listings. The initial ranking does everything else:
 - The reranker **grades and reorders. It never removes.** Listings graded `weak` move to the "Also
   possibly relevant" tier and stay visible.
 - It only reorders within the top 20, so no candidate below it is lost.
-- If the call fails or times out (~2 s budget), the initial ranking is returned and
+- If the call fails or times out (10 s budget, D16), the initial ranking is returned and
   `meta.warnings` contains `RERANK_SKIPPED` (D6).
 
 ### Trade-offs accepted
 
-- About **$0.016 and 1–2 seconds** per reranked search (Sonnet, 20 listings).
+- About **$0.016 and several seconds** per reranked search (Sonnet, 20 listings; D16).
 - With today's 27 listings, the top 20 is often the whole candidate set, so the initial ranking
   matters mostly for the fallback, relaxation and scaling. It becomes essential as the catalog grows.
 
@@ -271,7 +272,7 @@ candidates from the Marketplace API, filters them, and returns that same data (D
 
 - A failure in Claude or the embedding step is **not** an error. The server returns `200` and adds
   a code to `meta.warnings`: `INTENT_FALLBACK` (searched the raw text without inferred filters) or
-  `RERANK_SKIPPED` (initial-ranking order, ~2 s rerank timeout). Only a failed Sharetribe query
+  `RERANK_SKIPPED` (initial-ranking order, 10 s rerank timeout, D16). Only a failed Sharetribe query
   returns an error (`502 UPSTREAM_ERROR`).
 - **`notices` are for the buyer only**, so there are just two: `USER_FILTER_KEPT` (`params:
   { label }`) and `NO_RESULTS`. Technical events go to `meta.warnings`, which the buyer never sees.
@@ -407,14 +408,19 @@ writes both: tags to Sharetribe, vectors to the file.
 
 ---
 
-## D10. Seed photos come from Pexels
+## D10. Seed photos come from Pixabay
 
-**Status:** Accepted
+**Status:** Accepted (revised: Pexels no longer issues API keys)
 
-- A script searches the Pexels API (free key, 200 requests/hour) for each planned listing's photo
-  and downloads 2–3 candidates to `seed/images/`.
+- A script searches the **Pixabay API** (free key from a Pixabay account, 100 requests per
+  minute) for each planned listing's photo and downloads up to 3 candidates to
+  `seed/images/candidates/`.
+- Pixabay's terms ask apps to download images rather than hotlink them, which matches seeding:
+  photos are uploaded to Sharetribe. The Pixabay Content License allows commercial use.
 - Claude Code looks at the candidates and picks the one that fits the planned listing.
-- The photographer is credited in the listing description, as in the existing listings.
+- Each description ends with "Image by <user> from Pixabay".
+- Unsplash was rejected: its API guidelines require hotlinking Unsplash's URLs, so images can't be
+  re-uploaded through its API.
 
 ---
 
@@ -500,3 +506,124 @@ listing before upload. The dry run reports invalid listings, and none are upload
 
 Invalid listings would be unrealistic (a seller couldn't create them), could break listing pages,
 and would make the eval unfair to the default keyword search.
+
+---
+
+## D13. Embedding model: bge-small-en-v1.5, run locally with transformers.js
+
+**Status:** Accepted
+
+- Model `Xenova/bge-small-en-v1.5` (quantized, about 34 MB, 384 dimensions) via
+  `@huggingface/transformers`, run inside Node by both the indexer and the server.
+- Listing text is embedded as is. Query text gets the model's retrieval prefix:
+  `Represent this sentence for searching relevant passages: `.
+- Vectors are normalised, so cosine similarity is a dot product.
+- `vectors.json` records the model name. The server refuses to use vectors made by another model.
+- **Why:** free, no extra key, good retrieval quality for its size, runs offline after the first
+  download.
+
+---
+
+## D14. Static data is loaded once when the server starts
+
+**Status:** Accepted
+
+- At server start the endpoint loads the marketplace config (`listing-fields.json`,
+  `listing-categories.json`, `listing-types.json`), `vectors.json` and the embedding model.
+- After changing Console settings or re-running the indexer, **restart the server**.
+- This doesn't contradict D4: D4 forbids caching search results and listing data. These are
+  slow-changing inputs, not results.
+
+---
+
+## D15. Chip labels are built in code, not by Claude
+
+**Status:** Accepted
+
+- Claude's intent output contains only keys and values (`{ key: 'size', value: 'l' }`). Code
+  checks each value against the config, **drops anything not allowed**, and builds the label from
+  the config: field label + option label ("Size L"), "Under €60" for price, "No bundles" for the
+  bundle exclusion.
+- **Why:** labels are always consistent, and Claude can't invent filter values.
+
+---
+
+## D16. Rerank settings: Sonnet 5.5, low effort, 10-second timeout
+
+**Status:** Accepted for when rerank is built (deferred, D18). The tier rule without rerank
+applies now. Replaces the ~2 s budget mentioned in an earlier draft of D1.
+
+- `claude-sonnet-5-5` with `output_config.effort: 'low'` and structured JSON output.
+- Timeout **10 seconds**. Grading 20 listings with reasons takes several seconds, so 2 s would
+  almost always fail.
+- On timeout, error or refusal: return the initial ranking and add `RERANK_SKIPPED` to
+  `meta.warnings`.
+- Tiers after rerank: grades `exact` and `good` → `best`; `partial` and `weak` → `related`.
+  Without rerank: `best` if the initial score is at least 60% of the top score, otherwise
+  `related`.
+
+---
+
+## D17. Eval: one command, three plain checks, an HTML report
+
+**Status:** Accepted (revised: simplified so a teammate without search background can run it;
+the first version used recall@10, nDCG@10 and precision@5)
+
+### Checks per query
+
+| Check             | Meaning                                                                |
+| ----------------- | ---------------------------------------------------------------------- |
+| **Found**         | Correct listings in the first 10 results, out of all correct listings (e.g. 3 of 4) |
+| **Best in top 3** | At least one grade-2 ("clearly right") listing is in the first 3 results |
+| **Empty**         | The search returned no results                                         |
+
+A query **passes** when *Best in top 3* is yes **and** *Found* is at least half.
+
+### How it runs
+
+- `node eval/run.js` runs every query in `seed/plan.json` through the **old search** (Sharetribe
+  keyword search: `listings.query` with `keywords` and `pub_listingType: 'sell-used-products'`)
+  and the **new search** (`runSearch` in-process, once it exists).
+- Before calling Claude it prints the number of calls and the estimated cost (about $0.50 per
+  full run with rerank) and asks y/N.
+- It writes `eval/report.html`: a summary line ("Old search: X of N pass. New search: Y of N
+  pass."), the average *Found* share, the number of empty results, then one row per query with
+  old vs new side by side (✅/❌, Found, top 3 titles, better/worse/same). Rows where the new
+  search is worse are red. Each row expands to show the correct listings.
+- Each run is also saved as `eval/results/<timestamp>.json`.
+- `eval/HOW-TO-EVALUATE.md` is a one-page guide for a teammate: run, read, manual checklist,
+  what to report.
+
+### Why
+
+The person running it shouldn't need to understand ranking metrics. Three yes/no-style checks and
+titles side by side answer the question the case asks: does the new search find the right
+listings, with less effort?
+
+---
+
+## D18. Rerank is deferred until everything else works
+
+**Status:** Accepted
+
+### Decision
+
+- The first build ships **without** the rerank stage: steps ①–④ and ⑥ only.
+- Rerank becomes the **last, optional phase**. It's built only after the demo works end to end,
+  and kept only if the eval shows it helps **and** its response time is acceptable for the demo.
+- Until then:
+  - `results[].reason` is `null` (the contract already allows it, and the frontend shows reasons
+    only when present),
+  - tiers use the no-rerank rule in D16 (`best` if the initial score is at least 60% of the top
+    score),
+  - `meta.reranked` is `false`, and the `rerank` request flag is accepted but has no effect.
+
+### Why
+
+A rerank call with reasons for 20 listings takes several seconds, up to the 10 s timeout. That's
+too slow to be the default for a smooth demo, and the rest of the pipeline delivers most of the
+accuracy gain.
+
+### Cost effect
+
+Without rerank, a full eval run costs about $0.10 (intent calls only) instead of about $0.50.

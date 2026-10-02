@@ -226,7 +226,7 @@
     "test-ci": "yarn run test-server --runInBand && node scripts/test.js --runInBand",
     "start": "node server/index.js",
     "dev-server": "cross-env-shell NODE_ENV=development PORT=4000 REACT_APP_MARKETPLACE_ROOT_URL=http://localhost:4000 \"yarn run build&&nodemon --watch server server/index.js\"",
-    "test-server": "jest --roots ./server --testMatch='**/server/**/*.test.js' --testEnvironment=node",
+    "test-server": "jest --roots ./server ./seed ./eval --testMatch='**/*.test.js' --testEnvironment=node",
     "heroku-postbuild": "yarn run build",
     "postinstall": "patch-package",
     "translate": "node scripts/translations.js"
