@@ -272,8 +272,11 @@ candidates from the Marketplace API, filters them, and returns that same data (D
 
 - A failure in Claude or the embedding step is **not** an error. The server returns `200` and adds
   a code to `meta.warnings`: `INTENT_FALLBACK` (searched the raw text without inferred filters) or
-  `RERANK_SKIPPED` (initial-ranking order, 10 s rerank timeout, D16). Only a failed Sharetribe query
-  returns an error (`502 UPSTREAM_ERROR`).
+  `RERANK_SKIPPED` (initial-ranking order, 10 s rerank timeout, D16) or `EMBEDDING_SKIPPED` (the
+  embedding model didn't load or the query embedding failed; ranked by word and preference match
+  only, semantic 0). Only a failed Sharetribe query returns an error (`502 UPSTREAM_ERROR`).
+- `similarTo` ("More like this") is accepted and kept in the state but doesn't affect ranking yet.
+  How it ranks is decided later (agreed in Phase 6).
 - **`notices` are for the buyer only**, so there are just two: `USER_FILTER_KEPT` (`params:
   { label }`) and `NO_RESULTS`. Technical events go to `meta.warnings`, which the buyer never sees.
   An earlier draft also had an `AUTO_RELAXED` notice. It was removed because `relaxation.auto`

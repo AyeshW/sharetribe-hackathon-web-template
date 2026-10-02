@@ -2,7 +2,8 @@
  * runSearch: the whole smart search for one request. The Express handler (index.js), tests and
  * the eval all call this.
  *
- * Built so far: ① intent, ② fetch, ③ filter + relax, ⑥ respond. Not yet: ④ initial ranking (Phase 6), ⑤ rerank (deferred, D18).
+ * Built: ① intent, ② fetch, ③ filter + relax, ④ initial ranking, ⑥ respond. Not yet: ⑤ rerank
+ * (deferred, D18).
  */
 const { validateRequest, searchError } = require('./request');
 const { buildQueryParams, fetchAllListings } = require('./query');
@@ -10,6 +11,7 @@ const { applyFilters } = require('./filters');
 const { buildResponse } = require('./respond');
 const { parseIntent } = require('./intent');
 const { mergeIntent, applyCheaper } = require('./state');
+const { queryText, hasRankingSignals, rankListings } = require('./ranking');
 
 /**
  * Step ①: the state this request searches with. New text goes through intent parsing and the
@@ -33,9 +35,31 @@ const resolveState = async ({ q, state }, deps) => {
   return { ...merged, warnings, intent };
 };
 
-// Placeholder until the initial ranking (Phase 6): every listing scores 1 and is relevant.
-const initialScores = listings => new Map(listings.map(listing => [listing.id.uuid, 1]));
-const isRelevantFor = scores => listing => scores.get(listing.id.uuid) > 0;
+/**
+ * The query vector for step ④, or null when there is no text or terms to embed. A missing model
+ * or a failed call is not an error: ranking goes on without the meaning signal (D6).
+ */
+const embedQueryVector = async (state, deps) => {
+  const text = queryText(state);
+  if (!text) {
+    return { queryVector: null, warnings: [] };
+  }
+  if (!deps.embedQuery) {
+    return { queryVector: null, warnings: ['EMBEDDING_SKIPPED'] };
+  }
+  try {
+    return { queryVector: await deps.embedQuery(text), warnings: [] };
+  } catch (e) {
+    if (deps.onEmbedError) {
+      deps.onEmbedError(e);
+    }
+    return { queryVector: null, warnings: ['EMBEDDING_SKIPPED'] };
+  }
+};
+
+// A listing is relevant when it scores above 0, or always in a pure filter search.
+const isRelevantFor = (state, scores) =>
+  hasRankingSignals(state) ? listing => scores.get(listing.id.uuid) > 0 : () => true;
 
 const fetchCandidates = (sdk, params) =>
   fetchAllListings(sdk, params).catch(e => {
@@ -51,7 +75,12 @@ const fetchCandidates = (sdk, params) =>
  * @param {Object} deps
  * @param {Object} deps.sdk Marketplace API SDK (anything with listings.query)
  * @param {Object} deps.config marketplace config from startup.js
- * @param {Object} deps.vectors vectors.json content from startup.js (used from Phase 6)
+ * @param {Object} deps.vectors vectors.json content from startup.js
+ * @param {?Function} [deps.embedQuery] (text) => Promise<number[]>, from startup.js (null: the
+ *   model didn't load, ranking skips the meaning signal)
+ * @param {Function} [deps.onEmbedError] called with the error when embedQuery fails
+ * @param {Object} [deps.weights] ranking weights (ranking.js WEIGHTS), for the eval
+ * @param {Function} [deps.onRanking] called with { scores, signals } for debugging; never sent
  * @param {?Object} [deps.anthropic] Anthropic client for the intent call (null: intent falls back)
  * @param {Function} [deps.logUsage] Claude usage logger (defaults to the usage log)
  * @param {number} [deps.intentTimeoutMs] intent call timeout
@@ -68,7 +97,10 @@ const runSearch = async (body, deps) => {
   const resolved = await resolveState(request, deps);
 
   const params = buildQueryParams(resolved.state, request.image, config);
-  const { listings, included } = await fetchCandidates(sdk, params);
+  const [{ listings, included }, embedded] = await Promise.all([
+    fetchCandidates(sdk, params),
+    embedQueryVector(resolved.state, deps),
+  ]);
 
   // "Cheaper" needs the fetched candidates (median price), so it runs after step ②.
   const { state, notices } =
@@ -76,11 +108,20 @@ const runSearch = async (body, deps) => {
       ? applyCheaper({ ...resolved, listings, config })
       : resolved;
 
-  const scores = initialScores(listings);
+  const { scores, signals } = rankListings({
+    listings,
+    state,
+    queryVector: embedded.queryVector,
+    vectors: deps.vectors,
+    weights: deps.weights,
+  });
+  if (deps.onRanking) {
+    deps.onRanking({ scores, signals });
+  }
   const { results, auto, suggestions } = applyFilters(
     listings,
     state.filters,
-    isRelevantFor(scores)
+    isRelevantFor(state, scores)
   );
 
   // The dropped filter leaves the state, so later pages and sorts search the same way.
@@ -102,7 +143,7 @@ const runSearch = async (body, deps) => {
       tookMs: now() - startedAt,
       reranked: false,
       intent: resolved.intent,
-      warnings: resolved.warnings,
+      warnings: [...resolved.warnings, ...embedded.warnings],
     },
   });
   // The buyer-facing notices (USER_FILTER_KEPT) come before NO_RESULTS.

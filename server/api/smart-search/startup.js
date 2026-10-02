@@ -1,14 +1,13 @@
 /**
- * Static data loaded once when the server starts (D14): the marketplace config and vectors.json.
- * After changing Console settings or re-running the indexer, restart the server.
- *
- * The embedding model (also D14) is loaded here once the search uses it (Phase 6).
+ * Static data loaded once when the server starts (D14): the marketplace config, vectors.json and
+ * the embedding model. After changing Console settings or re-running the indexer, restart the
+ * server.
  */
 const fs = require('fs');
 const path = require('path');
 const { loadMarketplaceConfig } = require('../../smart-search-lib/config');
 const { createMarketplaceSdk } = require('../../smart-search-lib/clients');
-const { MODEL } = require('../../search-index/embed');
+const { MODEL, createEmbedder } = require('../../search-index/embed');
 
 const VECTORS_FILE = path.join(__dirname, '..', '..', 'search-index', 'vectors.json');
 
@@ -32,12 +31,35 @@ const loadVectors = (file, warn) => {
 };
 
 /**
- * @param {Object} options { sdk, vectorsFile, warn }
- * @returns {Promise<{ config: Object, vectors: Object }>}
+ * The query embedding function (with the D13 query prefix), or null when the model can't load.
+ * Search then ranks without the meaning signal (EMBEDDING_SKIPPED).
  */
-const loadStaticData = async ({ sdk, vectorsFile = VECTORS_FILE, warn = console.warn }) => {
-  const config = await loadMarketplaceConfig(sdk);
-  return { config, vectors: loadVectors(vectorsFile, warn) };
+const loadEmbedQuery = async (loadEmbedder, warn) => {
+  try {
+    const embedder = await loadEmbedder();
+    return embedder.embedQuery;
+  } catch (e) {
+    warn(`Smart search: embedding model failed to load (${e.message}). Ranking without it.`);
+    return null;
+  }
+};
+
+/**
+ * @param {Object} options { sdk, vectorsFile, warn, loadEmbedder }; tests pass a fake
+ *   loadEmbedder so the real model is never loaded
+ * @returns {Promise<{ config: Object, vectors: Object, embedQuery: ?Function }>}
+ */
+const loadStaticData = async ({
+  sdk,
+  vectorsFile = VECTORS_FILE,
+  warn = console.warn,
+  loadEmbedder = createEmbedder,
+}) => {
+  const [config, embedQuery] = await Promise.all([
+    loadMarketplaceConfig(sdk),
+    loadEmbedQuery(loadEmbedder, warn),
+  ]);
+  return { config, vectors: loadVectors(vectorsFile, warn), embedQuery };
 };
 
 let loading = null;

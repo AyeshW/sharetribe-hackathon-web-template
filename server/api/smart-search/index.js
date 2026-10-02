@@ -27,7 +27,7 @@ const sendError = (res, error, log) => {
 
 /**
  * @param {Object} deps
- * @param {() => Promise<{ config, vectors }>} deps.getStaticData from startup.js
+ * @param {() => Promise<{ config, vectors, embedQuery }>} deps.getStaticData from startup.js
  * @param {(req, res) => Object} [deps.getSdk] Marketplace SDK for this request
  * @param {() => Object} [deps.getAnthropic] Anthropic client for the intent call
  * @param {Function} [deps.logUsage] Claude usage logger (defaults to the usage log)
@@ -59,11 +59,13 @@ const createSmartSearchHandler = ({
     });
 
   return staticData
-    .then(({ config, vectors }) =>
+    .then(({ config, vectors, embedQuery }) =>
       runSearch(req.body, {
         sdk: getSdk(req, res),
         config,
         vectors,
+        embedQuery,
+        onEmbedError: e => log.error(e, 'smart-search-embed-failed'),
         anthropic: anthropicOrNull(),
         logUsage,
         onIntentError: e => log.error(e, 'smart-search-intent-failed'),

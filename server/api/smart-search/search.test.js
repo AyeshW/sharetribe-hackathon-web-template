@@ -12,6 +12,9 @@ const {
 } = require('./test-data');
 
 const VECTORS = { model: 'Xenova/bge-small-en-v1.5', listings: {} };
+// Fake query embedding: tests never load the real model. A plain function, because the Jest
+// config resets mock implementations between tests.
+const embedQuery = () => Promise.resolve([1, 0]);
 
 const catalog = [
   listing({ id: 'men-l', price: 3000, publicData: { categoryLevel1: 'men', size: 'l' } }),
@@ -61,7 +64,7 @@ describe('runSearch', () => {
     const anthropic = fakeAnthropic(rawIntent({ terms: ['anything'] }));
     const body = await runSearch(
       { q: 'anything' },
-      { sdk: fakeSdk(catalog), config, anthropic, logUsage }
+      { sdk: fakeSdk(catalog), config, anthropic, logUsage, embedQuery }
     );
     expect(uuids(body.results)).toEqual(['men-l', 'men-m', 'women-m']);
     expect(body.results.every(r => r.tier === 'best' && r.reason === null)).toBe(true);
@@ -134,7 +137,7 @@ describe('runSearch', () => {
     const anthropic = fakeAnthropic(rawIntent());
     const body = await runSearch(
       { q: null, state: state([filter('size', 'm')]) },
-      { sdk: fakeSdk(catalog), config, anthropic, logUsage }
+      { sdk: fakeSdk(catalog), config, anthropic, logUsage, embedQuery }
     );
     expect(anthropic.messages.create).not.toHaveBeenCalled();
     expect(logUsage).not.toHaveBeenCalled();
@@ -147,7 +150,7 @@ describe('runSearch', () => {
     const sdk = fakeSdk(catalog);
     const body = await runSearch(
       { q: 'black jeans', state: state0 },
-      { sdk, config, anthropic, logUsage }
+      { sdk, config, anthropic, logUsage, embedQuery }
     );
     expect(body.meta.warnings).toEqual(['INTENT_FALLBACK']);
     expect(body.state).toMatchObject({ q: 'black jeans', terms: ['black', 'jeans'] });
@@ -156,7 +159,7 @@ describe('runSearch', () => {
   });
 
   it('uses the state as it is without text, applying inferred filters in memory', async () => {
-    const incoming = state([filter('size', 'm')]);
+    const incoming = state([filter('size', 'm')], { q: '' });
     const sdk = fakeSdk(catalog);
     const body = await runSearch({ q: null, state: incoming }, { sdk, config });
 
@@ -167,7 +170,7 @@ describe('runSearch', () => {
   });
 
   it('removes an auto-dropped filter from the returned state', async () => {
-    const incoming = state([filter('size', 'xl'), filter('price', { max: 2500 })]);
+    const incoming = state([filter('size', 'xl'), filter('price', { max: 2500 })], { q: '' });
     const body = await runSearch({ q: null, state: incoming }, { sdk: fakeSdk(catalog), config });
 
     expect(body.relaxation.auto).toEqual({ filter: incoming.filters[0] });
@@ -201,6 +204,143 @@ describe('runSearch', () => {
   });
 });
 
+describe('runSearch ranking (step ④)', () => {
+  // A bomber jacket the query means, a jacket potato that only shares the word, a black
+  // Nike boot with no vector yet, and an unrelated item.
+  const ranked = [
+    listing({
+      id: 'potato',
+      title: 'Jacket potato tray',
+      price: 4000,
+      metadata: { ai: { style: ['casual'] } },
+    }),
+    listing({
+      id: 'bomber',
+      title: 'Bronze bomber',
+      price: 3000,
+      metadata: {
+        ai: { garmentType: 'bomber jacket', style: ['vintage'], season: ['autumn'] },
+      },
+    }),
+    listing({
+      id: 'boot',
+      title: 'Leather boots',
+      price: 2000,
+      publicData: { color: 'black', brand: 'Nike' },
+    }),
+    listing({ id: 'scarf', title: 'Wool scarf', price: 1000 }),
+  ];
+  const vectors = {
+    model: 'Xenova/bge-small-en-v1.5',
+    listings: {
+      potato: { vector: [0, 1] },
+      bomber: { vector: [1, 0] },
+      scarf: { vector: [0.2, 0.98] },
+    },
+  };
+  const textState = (overrides = {}) =>
+    state([], { q: 'vintage jacket', terms: ['jacket'], preferences: ['vintage'], ...overrides });
+
+  it('orders by the initial score and fills tiers with the D16 rule', async () => {
+    const embed = jest.fn(embedQuery);
+    const body = await runSearch(
+      { q: null, state: textState() },
+      { sdk: fakeSdk(ranked), config, vectors, embedQuery: embed }
+    );
+    expect(embed).toHaveBeenCalledWith('vintage jacket jacket');
+    expect(uuids(body.results)).toEqual(['bomber', 'potato', 'scarf', 'boot']);
+    // bomber ~0.91, potato 0.3 (keyword only), scarf ~0.1 (meaning only), boot 0
+    expect(body.results.map(r => r.tier)).toEqual(['best', 'related', 'related', 'related']);
+    expect(body.total).toEqual({ best: 1, related: 3 });
+    expect(body.results.every(r => r.reason === null)).toBe(true);
+    expect(body.meta.warnings).toEqual([]);
+  });
+
+  it('never sends the per-signal numbers, only to onRanking', async () => {
+    const onRanking = jest.fn();
+    const body = await runSearch(
+      { q: null, state: textState() },
+      { sdk: fakeSdk(ranked), config, vectors, embedQuery, onRanking }
+    );
+    const { scores, signals } = onRanking.mock.calls[0][0];
+    expect(scores.get('bomber')).toBeGreaterThan(0.9);
+    expect(signals.get('bomber')).toMatchObject({ semantic: 1, preferences: 1 });
+    expect(signals.get('potato')).toEqual({ semantic: 0, keyword: 1, preferences: 0 });
+    expect(signals.get('boot')).toEqual({ semantic: 0, keyword: 0, preferences: 0 });
+    expect(Object.keys(body.results[0])).toEqual(['id', 'tier', 'reason']);
+    expect(JSON.stringify(body)).not.toMatch(/semantic|keyword/);
+  });
+
+  it('ranks by keyword and preferences with EMBEDDING_SKIPPED when embedQuery fails', async () => {
+    const onEmbedError = jest.fn();
+    const failure = new Error('onnx crashed');
+    const body = await runSearch(
+      { q: null, state: textState() },
+      {
+        sdk: fakeSdk(ranked),
+        config,
+        vectors,
+        embedQuery: () => Promise.reject(failure),
+        onEmbedError,
+      }
+    );
+    expect(body.meta.warnings).toEqual(['EMBEDDING_SKIPPED']);
+    expect(onEmbedError).toHaveBeenCalledWith(failure);
+    expect(uuids(body.results)).toEqual(['bomber', 'potato', 'boot', 'scarf']);
+  });
+
+  it('adds EMBEDDING_SKIPPED when the model did not load', async () => {
+    const body = await runSearch(
+      { q: null, state: textState() },
+      { sdk: fakeSdk(ranked), config, vectors, embedQuery: null }
+    );
+    expect(body.meta.warnings).toEqual(['EMBEDDING_SKIPPED']);
+    expect(uuids(body.results)[0]).toBe('bomber');
+  });
+
+  it('makes no embedding call and keeps every listing for a pure filter search', async () => {
+    const embed = jest.fn();
+    const pure = state([filter('size', 'xl')], { q: '' });
+    const body = await runSearch(
+      { q: null, state: pure },
+      { sdk: fakeSdk(ranked), config, vectors, embedQuery: embed }
+    );
+    expect(embed).not.toHaveBeenCalled();
+    expect(body.meta.warnings).toEqual([]);
+    // Nothing has size XL, so the inferred size is dropped: every listing counts as relevant.
+    expect(body.relaxation.auto).toEqual({ filter: pure.filters[0] });
+    expect(uuids(body.results)).toEqual(['potato', 'bomber', 'boot', 'scarf']);
+    expect(body.results.every(r => r.tier === 'best')).toBe(true);
+  });
+
+  it('never removes a listing for a soft colour or brand preference', async () => {
+    const soft = [
+      filter('color', 'black', { mode: 'soft' }),
+      filter('brand', 'Nike', { mode: 'soft' }),
+    ];
+    const body = await runSearch(
+      { q: null, state: state(soft, { q: '' }) },
+      { sdk: fakeSdk(ranked), config, vectors, embedQuery }
+    );
+    expect(uuids(body.results)).toHaveLength(4);
+    expect(uuids(body.results)[0]).toBe('boot');
+  });
+
+  it('keeps the tiers when sorting by price', async () => {
+    const relevance = await runSearch(
+      { q: null, state: textState() },
+      { sdk: fakeSdk(ranked), config, vectors, embedQuery }
+    );
+    const byPrice = await runSearch(
+      { q: null, state: textState(), sort: 'price-asc' },
+      { sdk: fakeSdk(ranked), config, vectors, embedQuery }
+    );
+    const tiers = body => Object.fromEntries(body.results.map(r => [r.id.uuid, r.tier]));
+    expect(uuids(byPrice.results)).toEqual(['scarf', 'boot', 'bomber', 'potato']);
+    expect(tiers(byPrice)).toEqual(tiers(relevance));
+  });
+});
+
 // A minimal Express response double.
 const fakeRes = () => {
   const res = { statusCode: null, headers: {}, body: null, json: null };
@@ -226,7 +366,10 @@ const fakeRes = () => {
 
 describe('createSmartSearchHandler', () => {
   const log = { error: jest.fn() };
-  const handlerWith = (sdk, getStaticData = () => Promise.resolve({ config, vectors: VECTORS })) =>
+  const handlerWith = (
+    sdk,
+    getStaticData = () => Promise.resolve({ config, vectors: VECTORS, embedQuery })
+  ) =>
     createSmartSearchHandler({
       getStaticData,
       getSdk: () => sdk,
@@ -253,11 +396,31 @@ describe('createSmartSearchHandler', () => {
     expect(body.totalPages).toBe(2);
   });
 
+  it('responds 200 with EMBEDDING_SKIPPED when the query embedding fails', async () => {
+    const res = fakeRes();
+    const failure = new Error('onnx crashed');
+    const handler = createSmartSearchHandler({
+      getStaticData: () =>
+        Promise.resolve({ config, vectors: VECTORS, embedQuery: () => Promise.reject(failure) }),
+      getSdk: () => fakeSdk(catalog),
+      getAnthropic: () => fakeAnthropic(rawIntent({ terms: ['jacket'] })),
+      logUsage,
+      log,
+    });
+    await handler({ body: { q: 'jacket' } }, res);
+
+    expect(res.statusCode).toBe(200);
+    const body = deserialize(res.body);
+    expect(body.meta.warnings).toEqual(['EMBEDDING_SKIPPED']);
+    expect(uuids(body.results)).toEqual(['men-l', 'men-m', 'women-m']);
+    expect(log.error).toHaveBeenCalledWith(failure, 'smart-search-embed-failed');
+  });
+
   it('searches without inferred filters when the Anthropic client can not be created', async () => {
     const res = fakeRes();
     const missingKey = new Error('Missing environment variable ANTHROPIC_API_KEY. Set it in .env.');
     const handler = createSmartSearchHandler({
-      getStaticData: () => Promise.resolve({ config, vectors: VECTORS }),
+      getStaticData: () => Promise.resolve({ config, vectors: VECTORS, embedQuery }),
       getSdk: () => fakeSdk(catalog),
       getAnthropic: () => {
         throw missingKey;

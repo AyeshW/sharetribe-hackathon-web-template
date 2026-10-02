@@ -92,6 +92,25 @@ describe('buildResponse', () => {
     expect(body.total).toEqual({ best: 2, related: 1 });
   });
 
+  it.each([
+    ['exactly 60% of the top score', [0.5, 0.3], ['best', 'best']],
+    ['just below 60%', [1, 0.5999], ['best', 'related']],
+    ['a single result', [0.01], ['best']],
+    ['all zeros (pure filter search)', [0, 0], ['best', 'best']],
+  ])('D16 tier rule boundary: %s', (_, scores, tiers) => {
+    const body = respond([a, b, c].slice(0, scores.length), { scores });
+    expect(body.results.map(r => r.tier)).toEqual(tiers);
+  });
+
+  it('keeps tiers from the score when sorting by price', () => {
+    const body = respond([a, b, c], { scores: [1, 0.2, 0.7], request: { sort: 'price-asc' } });
+    expect(body.results.map(r => [r.id.uuid, r.tier])).toEqual([
+      ['b', 'related'],
+      ['c', 'best'],
+      ['a', 'best'],
+    ]);
+  });
+
   it('passes relaxation through and wraps the dropped filter', () => {
     const dropped = { key: 'size', label: 'Size L' };
     const suggestions = [{ key: 'price', label: 'Under €40', extra: 2 }];
