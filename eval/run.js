@@ -281,7 +281,7 @@ const buildReportHtml = run => {
   const weightsNote = run.weights
     ? `<p class="legend">New search ranking weights: ${escapeHtml(
         formatWeights(run.weights)
-      )}. No rerank (D18).</p>`
+      )}. No rerank.</p>`
     : '';
 
   return `<!doctype html>

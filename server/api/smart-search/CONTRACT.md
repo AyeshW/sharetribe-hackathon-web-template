@@ -4,9 +4,6 @@ This document is everything the frontend needs to build the smart search page. T
 decides which listings match and in what order. The frontend sends what the buyer typed or
 clicked, then shows exactly what comes back.
 
-Backend design reasons are in [SMART_SEARCH_DECISIONS.md](../../../SMART_SEARCH_DECISIONS.md). You
-don't need them to build the UI.
-
 ---
 
 ## 1. The idea in one minute
@@ -324,14 +321,6 @@ All user-facing text must use `FormattedMessage` / `intl.formatMessage()`, with 
 ---
 
 ## 10. Full example
-
-A complete, unshortened response built from real marketplace listings is in
-[sample-response.json](sample-response.json). It's the answer to
-*"vintage jacket for autumn, size M, under 40€"*: two results, and a suggestion to remove
-"Size M". In that file, SDK types are written as `{ "_sdkType": "UUID", "uuid": "…" }` and
-`{ "_sdkType": "Money", "amount": 1800, "currency": "EUR" }`. In the real response, `post()`
-turns them into the SDK's own UUID and Money objects, so `listing.id.uuid` and
-`listing.attributes.price.amount` work the same way in both.
 
 **Request: new search**
 
