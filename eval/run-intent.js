@@ -9,12 +9,15 @@
  * logs/claude-usage.jsonl (purpose "intent"). Reads the marketplace config from Sharetribe
  * (read-only). Not part of yarn test-server.
  */
+const fs = require('fs');
+const path = require('path');
 const readline = require('readline');
 const cases = require('./intent-cases.json').cases;
 const { parseIntent, buildFilter } = require('../server/api/smart-search/intent');
 const { mergeIntent } = require('../server/api/smart-search/state');
 
 const EST_COST_USD = 0.1;
+const RESULTS_DIR = path.join(__dirname, 'results');
 
 const sameValue = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 const asSet = value => JSON.stringify([...value].sort());
@@ -128,13 +131,19 @@ const describeGot = ({ intent, state, notices }, warnings) =>
  */
 const runCase = async (testCase, { config, anthropic }) => {
   const previous = expandState(testCase.previousState, config);
+  let error = null;
+  const startedAt = Date.now();
   const { intent, warnings } = await parseIntent({
     q: testCase.text,
     state: previous,
     config,
     anthropic,
-    onError: e => console.error(`  case ${testCase.id}: ${e.message}`),
+    onError: e => {
+      error = e.message;
+      console.error(`  case ${testCase.id}: ${e.message}`);
+    },
   });
+  const tookMs = Date.now() - startedAt;
   const { state, notices } = mergeIntent({ q: testCase.text, state: previous, intent });
   const got = { intent, state, notices };
   const problems = checkCase(testCase.expect, got);
@@ -145,6 +154,11 @@ const runCase = async (testCase, { config, anthropic }) => {
     got: describeGot(got, warnings),
     problems,
     ok: problems.length === 0,
+    error,
+    tookMs,
+    intent,
+    state,
+    notices,
   };
 };
 
@@ -156,7 +170,7 @@ const formatTable = rows =>
           r.previousNote ? ` (after "${r.previousNote}")` : ''
         }\n      expected: ${r.expected}\n      got:      ${r.got}${
           r.ok ? '' : `\n      problems: ${r.problems.join('; ')}`
-        }`
+        }${r.error ? `\n      error:    ${r.error}` : ''}`
     )
     .join('\n');
 
@@ -207,6 +221,21 @@ const main = async () => {
       total.outputTokens
     } out tokens, $${total.costUsd.toFixed(4)}`
   );
+
+  const file = path.join(
+    RESULTS_DIR,
+    `intent-${new Date().toISOString().replace(/[:.]/g, '-')}.json`
+  );
+  fs.mkdirSync(RESULTS_DIR, { recursive: true });
+  fs.writeFileSync(
+    file,
+    JSON.stringify(
+      { correct: rows.filter(r => r.ok).length, total: rows.length, spend: total, rows },
+      null,
+      2
+    )
+  );
+  console.log(`Saved ${path.relative(process.cwd(), file)}`);
 };
 
 if (require.main === module) {

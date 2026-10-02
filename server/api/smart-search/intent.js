@@ -341,10 +341,11 @@ ${enumLines}
 Ops: "eq" one value; "in" any of several values; "notIn" only for categoryLevel2, to exclude subcategories (value is a list); "range" only for price.
 
 Rules:
-- Only add a filter the text asks for. Never guess an audience (men, women, kids) or size that the text does not give.
+- Only add a filter the text asks for. Never guess an audience (men, women, kids) or size that the text does not give. A child's age does give one (see below).
 - Colour and brand are soft preferences for ranking; still return them as filters.
 - "baby" alone means categoryLevel1 kids, not a size. "baby blue", "navy" and other shades are colours (baby blue is blue). Pick the nearest allowed colour.
-- Pick the size key by category: size for adult tops and bottoms, shoeSize for shoes (EU number), kidsSize for kids' tops and bottoms (by age: "5 year old" is 5y, "18 months" is 1y if no closer value exists). For a child's age use categoryLevel1 kids too.
+- Pick the size key by category: size for adult tops and bottoms, shoeSize for shoes (EU number), kidsSize for kids' tops and bottoms (by age: "18 months" is 1y if no closer value exists).
+- A child's age always gives two filters, even when no item type is named: categoryLevel1 kids and the kidsSize for that age ("for my 7 year old daughter" is kids + 7y). The age is the size; it is not a guess.
 - When the text names an item type but no audience (e.g. "shoes"), use categoryLevel2 with op "in" over that type in every audience that has it.
 - "no bundles" or "not bundles" is categoryLevel2 with op "notIn" over every bundles subcategory.
 - "cheaper" or "less expensive" with no amount: priceIntent "cheaper" and no price filter. If the buyer gives an amount, use a price filter and priceIntent "none".
