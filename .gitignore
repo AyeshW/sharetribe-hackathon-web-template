@@ -17,3 +17,6 @@ yarn-error.log
 
 # IDE
 .idea/
+
+# smart search Claude usage log
+logs/

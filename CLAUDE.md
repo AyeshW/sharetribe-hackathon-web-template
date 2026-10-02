@@ -95,7 +95,7 @@ If the code and a decision disagree, the decision wins. If two decisions disagre
 
 **Offline, run by hand:**
 
-- **Seeder** (D9, D10): uploads planned test listings from `seed/plan.json`. No Claude API calls.
+- **Seeder** (D9, D10, D12): uploads planned test listings from `seed/plan.json`. No Claude API calls.
 - **Indexer** (D8, D11): for each listing, Claude Haiku reads the photo URL + text and returns tags.
   Tags are written to listing **metadata** in Sharetribe (Integration API). A local embedding model
   turns title + description + tags into a vector, saved in `server/search-index/vectors.json`.
@@ -113,8 +113,10 @@ If the code and a decision disagree, the decision wins. If two decisions disagre
    hides (suggestions). If nothing is left, drop the inferred filter that recovers the most (price
    last). If still nothing, `NO_RESULTS`. Buyer-set and locked filters are never relaxed.
 4. **Initial ranking:** `0.5 · meaning (vectors) + 0.3 · word match + 0.2 · preference match`.
-5. **Rerank:** page 1 with relevance sort only. Claude Sonnet grades the top 20 and writes a reason
-   for each. On failure or timeout, keep the order from step 4.
+5. **Rerank (deferred, D18; not built until the optional last phase):** page 1 with relevance
+   sort only. Claude Sonnet grades the top 20 and writes a reason for each. On failure or timeout,
+   keep the order from step 4. Until it's built, `reason` is `null` and tiers use D16's
+   no-rerank rule.
 6. **Respond** in the contract shape: tiers, sort, page, and only this page's images and authors.
 
 **Key rules:** no caching between requests (D4) · hard filters always use fresh Marketplace API
@@ -127,6 +129,7 @@ data · inferred colour and brand are soft unless locked · Claude failures retu
 
 ```
 server/api/smart-search/   the endpoint (CommonJS, like the rest of server/), CONTRACT.md
+server/smart-search-lib/   shared helpers: client factories (read .env), marketplace config loader
 server/search-index/       the indexer script and vectors.json
 seed/                      plan.json (queries + listings + expected matches), images/, seeder script
 eval/                      eval script and result files
@@ -146,7 +149,8 @@ pattern (`getSdk`, `serialize`, `application/transit+json`).
 | `SHARETRIBE_INTEGRATION_CLIENT_ID`      | seeder, indexer         | Integration API app from Console     |
 | `SHARETRIBE_INTEGRATION_CLIENT_SECRET`  | seeder, indexer         | never in the browser                 |
 | `ANTHROPIC_API_KEY`                     | indexer, server         | never in the browser                 |
-| `PEXELS_API_KEY`                        | photo download script   |                                      |
+| `PIXABAY_API_KEY`                       | photo download script   | free key from a Pixabay account      |
+| `SEED_AUTHOR_IDS`                       | seeder                  | comma-separated user UUIDs that own seeded listings |
 
 If a variable is missing, stop and tell the user which one. Don't invent fallbacks.
 
@@ -156,7 +160,7 @@ If a variable is missing, stop and tell the user which one. Don't invent fallbac
 
 - Every phase ends with automated tests for what it built.
 - Server tests: `*.test.js` next to the code, run with `yarn test-server`.
-- Tests must not call Sharetribe, Claude, Pexels or download models. Pass fake SDK and Claude
+- Tests must not call Sharetribe, Claude, Pixabay or download models. Pass fake SDK and Claude
   clients into functions instead, so code takes its clients as parameters.
 - Checks against real services are separate scripts the user runs by hand. Say so clearly.
 - Before finishing a phase, run `yarn test-server` and report the result honestly. If something
