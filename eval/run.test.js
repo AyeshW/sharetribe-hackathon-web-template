@@ -192,3 +192,49 @@ describe('confirmClaudeSpend', () => {
     expect(log.mock.calls[0][0]).toMatch(/25 Claude API calls, costing about \$0\.10/);
   });
 });
+
+describe('summary line for a hand-made result set', () => {
+  const ids = (...list) => list.map(id => listing(id, `Title ${id}`));
+  const handMade = [
+    { id: 'h1', text: 'one', tests: 't', relevant: [{ id: 'a', grade: 2 }] },
+    { id: 'h2', text: 'two', tests: 't', relevant: [{ id: 'b', grade: 2 }] },
+    { id: 'h3', text: 'three', tests: 't', relevant: [{ id: 'c', grade: 2 }] },
+    {
+      id: 'h4',
+      text: 'four',
+      tests: 't',
+      relevant: [{ id: 'd', grade: 2 }, { id: 'e', grade: 1 }, { id: 'f', grade: 1 }],
+    },
+  ];
+  // Old: passes one (best in top 3); fails two (not found) and four (found 1 of 3, not half).
+  // New: passes one, two and four; three errors.
+  const oldSearch = async text =>
+    ({ one: ids('a'), two: [], three: ids('x'), four: ids('d', 'x') }[text]);
+  const newSearch = async text => {
+    if (text === 'three') {
+      throw new Error('no cached intent for "three"');
+    }
+    return { one: ids('a'), two: ids('x', 'b'), four: ids('d', 'e', 'x') }[text];
+  };
+  const weights = { semantic: 0.5, keyword: 0.3, preferences: 0.2 };
+
+  it('counts passes for each search', async () => {
+    const result = await runEval({ queries: handMade, oldSearch, newSearch, weights });
+
+    expect(result.summaryLine).toBe('Old search: 1 of 4 queries pass. New search: 3 of 4 pass.');
+    expect(result.summary.old).toMatchObject({ passes: 1, total: 4, empty: 1, errors: 0 });
+    expect(result.summary.new).toMatchObject({ passes: 3, total: 4, empty: 0, errors: 1 });
+    expect(result.queries.map(query => query.change)).toEqual(['same', 'better', 'same', 'better']);
+  });
+
+  it('puts the summary line at the top of the report and shows the weights', async () => {
+    const html = buildReportHtml(
+      await runEval({ queries: handMade, oldSearch, newSearch, weights })
+    );
+
+    const summaryAt = html.indexOf('Old search: 1 of 4 queries pass. New search: 3 of 4 pass.');
+    expect(summaryAt).toBeGreaterThan(-1);
+    expect(summaryAt).toBeLessThan(html.indexOf('Every query'));
+    expect(html).toContain('meaning 0.5 · word match 0.3 · preferences 0.2');
+  });
+});

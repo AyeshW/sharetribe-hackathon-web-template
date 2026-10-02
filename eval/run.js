@@ -1,9 +1,14 @@
 /**
- * Run every eval query through the old search (and the new one, once it exists), save the
- * results and write a report a teammate can read without knowing anything about search.
+ * Run every eval query through the old search and the new smart search, save the results and
+ * write a report a teammate can read without knowing anything about search.
  *
- *   node eval/run.js            run it
- *   node eval/run.js --yes      don't ask before Claude API calls (there are none yet)
+ *   node eval/run.js                 run it
+ *   node eval/run.js --yes           don't ask before Claude API calls
+ *   node eval/run.js --fresh-intent  forget the cached intents and ask Claude again
+ *
+ * The new search needs one Claude Haiku intent call per query. Replies are cached in
+ * eval/results/intent-cache.json and reused, so only queries without a cached intent cost
+ * anything (about $0.004 each). Before any call it prints the count and cost and asks.
  *
  * See eval/HOW-TO-EVALUATE.md.
  */
@@ -14,7 +19,16 @@ const readline = require('readline');
 const { found, bestInTop3, passes, FOUND_WINDOW, TOP_WINDOW } = require('./checks');
 const { loadGroundTruth } = require('./ground-truth');
 const { createOldSearcher } = require('./searchers/old');
-const newSearch = require('./searchers/new');
+const { createNewSearcher } = require('./searchers/new');
+const {
+  INTENT_CACHE_FILE,
+  emptyCache,
+  readIntentCache,
+  writeIntentCache,
+  missingTexts,
+  recordIntent,
+} = require('./intent-cache');
+const { WEIGHTS } = require('../server/api/smart-search/ranking');
 
 const RESULTS_DIR = path.join(__dirname, 'results');
 const REPORT_FILE = path.join(__dirname, 'report.html');
@@ -124,10 +138,17 @@ const summaryLine = run => {
 /**
  * Run all queries through the given searches and work out every number the report shows.
  *
- * @param {{queries: Array, oldSearch: Function, newSearch: ?Function, startedAt: string}} input
+ * @param {{queries: Array, oldSearch: Function, newSearch: ?Function, weights: ?Object,
+ *   startedAt: string}} input weights is only recorded (the searcher already uses them)
  * @returns {Promise<Object>} the whole run, which is also what is saved as JSON
  */
-const runEval = async ({ queries, oldSearch, newSearch: newSearcher = null, startedAt }) => {
+const runEval = async ({
+  queries,
+  oldSearch,
+  newSearch: newSearcher = null,
+  weights = null,
+  startedAt,
+}) => {
   const rows = [];
   for (const query of queries) {
     const oldRun = await runOne(oldSearch, query);
@@ -146,6 +167,7 @@ const runEval = async ({ queries, oldSearch, newSearch: newSearcher = null, star
   const run = {
     startedAt: startedAt || new Date().toISOString(),
     newSearchBuilt: Boolean(newSearcher),
+    weights: newSearcher ? weights : null,
     queries: rows,
     summary: {
       old: summarizeSearcher(rows.map(row => ({ run: row.old }))),
@@ -167,6 +189,12 @@ const escapeHtml = value =>
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+
+/**
+ * "meaning 0.5 · word match 0.3 · preferences 0.2", the names used in D1.
+ */
+const formatWeights = weights =>
+  `meaning ${weights.semantic} · word match ${weights.keyword} · preferences ${weights.preferences}`;
 
 const resultCell = run => {
   if (!run) {
@@ -250,6 +278,11 @@ const buildReportHtml = run => {
   const newStats = newSummary
     ? `<li>New search: found on average <strong>${newSummary.avgFoundPercent}%</strong> of the correct listings, <strong>${newSummary.empty}</strong> queries with no results at all.</li>`
     : '<li>New search: not built yet.</li>';
+  const weightsNote = run.weights
+    ? `<p class="legend">New search ranking weights: ${escapeHtml(
+        formatWeights(run.weights)
+      )}. No rerank (D18).</p>`
+    : '';
 
   return `<!doctype html>
 <html lang="en">
@@ -313,6 +346,7 @@ const buildReportHtml = run => {
   }</strong> queries with no results at all.</li>
   ${newStats}
 </ul>
+${weightsNote}
 <p class="legend">A query passes when a clearly right listing is in the first 3 results
   <em>and</em> at least half of its correct listings are in the first ${FOUND_WINDOW}.
   Click any query to see which listings it should have found.</p>
@@ -373,29 +407,89 @@ const timestamp = date =>
     .replace(/[:.]/g, '-')
     .replace('Z', '');
 
+const formatSpend = records => {
+  const { summarizeUsage } = require('../server/smart-search-lib/usage');
+  const { total } = summarizeUsage(records);
+  return `${total.calls} Claude calls, ${total.inputTokens} in / ${
+    total.outputTokens
+  } out tokens, $${total.costUsd.toFixed(4)}`;
+};
+
+/**
+ * Everything the new search needs, with the intent cache filled for queries that have no entry.
+ * Asks before any Claude call. Shared with eval/compare-weights.js.
+ *
+ * @param {{queries: Array, sdk: Object, assumeYes: boolean, freshIntent: boolean}} input
+ * @returns {Promise<?Object>} deps for createNewSearcher (without weights), or null when the
+ *   user said no
+ */
+const prepareNewSearch = async ({ queries, sdk, assumeYes = false, freshIntent = false }) => {
+  const { createAnthropicClient } = require('../server/smart-search-lib/clients');
+  const { readUsageLog } = require('../server/smart-search-lib/usage');
+  const { MODEL_FILE } = require('../server/smart-search-lib/check-demo');
+  const { loadStaticData } = require('../server/api/smart-search/startup');
+
+  // Loading the embedder without a local copy would download it, which the eval never does.
+  if (!fs.existsSync(MODEL_FILE)) {
+    throw new Error(
+      `The embedding model is not in the local cache (${MODEL_FILE}). The eval does not ` +
+        'download it. Ask the team before downloading it.'
+    );
+  }
+
+  const intentCache = freshIntent ? emptyCache() : readIntentCache();
+  const missing = missingTexts(queries, intentCache);
+  console.log(
+    `Intent cache: ${queries.length - missing.length} of ${queries.length} queries cached ` +
+      `(${path.relative(process.cwd(), INTENT_CACHE_FILE)}).`
+  );
+  if (!(await confirmClaudeSpend({ calls: missing.length, assumeYes }))) {
+    return null;
+  }
+
+  const { config, vectors, embedQuery } = await loadStaticData({ sdk });
+  if (missing.length > 0) {
+    const anthropic = createAnthropicClient();
+    const logBefore = readUsageLog().length;
+    for (const text of missing) {
+      const entry = await recordIntent({
+        text,
+        config,
+        anthropic,
+        onError: e => console.error(`  intent failed for "${text}" (not cached): ${e.message}`),
+      });
+      if (entry) {
+        intentCache.entries[text] = entry;
+      }
+    }
+    writeIntentCache(intentCache);
+    console.log(`Spend on intents: ${formatSpend(readUsageLog().slice(logBefore))}`);
+  }
+  return { sdk, config, vectors, embedQuery, intentCache };
+};
+
 const main = async () => {
   const assumeYes = process.argv.includes('--yes') || process.argv.includes('-y');
+  const freshIntent = process.argv.includes('--fresh-intent');
 
   const { loadEnv, createMarketplaceSdk } = require('../server/smart-search-lib/clients');
   loadEnv();
 
   const queries = loadGroundTruth();
-  const newSearcher = newSearch.isBuilt ? newSearch.createNewSearcher() : null;
-
-  // One Claude intent call per query, but only once the new search exists.
-  const claudeCalls = newSearcher ? queries.length : 0;
-  const confirmed = await confirmClaudeSpend({ calls: claudeCalls, assumeYes });
-  if (!confirmed) {
+  const sdk = createMarketplaceSdk();
+  const deps = await prepareNewSearch({ queries, sdk, assumeYes, freshIntent });
+  if (!deps) {
     console.log('Stopped. Nothing was run.');
     return;
   }
 
-  console.log(`Running ${queries.length} queries through the old search...`);
+  console.log(`Running ${queries.length} queries through the old and the new search...`);
   const startedAt = new Date();
   const run = await runEval({
     queries,
-    oldSearch: createOldSearcher(createMarketplaceSdk()),
-    newSearch: newSearcher,
+    oldSearch: createOldSearcher(sdk),
+    newSearch: createNewSearcher({ ...deps, weights: WEIGHTS }),
+    weights: WEIGHTS,
     startedAt: startedAt.toISOString(),
   });
 
@@ -406,6 +500,10 @@ const main = async () => {
 
   console.log('');
   console.log(run.summaryLine);
+  console.log(`New search weights: ${formatWeights(WEIGHTS)}`);
+  if (run.summary.new.errors > 0) {
+    console.log(`${run.summary.new.errors} new-search queries failed; see the report.`);
+  }
   console.log(`Report: ${REPORT_FILE}`);
   console.log(`Saved results: ${resultsFile}`);
 };
@@ -422,9 +520,13 @@ module.exports = {
   runOne,
   compare,
   summaryLine,
+  summarizeSearcher,
+  formatWeights,
   buildReportHtml,
   confirmClaudeSpend,
+  prepareNewSearch,
   escapeHtml,
+  percent,
   EST_COST_PER_CLAUDE_CALL_USD,
   RESULTS_DIR,
   REPORT_FILE,

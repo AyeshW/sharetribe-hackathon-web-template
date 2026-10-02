@@ -1,6 +1,9 @@
+const os = require('os');
+const path = require('path');
 const { types } = require('sharetribe-flex-sdk');
 const { deserialize } = require('../../api-util/sdk');
 const { runSearch, createSmartSearchHandler } = require('./index');
+const { loadVectors } = require('./startup');
 const {
   config,
   listing,
@@ -414,6 +417,28 @@ describe('createSmartSearchHandler', () => {
     expect(body.meta.warnings).toEqual(['EMBEDDING_SKIPPED']);
     expect(uuids(body.results)).toEqual(['men-l', 'men-m', 'women-m']);
     expect(log.error).toHaveBeenCalledWith(failure, 'smart-search-embed-failed');
+  });
+
+  it('responds 200 when vectors.json is missing, ranking by word match only', async () => {
+    const res = fakeRes();
+    const warn = jest.fn();
+    const missing = path.join(os.tmpdir(), 'smart-search-no-such-dir', 'vectors.json');
+    const vectors = loadVectors(missing, warn);
+    const handler = createSmartSearchHandler({
+      getStaticData: () => Promise.resolve({ config, vectors, embedQuery }),
+      getSdk: () => fakeSdk([...catalog, listing({ id: 'coat', title: 'Wool coat' })]),
+      getAnthropic: () => fakeAnthropic(rawIntent({ terms: ['coat'] })),
+      logUsage,
+      log,
+    });
+    await handler({ body: { q: 'coat' } }, res);
+
+    // The warning is printed when the server starts; D6 has no meta.warnings code for it.
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining('not found'));
+    expect(res.statusCode).toBe(200);
+    const body = deserialize(res.body);
+    expect(uuids(body.results)[0]).toBe('coat');
+    expect(log.error).not.toHaveBeenCalled();
   });
 
   it('searches without inferred filters when the Anthropic client can not be created', async () => {

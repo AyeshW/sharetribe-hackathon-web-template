@@ -1,0 +1,1998 @@
+{
+  "entries": {
+    "vintage jacket for autumn": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[],\"removeKeys\":[],\"preferences\":[\"vintage\",\"autumn\"],\"removePreferences\":[],\"terms\":[\"jacket\",\"vintage\",\"autumn\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2421,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 47,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [],
+        "removeKeys": [],
+        "preferences": [
+          "vintage",
+          "autumn"
+        ],
+        "removePreferences": [],
+        "terms": [
+          "jacket",
+          "vintage",
+          "autumn"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "vintage jacket for autumn",
+        "filters": [],
+        "preferences": [
+          "vintage",
+          "autumn"
+        ],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "jacket",
+          "vintage",
+          "autumn"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:23.183Z"
+    },
+    "trainers": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[{\"key\":\"categoryLevel2\",\"op\":\"in\",\"value\":[\"women-shoes\",\"men-shoes\",\"kids-shoes\"]}],\"removeKeys\":[],\"preferences\":[],\"removePreferences\":[],\"terms\":[\"trainer\",\"sneaker\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2419,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 70,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "women-shoes",
+              "men-shoes",
+              "kids-shoes"
+            ],
+            "label": "Shoes",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          }
+        ],
+        "removeKeys": [],
+        "preferences": [],
+        "removePreferences": [],
+        "terms": [
+          "trainer",
+          "sneaker"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "trainers",
+        "filters": [
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "women-shoes",
+              "men-shoes",
+              "kids-shoes"
+            ],
+            "label": "Shoes",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          }
+        ],
+        "preferences": [],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "trainer",
+          "sneaker"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:24.535Z"
+    },
+    "snekers": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[{\"key\":\"categoryLevel2\",\"op\":\"in\",\"value\":[\"women-shoes\",\"men-shoes\",\"kids-shoes\"]}],\"removeKeys\":[],\"preferences\":[],\"removePreferences\":[],\"terms\":[\"sneaker\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2419,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 68,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "women-shoes",
+              "men-shoes",
+              "kids-shoes"
+            ],
+            "label": "Shoes",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          }
+        ],
+        "removeKeys": [],
+        "preferences": [],
+        "removePreferences": [],
+        "terms": [
+          "sneaker"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "snekers",
+        "filters": [
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "women-shoes",
+              "men-shoes",
+              "kids-shoes"
+            ],
+            "label": "Shoes",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          }
+        ],
+        "preferences": [],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "sneaker"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:25.837Z"
+    },
+    "Levi's jeans": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[{\"key\":\"brand\",\"op\":\"eq\",\"value\":\"Levi's\"},{\"key\":\"categoryLevel2\",\"op\":\"in\",\"value\":[\"women-bottoms\",\"men-bottoms\",\"kids-bottoms\"]}],\"removeKeys\":[],\"preferences\":[],\"removePreferences\":[],\"terms\":[\"levi's\",\"jeans\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2423,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 91,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [
+          {
+            "key": "brand",
+            "value": "Levi's",
+            "label": "Levi's",
+            "mode": "soft",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "women-bottoms",
+              "men-bottoms",
+              "kids-bottoms"
+            ],
+            "label": "Bottoms",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          }
+        ],
+        "removeKeys": [],
+        "preferences": [],
+        "removePreferences": [],
+        "terms": [
+          "levi's",
+          "jeans"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "Levi's jeans",
+        "filters": [
+          {
+            "key": "brand",
+            "value": "Levi's",
+            "label": "Levi's",
+            "mode": "soft",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "women-bottoms",
+              "men-bottoms",
+              "kids-bottoms"
+            ],
+            "label": "Bottoms",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          }
+        ],
+        "preferences": [],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "levi's",
+          "jeans"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:27.356Z"
+    },
+    "something for a wedding": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[],\"removeKeys\":[],\"preferences\":[\"wedding\",\"formal\"],\"removePreferences\":[],\"terms\":[\"wedding\",\"formal\",\"dress\",\"suit\",\"elegant\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2421,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 51,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [],
+        "removeKeys": [],
+        "preferences": [
+          "wedding",
+          "formal"
+        ],
+        "removePreferences": [],
+        "terms": [
+          "wedding",
+          "formal",
+          "dress",
+          "suit",
+          "elegant"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "something for a wedding",
+        "filters": [],
+        "preferences": [
+          "wedding",
+          "formal"
+        ],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "wedding",
+          "formal",
+          "dress",
+          "suit",
+          "elegant"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:28.579Z"
+    },
+    "warm for winter": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[],\"removeKeys\":[],\"preferences\":[\"warm\",\"winter\"],\"removePreferences\":[],\"terms\":[\"warm\",\"winter\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2420,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 45,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [],
+        "removeKeys": [],
+        "preferences": [
+          "warm",
+          "winter"
+        ],
+        "removePreferences": [],
+        "terms": [
+          "warm",
+          "winter"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "warm for winter",
+        "filters": [],
+        "preferences": [
+          "warm",
+          "winter"
+        ],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "warm",
+          "winter"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:29.616Z"
+    },
+    "for my 5 year old": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[{\"key\":\"categoryLevel1\",\"op\":\"eq\",\"value\":\"kids\"},{\"key\":\"kidsSize\",\"op\":\"eq\",\"value\":\"5y\"}],\"removeKeys\":[],\"preferences\":[],\"removePreferences\":[],\"terms\":[],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2424,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 69,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [
+          {
+            "key": "categoryLevel1",
+            "value": "kids",
+            "label": "Kids",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "kidsSize",
+            "value": "5y",
+            "label": "5 years",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          }
+        ],
+        "removeKeys": [],
+        "preferences": [],
+        "removePreferences": [],
+        "terms": [],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "for my 5 year old",
+        "filters": [
+          {
+            "key": "categoryLevel1",
+            "value": "kids",
+            "label": "Kids",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "kidsSize",
+            "value": "5y",
+            "label": "5 years",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          }
+        ],
+        "preferences": [],
+        "removed": [],
+        "similarTo": null,
+        "terms": []
+      },
+      "recordedAt": "2026-10-02T10:53:31.567Z"
+    },
+    "baby clothes 6 months": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[{\"key\":\"categoryLevel1\",\"op\":\"eq\",\"value\":\"kids\"},{\"key\":\"kidsSize\",\"op\":\"eq\",\"value\":\"6m\"}],\"removeKeys\":[],\"preferences\":[],\"removePreferences\":[],\"terms\":[\"baby\",\"clothes\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2423,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 73,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [
+          {
+            "key": "categoryLevel1",
+            "value": "kids",
+            "label": "Kids",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "kidsSize",
+            "value": "6m",
+            "label": "6 months",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          }
+        ],
+        "removeKeys": [],
+        "preferences": [],
+        "removePreferences": [],
+        "terms": [
+          "baby",
+          "clothes"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "baby clothes 6 months",
+        "filters": [
+          {
+            "key": "categoryLevel1",
+            "value": "kids",
+            "label": "Kids",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "kidsSize",
+            "value": "6m",
+            "label": "6 months",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          }
+        ],
+        "preferences": [],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "baby",
+          "clothes"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:32.869Z"
+    },
+    "black ankle boots size 38 under 40€": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[{\"key\":\"categoryLevel2\",\"op\":\"in\",\"value\":[\"women-shoes\",\"men-shoes\"]},{\"key\":\"shoeSize\",\"op\":\"eq\",\"value\":\"38\"},{\"key\":\"color\",\"op\":\"eq\",\"value\":\"black\"},{\"key\":\"price\",\"op\":\"range\",\"value\":{\"min\":null,\"max\":40}}],\"removeKeys\":[],\"preferences\":[\"ankle\"],\"removePreferences\":[],\"terms\":[\"ankle\",\"boots\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2428,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 115,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "women-shoes",
+              "men-shoes"
+            ],
+            "label": "Shoes",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          },
+          {
+            "key": "shoeSize",
+            "value": "38",
+            "label": "EU 38",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "color",
+            "value": "black",
+            "label": "Black",
+            "mode": "soft",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "price",
+            "value": {
+              "max": 4000
+            },
+            "label": "Under €40",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "range"
+          }
+        ],
+        "removeKeys": [],
+        "preferences": [
+          "ankle"
+        ],
+        "removePreferences": [],
+        "terms": [
+          "ankle",
+          "boots"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "black ankle boots size 38 under 40€",
+        "filters": [
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "women-shoes",
+              "men-shoes"
+            ],
+            "label": "Shoes",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          },
+          {
+            "key": "shoeSize",
+            "value": "38",
+            "label": "EU 38",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "color",
+            "value": "black",
+            "label": "Black",
+            "mode": "soft",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "price",
+            "value": {
+              "max": 4000
+            },
+            "label": "Under €40",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "range"
+          }
+        ],
+        "preferences": [
+          "ankle"
+        ],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "ankle",
+          "boots"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:34.632Z"
+    },
+    "warm but not wool": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[],\"removeKeys\":[],\"preferences\":[\"warm\"],\"removePreferences\":[],\"terms\":[],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2421,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 39,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [],
+        "removeKeys": [],
+        "preferences": [
+          "warm"
+        ],
+        "removePreferences": [],
+        "terms": [],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "warm but not wool",
+        "filters": [],
+        "preferences": [
+          "warm"
+        ],
+        "removed": [],
+        "similarTo": null,
+        "terms": []
+      },
+      "recordedAt": "2026-10-02T10:53:35.702Z"
+    },
+    "kids clothes 8 years, no bundles": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[{\"key\":\"categoryLevel1\",\"op\":\"eq\",\"value\":\"kids\"},{\"key\":\"categoryLevel2\",\"op\":\"notIn\",\"value\":[\"kids-bundles\"]},{\"key\":\"kidsSize\",\"op\":\"eq\",\"value\":\"8y\"}],\"removeKeys\":[],\"preferences\":[],\"removePreferences\":[],\"terms\":[\"clothes\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2427,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 92,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [
+          {
+            "key": "categoryLevel1",
+            "value": "kids",
+            "label": "Kids",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "kids-bundles"
+            ],
+            "label": "No bundles",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "notIn"
+          },
+          {
+            "key": "kidsSize",
+            "value": "8y",
+            "label": "8 years",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          }
+        ],
+        "removeKeys": [],
+        "preferences": [],
+        "removePreferences": [],
+        "terms": [
+          "clothes"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "kids clothes 8 years, no bundles",
+        "filters": [
+          {
+            "key": "categoryLevel1",
+            "value": "kids",
+            "label": "Kids",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "kids-bundles"
+            ],
+            "label": "No bundles",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "notIn"
+          },
+          {
+            "key": "kidsSize",
+            "value": "8y",
+            "label": "8 years",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          }
+        ],
+        "preferences": [],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "clothes"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:37.116Z"
+    },
+    "y2k": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[],\"removeKeys\":[],\"preferences\":[\"y2k\"],\"removePreferences\":[],\"terms\":[\"y2k\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2420,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 45,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [],
+        "removeKeys": [],
+        "preferences": [
+          "y2k"
+        ],
+        "removePreferences": [],
+        "terms": [
+          "y2k"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "y2k",
+        "filters": [],
+        "preferences": [
+          "y2k"
+        ],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "y2k"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:38.114Z"
+    },
+    "baby blue dress": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[{\"key\":\"categoryLevel1\",\"op\":\"eq\",\"value\":\"kids\"},{\"key\":\"color\",\"op\":\"eq\",\"value\":\"blue\"}],\"removeKeys\":[],\"preferences\":[\"dress\"],\"removePreferences\":[],\"terms\":[\"dress\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2420,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 70,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [
+          {
+            "key": "categoryLevel1",
+            "value": "kids",
+            "label": "Kids",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "color",
+            "value": "blue",
+            "label": "Blue",
+            "mode": "soft",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          }
+        ],
+        "removeKeys": [],
+        "preferences": [
+          "dress"
+        ],
+        "removePreferences": [],
+        "terms": [
+          "dress"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "baby blue dress",
+        "filters": [
+          {
+            "key": "categoryLevel1",
+            "value": "kids",
+            "label": "Kids",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "color",
+            "value": "blue",
+            "label": "Blue",
+            "mode": "soft",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          }
+        ],
+        "preferences": [
+          "dress"
+        ],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "dress"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:39.434Z"
+    },
+    "green jacket": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[{\"key\":\"color\",\"op\":\"eq\",\"value\":\"green\"}],\"removeKeys\":[],\"preferences\":[\"jacket\"],\"removePreferences\":[],\"terms\":[\"jacket\",\"green\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2419,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 57,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [
+          {
+            "key": "color",
+            "value": "green",
+            "label": "Green",
+            "mode": "soft",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          }
+        ],
+        "removeKeys": [],
+        "preferences": [
+          "jacket"
+        ],
+        "removePreferences": [],
+        "terms": [
+          "jacket",
+          "green"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "green jacket",
+        "filters": [
+          {
+            "key": "color",
+            "value": "green",
+            "label": "Green",
+            "mode": "soft",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          }
+        ],
+        "preferences": [
+          "jacket"
+        ],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "jacket",
+          "green"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:41.228Z"
+    },
+    "red handbag": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[{\"key\":\"categoryLevel2\",\"op\":\"in\",\"value\":[\"women-accessories\",\"men-accessories\",\"kids-accessories\"]},{\"key\":\"color\",\"op\":\"eq\",\"value\":\"red\"}],\"removeKeys\":[],\"preferences\":[],\"removePreferences\":[],\"terms\":[\"handbag\",\"bag\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2421,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 84,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "women-accessories",
+              "men-accessories",
+              "kids-accessories"
+            ],
+            "label": "Accessories",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          },
+          {
+            "key": "color",
+            "value": "red",
+            "label": "Red",
+            "mode": "soft",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          }
+        ],
+        "removeKeys": [],
+        "preferences": [],
+        "removePreferences": [],
+        "terms": [
+          "handbag",
+          "bag"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "red handbag",
+        "filters": [
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "women-accessories",
+              "men-accessories",
+              "kids-accessories"
+            ],
+            "label": "Accessories",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          },
+          {
+            "key": "color",
+            "value": "red",
+            "label": "Red",
+            "mode": "soft",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          }
+        ],
+        "preferences": [],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "handbag",
+          "bag"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:42.712Z"
+    },
+    "men's shirt size L": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[{\"key\":\"categoryLevel1\",\"op\":\"eq\",\"value\":\"men\"},{\"key\":\"categoryLevel2\",\"op\":\"eq\",\"value\":\"men-tops\"},{\"key\":\"size\",\"op\":\"eq\",\"value\":\"l\"}],\"removeKeys\":[],\"preferences\":[],\"removePreferences\":[],\"terms\":[\"shirt\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2422,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 85,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [
+          {
+            "key": "categoryLevel1",
+            "value": "men",
+            "label": "Men",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "categoryLevel2",
+            "value": "men-tops",
+            "label": "Tops",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "size",
+            "value": "l",
+            "label": "Size L",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          }
+        ],
+        "removeKeys": [],
+        "preferences": [],
+        "removePreferences": [],
+        "terms": [
+          "shirt"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "men's shirt size L",
+        "filters": [
+          {
+            "key": "categoryLevel1",
+            "value": "men",
+            "label": "Men",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "categoryLevel2",
+            "value": "men-tops",
+            "label": "Tops",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "size",
+            "value": "l",
+            "label": "Size L",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          }
+        ],
+        "preferences": [],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "shirt"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:44.929Z"
+    },
+    "jeans under 15€": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[{\"key\":\"categoryLevel2\",\"op\":\"in\",\"value\":[\"women-bottoms\",\"men-bottoms\",\"kids-bottoms\"]},{\"key\":\"price\",\"op\":\"range\",\"value\":{\"min\":null,\"max\":15}}],\"removeKeys\":[],\"preferences\":[],\"removePreferences\":[],\"terms\":[\"jeans\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2423,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 91,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "women-bottoms",
+              "men-bottoms",
+              "kids-bottoms"
+            ],
+            "label": "Bottoms",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          },
+          {
+            "key": "price",
+            "value": {
+              "max": 1500
+            },
+            "label": "Under €15",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "range"
+          }
+        ],
+        "removeKeys": [],
+        "preferences": [],
+        "removePreferences": [],
+        "terms": [
+          "jeans"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "jeans under 15€",
+        "filters": [
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "women-bottoms",
+              "men-bottoms",
+              "kids-bottoms"
+            ],
+            "label": "Bottoms",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          },
+          {
+            "key": "price",
+            "value": {
+              "max": 1500
+            },
+            "label": "Under €15",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "range"
+          }
+        ],
+        "preferences": [],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "jeans"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:46.355Z"
+    },
+    "leather jakcet": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[],\"removeKeys\":[],\"preferences\":[\"leather\"],\"removePreferences\":[],\"terms\":[\"leather\",\"jacket\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2421,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 43,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [],
+        "removeKeys": [],
+        "preferences": [
+          "leather"
+        ],
+        "removePreferences": [],
+        "terms": [
+          "leather",
+          "jacket"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "leather jakcet",
+        "filters": [],
+        "preferences": [
+          "leather"
+        ],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "leather",
+          "jacket"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:47.830Z"
+    },
+    "outfit for the gym": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[{\"key\":\"categoryLevel1\",\"op\":\"in\",\"value\":[\"women\",\"men\"]}],\"removeKeys\":[],\"preferences\":[\"gym\",\"athletic\"],\"removePreferences\":[],\"terms\":[\"outfit\",\"gym\",\"athletic\",\"sportswear\",\"activewear\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2421,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 75,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [
+          {
+            "key": "categoryLevel1",
+            "value": [
+              "women",
+              "men"
+            ],
+            "label": "Women, Men",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          }
+        ],
+        "removeKeys": [],
+        "preferences": [
+          "gym",
+          "athletic"
+        ],
+        "removePreferences": [],
+        "terms": [
+          "outfit",
+          "gym",
+          "athletic",
+          "sportswear",
+          "activewear"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "outfit for the gym",
+        "filters": [
+          {
+            "key": "categoryLevel1",
+            "value": [
+              "women",
+              "men"
+            ],
+            "label": "Women, Men",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          }
+        ],
+        "preferences": [
+          "gym",
+          "athletic"
+        ],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "outfit",
+          "gym",
+          "athletic",
+          "sportswear",
+          "activewear"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:49.316Z"
+    },
+    "summer holiday clothes": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[],\"removeKeys\":[],\"preferences\":[\"summer\",\"holiday\"],\"removePreferences\":[],\"terms\":[\"summer\",\"holiday\",\"clothes\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2420,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 47,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [],
+        "removeKeys": [],
+        "preferences": [
+          "summer",
+          "holiday"
+        ],
+        "removePreferences": [],
+        "terms": [
+          "summer",
+          "holiday",
+          "clothes"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "summer holiday clothes",
+        "filters": [],
+        "preferences": [
+          "summer",
+          "holiday"
+        ],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "summer",
+          "holiday",
+          "clothes"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:50.394Z"
+    },
+    "marimekko": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[],\"removeKeys\":[],\"preferences\":[],\"removePreferences\":[],\"terms\":[\"marimekko\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2421,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 42,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [],
+        "removeKeys": [],
+        "preferences": [],
+        "removePreferences": [],
+        "terms": [
+          "marimekko"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "marimekko",
+        "filters": [],
+        "preferences": [],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "marimekko"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:51.418Z"
+    },
+    "boho style top": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[{\"key\":\"categoryLevel2\",\"op\":\"in\",\"value\":[\"women-tops\",\"men-tops\",\"kids-tops\"]}],\"removeKeys\":[],\"preferences\":[\"boho\"],\"removePreferences\":[],\"terms\":[\"top\",\"boho\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2421,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 73,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "women-tops",
+              "men-tops",
+              "kids-tops"
+            ],
+            "label": "Tops",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          }
+        ],
+        "removeKeys": [],
+        "preferences": [
+          "boho"
+        ],
+        "removePreferences": [],
+        "terms": [
+          "top",
+          "boho"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "boho style top",
+        "filters": [
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "women-tops",
+              "men-tops",
+              "kids-tops"
+            ],
+            "label": "Tops",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          }
+        ],
+        "preferences": [
+          "boho"
+        ],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "top",
+          "boho"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:53.368Z"
+    },
+    "warm coat for women size M under 50€": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[{\"key\":\"categoryLevel1\",\"op\":\"eq\",\"value\":\"women\"},{\"key\":\"categoryLevel2\",\"op\":\"eq\",\"value\":\"women-tops\"},{\"key\":\"size\",\"op\":\"eq\",\"value\":\"m\"},{\"key\":\"price\",\"op\":\"range\",\"value\":{\"min\":null,\"max\":50}}],\"removeKeys\":[],\"preferences\":[\"warm\"],\"removePreferences\":[],\"terms\":[\"coat\",\"warm\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2427,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 109,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [
+          {
+            "key": "categoryLevel1",
+            "value": "women",
+            "label": "Women",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "categoryLevel2",
+            "value": "women-tops",
+            "label": "Tops",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "size",
+            "value": "m",
+            "label": "Size M",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "price",
+            "value": {
+              "max": 5000
+            },
+            "label": "Under €50",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "range"
+          }
+        ],
+        "removeKeys": [],
+        "preferences": [
+          "warm"
+        ],
+        "removePreferences": [],
+        "terms": [
+          "coat",
+          "warm"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "warm coat for women size M under 50€",
+        "filters": [
+          {
+            "key": "categoryLevel1",
+            "value": "women",
+            "label": "Women",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "categoryLevel2",
+            "value": "women-tops",
+            "label": "Tops",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "size",
+            "value": "m",
+            "label": "Size M",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "price",
+            "value": {
+              "max": 5000
+            },
+            "label": "Under €50",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "range"
+          }
+        ],
+        "preferences": [
+          "warm"
+        ],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "coat",
+          "warm"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:55.062Z"
+    },
+    "red winter coat": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[{\"key\":\"color\",\"op\":\"eq\",\"value\":\"red\"},{\"key\":\"categoryLevel2\",\"op\":\"in\",\"value\":[\"women-tops\",\"men-tops\",\"kids-tops\"]}],\"removeKeys\":[],\"preferences\":[\"winter\"],\"removePreferences\":[],\"terms\":[\"coat\",\"red\",\"winter\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2420,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 86,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [
+          {
+            "key": "color",
+            "value": "red",
+            "label": "Red",
+            "mode": "soft",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "women-tops",
+              "men-tops",
+              "kids-tops"
+            ],
+            "label": "Tops",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          }
+        ],
+        "removeKeys": [],
+        "preferences": [
+          "winter"
+        ],
+        "removePreferences": [],
+        "terms": [
+          "coat",
+          "red",
+          "winter"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "red winter coat",
+        "filters": [
+          {
+            "key": "color",
+            "value": "red",
+            "label": "Red",
+            "mode": "soft",
+            "locked": false,
+            "source": "inferred",
+            "op": "eq"
+          },
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "women-tops",
+              "men-tops",
+              "kids-tops"
+            ],
+            "label": "Tops",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          }
+        ],
+        "preferences": [
+          "winter"
+        ],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "coat",
+          "red",
+          "winter"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:56.637Z"
+    },
+    "jumper": {
+      "reply": {
+        "model": "claude-haiku-4-5-20251001",
+        "stop_reason": "end_turn",
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"mode\":\"new\",\"filters\":[{\"key\":\"categoryLevel2\",\"op\":\"in\",\"value\":[\"women-tops\",\"men-tops\",\"kids-tops\"]}],\"removeKeys\":[],\"preferences\":[],\"removePreferences\":[],\"terms\":[\"jumper\"],\"priceIntent\":\"none\"}"
+          }
+        ],
+        "usage": {
+          "input_tokens": 2419,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 68,
+          "service_tier": "standard",
+          "inference_geo": "not_available"
+        }
+      },
+      "intent": {
+        "mode": "new",
+        "filters": [
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "women-tops",
+              "men-tops",
+              "kids-tops"
+            ],
+            "label": "Tops",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          }
+        ],
+        "removeKeys": [],
+        "preferences": [],
+        "removePreferences": [],
+        "terms": [
+          "jumper"
+        ],
+        "priceIntent": "none"
+      },
+      "state": {
+        "q": "jumper",
+        "filters": [
+          {
+            "key": "categoryLevel2",
+            "value": [
+              "women-tops",
+              "men-tops",
+              "kids-tops"
+            ],
+            "label": "Tops",
+            "mode": "hard",
+            "locked": false,
+            "source": "inferred",
+            "op": "in"
+          }
+        ],
+        "preferences": [],
+        "removed": [],
+        "similarTo": null,
+        "terms": [
+          "jumper"
+        ]
+      },
+      "recordedAt": "2026-10-02T10:53:57.968Z"
+    }
+  }
+}
